@@ -29,6 +29,7 @@ export interface Skills {
   databases?: string[]
   backendInfra?: string[]
   tools: string[]
+  "ai-tools"?: string[]
 }
 
 export interface Project {
@@ -78,6 +79,7 @@ export interface SectionLabels {
   databases: string
   backendInfra: string
   toolsAndEnvironments: string
+  aiTools: string
   print: string
 }
 
@@ -93,6 +95,7 @@ export const labels: Record<Language, SectionLabels> = {
     databases: "데이터베이스",
     backendInfra: "백엔드 인프라",
     toolsAndEnvironments: "개발 도구 및 환경",
+    aiTools: "AI 도구",
     print: "인쇄하기",
   },
   en: {
@@ -106,6 +109,7 @@ export const labels: Record<Language, SectionLabels> = {
     databases: "Databases",
     backendInfra: "Backend Infrastructure",
     toolsAndEnvironments: "Tools & Environments",
+    aiTools: "AI Tools",
     print: "Print",
   },
 }

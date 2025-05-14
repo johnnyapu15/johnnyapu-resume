@@ -96,6 +96,7 @@ export const resumeData: MultiLanguageResumeData = {
         "GitLab CI",
       ],
       tools: ["Git", "Notion", "Figma"],
+      "ai-tools": ["Github Copilot", "Cursor", "v0", "VSCode Cline", "ChatGPT"],
     },
     projects: [
       {
@@ -252,6 +253,7 @@ export const resumeData: MultiLanguageResumeData = {
         "GitLab CI",
       ],
       tools: ["Git", "Notion", "Figma"],
+      "ai-tools": ["Github Copilot", "Cursor", "v0", "VSCode Cline", "ChatGPT"],
     },
     projects: [
       {
