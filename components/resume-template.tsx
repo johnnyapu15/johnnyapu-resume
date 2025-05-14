@@ -12,7 +12,7 @@ import {
   Building,
   GraduationCap,
   Code,
-  Database,
+  Server,
   PenToolIcon as Tool,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -170,19 +170,21 @@ export default function ResumeTemplate() {
                   ))}
                 </div>
               </div>
-              <div className="bg-leather-50 p-4 rounded-lg">
-                <h3 className="font-semibold text-leather-800 mb-3 flex items-center">
-                  <Database className="h-4 w-4 mr-2" />
-                  {labels[language].databases}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {data.skills.databases.map((db, i) => (
-                    <span key={i} className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm">
-                      {db}
-                    </span>
-                  ))}
+              {data.skills.backendInfra && (
+                <div className="bg-leather-50 p-4 rounded-lg">
+                  <h3 className="font-semibold text-leather-800 mb-3 flex items-center">
+                    <Server className="h-4 w-4 mr-2" />
+                    {labels[language].backendInfra}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {data.skills.backendInfra.map((infra, i) => (
+                      <span key={i} className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm">
+                        {infra}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
               <div className="bg-leather-50 p-4 rounded-lg">
                 <h3 className="font-semibold text-leather-800 mb-3 flex items-center">
                   <Tool className="h-4 w-4 mr-2" />
@@ -212,7 +214,15 @@ export default function ResumeTemplate() {
                     <h3 className="text-lg font-semibold text-leather-800">{project.name}</h3>
                     <span className="text-gray-600 text-sm mt-1 md:mt-0">{project.period}</span>
                   </div>
-                  <p className="text-gray-700">{project.description}</p>
+                  {Array.isArray(project.description) ? (
+                    <ul className="list-disc pl-5 text-gray-700 space-y-1.5 mt-2">
+                      {project.description.map((desc, i) => (
+                        <li key={i}>{desc}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-700">{project.description}</p>
+                  )}
                 </div>
               ))}
             </div>

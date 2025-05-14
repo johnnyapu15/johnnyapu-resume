@@ -26,14 +26,15 @@ export interface Education {
 export interface Skills {
   languages: string[]
   frameworks: string[]
-  databases: string[]
+  databases?: string[]
+  backendInfra?: string[]
   tools: string[]
 }
 
 export interface Project {
   name: string
   period: string
-  description: string
+  description: string[] | string
 }
 
 export interface Certification {
@@ -75,6 +76,7 @@ export interface SectionLabels {
   programmingLanguages: string
   frameworksAndLibraries: string
   databases: string
+  backendInfra: string
   toolsAndEnvironments: string
   print: string
 }
@@ -89,6 +91,7 @@ export const labels: Record<Language, SectionLabels> = {
     programmingLanguages: "프로그래밍 언어",
     frameworksAndLibraries: "프레임워크 및 라이브러리",
     databases: "데이터베이스",
+    backendInfra: "백엔드 인프라",
     toolsAndEnvironments: "개발 도구 및 환경",
     print: "인쇄하기",
   },
@@ -101,6 +104,7 @@ export const labels: Record<Language, SectionLabels> = {
     programmingLanguages: "Programming Languages",
     frameworksAndLibraries: "Frameworks & Libraries",
     databases: "Databases",
+    backendInfra: "Backend Infrastructure",
     toolsAndEnvironments: "Tools & Environments",
     print: "Print",
   },
