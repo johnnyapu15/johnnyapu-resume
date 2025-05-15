@@ -22,7 +22,6 @@ import { resumeData } from "@/data/resume-data"
 import type { Language } from "@/types/resume"
 import { labels } from "@/types/resume"
 import { LanguageToggle } from "./language-toggle"
-import { PrintPreview } from "./print-preview"
 
 interface ResumeTemplateProps {
   defaultLanguage?: Language
@@ -46,13 +45,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
       {!isPrintPreview && (
         <div className="flex justify-between items-center mb-4 print:hidden">
           <LanguageToggle language={language} onLanguageChange={handleLanguageChange} />
-          <div className="flex gap-2">
-            <PrintPreview language={language} onPrint={handlePrint} />
-            <Button variant="outline" onClick={handlePrint} className="bg-white hover:bg-gray-50">
-              <Printer className="mr-2 h-4 w-4" />
-              {labels[language].print}
-            </Button>
-          </div>
+          <Button variant="outline" onClick={handlePrint} className="bg-white hover:bg-gray-50">
+            <Printer className="mr-2 h-4 w-4" />
+            {labels[language].print}
+          </Button>
         </div>
       )}
 
