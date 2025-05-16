@@ -47,12 +47,11 @@ export const resumeData: MultiLanguageResumeData = {
         ],
       },
       {
-        company: "BlackTangerine (부업/Side-project)",
+        company: "BlackTangerine (Side-project)",
         position: "Software Developer",
         period: "2020년 12월 - 2021년 6월",
         location: "서울, 대한민국",
         description: [
-          "LG CNS 재직 중 진행한 부업 프로젝트.",
           "딥러닝 기반 얼굴 피부 분석 및 의류 추천 시스템 개발.",
           "Python 기반 personal color 분석 엔진, Node.js backend, GCP CloudRun으로 scalable 서비스 구축.",
         ],
