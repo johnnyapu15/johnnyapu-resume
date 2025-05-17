@@ -59,7 +59,7 @@ export const resumeData: MultiLanguageResumeData = {
       {
         company: "서울시립대학교",
         position: "연구원 (International Urban & Infrastructure Research Center)",
-        period: "2018년 8월 - 2020년 1월",
+        period: "2018년 8월 - 2019년 8월",
         location: "서울, 대한민국",
         description: ["Unity 기반 Digital Twin application 개발 및 시뮬레이션 시스템 구축."],
       },
