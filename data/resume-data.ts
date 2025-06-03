@@ -20,10 +20,10 @@ export const resumeData: MultiLanguageResumeData = {
         location: "서울, 대한민국",
         description: [
           "개발팀 Backend lead로서 AI, XR, 3D 등 여러 도메인의 주요 시스템 아키텍처 설계 및 구축, 운영.",
-          "Agile 환경에서 cross-functional 팀과 협업하여 지속적 개선 및 배포 주도.",
           "서비스 사용자 트래픽 18배 증가 (2.3TPS → 40.4TPS), Availability 99.95% 유지 달성",
           "주요 서비스 API p95 응답시간 30ms 달성으로 실시간 UX 향상.",
           "3D asset optimization 자동화로 연간 40일 절감 및 운영 효율 50% 향상",
+          "Agile 환경에서 cross-functional 팀과 협업.",
         ],
       },
       {
