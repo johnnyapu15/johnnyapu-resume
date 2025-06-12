@@ -159,4 +159,9 @@
   .print\:gap-reduced {
     gap: 0.5rem !important;
   }
+
+  /* 페이지 중간에 섹션이 잘리는 것을 방지합니다. */
+  .print-avoid-break {
+    break-inside: avoid;
+  }
 }

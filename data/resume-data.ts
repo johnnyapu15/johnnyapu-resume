@@ -10,9 +10,9 @@ const skillsData: Skills = {
   frameworks: [
     { name: "Spring Boot", level: 4 },
     { name: "Node.js", level: 4 },
-    { name: "Unity", level: 3 },
     { name: "React", level: 3 },
     { name: "Three.js", level: 3 },
+    { name: "Unity", level: 3 },
   ],
   backendInfra: [
     { name: "AWS", level: 4 },
@@ -78,13 +78,12 @@ export const resumeData: MultiLanguageResumeData = {
         company: "Bucketplace (오늘의집)",
         position: "Backend Lead, Software Engineer",
         period: "2022년 8월 - 현재",
-        location: "서울, 대한민국",
         description: [
           "개발팀 **Backend lead**로서 주요 시스템 아키텍처 설계 및 구축, 운영.",
           "주요 프로젝트:",
           "  **AI 기반 인테리어 서비스**: 글로벌 타겟 AI 서비스의 **신규 백엔드 시스템** 및 **안정적인 LLM 워크플로우** 설계",
           "  **3D 인테리어 디자인 서비스**: **WAU 704%**, **세션 시간 68% 성장을 주도**하며 서비스 트래픽 **18배 증가**에도 **99.95%의 가용성** 확보. **API 응답시간 30ms**, **최대 로딩 시간 2.5초**를 달성하여 사용자 경험을 크게 개선.",
-          "  **3D 에셋 최적화 파이프라인**: 자동화 파이프라인 구축으로 연간 **40일의 개발 리소스 절감** 및 운영팀 **작업 시간 50% 단축**. 생산성 기여를 인정받아 **Top Contributor 선정**.",
+          "  **3D 에셋 최적화 파이프라인**: 자동화 파이프라인 구축으로 운영 효율을 27% 향상시키고 생산성 기여를 인정받아 **Top Contributor 선정**.",
           "  **AR 가구 배치 서비스**: 백엔드 시스템 최적화로 **API P99 응답 시간을 300ms에서 50ms로 단축**.",
         ],
       },
@@ -92,7 +91,6 @@ export const resumeData: MultiLanguageResumeData = {
         company: "LG CNS",
         position: "System & Solution Programming Consultant",
         period: "2020년 1월 - 2022년 7월",
-        location: "서울, 대한민국",
         description: [
           "대용량 **실시간 데이터 처리를 위한 확장 가능한 게임 서버 아키텍처** 설계.",
           "CI 파이프라인 구축.",
@@ -102,7 +100,6 @@ export const resumeData: MultiLanguageResumeData = {
       {
         company: "BlackTangerine (Side-project)",
         period: "2020년 12월 - 2021년 6월",
-        location: "서울, 대한민국",
         description: [
           "**딥러닝 기반 얼굴 피부 분석 및 의류 추천 시스템** 개발.",
           "Python 기반 personal color 분석 & 추천 시스템과 Node.js backend 개발.",
@@ -113,7 +110,6 @@ export const resumeData: MultiLanguageResumeData = {
         company: "서울시립대학교",
         position: "연구원 (International Urban & Infrastructure Research Center)",
         period: "2018년 8월 - 2019년 8월",
-        location: "서울, 대한민국",
         description: ["MQTT 기반 시뮬레이션 백엔드 서비스 구축."],
       },
     ],
@@ -150,14 +146,12 @@ export const resumeData: MultiLanguageResumeData = {
         company: "Bucketplace",
         position: "Backend Lead, Software Engineer",
         period: "Aug 2022 – Present",
-        location: "Seoul, South Korea",
         description: [
           "Led backend team in designing, building, and operating key system architectures.",
-          "",
           "Key Projects:",
           "  **AI-based Interior Service**: Designed a **new backend system** and **robust LLM workflow** for a global AI service.",
           "  **3D Interior Design Service**: Drove **704% WAU** and **68% session time growth**, ensuring **99.95% availability** amid **18x traffic increase**. Significantly improved UX by achieving **30ms API response times** and **2.5s max loading times**.",
-          "  **3D Asset Optimization Pipeline**: Saved **40 engineering days/year** and cut team's operational time by **50%** via an automated pipeline. Recognized as a **Top Contributor** for this initiative.",
+          "  **3D Asset Optimization Pipeline**: Improved operational efficiency by 27% through an automated pipeline. Recognized as a **Top Contributor** for this initiative.",
           "  **AR Furniture Placement Service**: Reduced **API P99 latency from 300ms to 50ms** through backend system optimization.",
         ],
       },
@@ -165,7 +159,6 @@ export const resumeData: MultiLanguageResumeData = {
         company: "LG CNS",
         position: "System & Solution Programming Consultant",
         period: "Jan 2020 – Jul 2022",
-        location: "Seoul, South Korea",
         description: [
           "Designed a **scalable game server architecture** for large-scale, real-time data processing.",
           "Developed 3D AR services and HLOD-based rendering optimization features.",
@@ -176,7 +169,6 @@ export const resumeData: MultiLanguageResumeData = {
         company: "BlackTangerine (Side-project)",
         position: "Software Developer",
         period: "Dec 2020 – Jun 2021",
-        location: "Seoul, South Korea",
         description: [
           "Developed a **deep learning-based system for facial skin analysis and clothing recommendations**.",
           "Built a personal color analysis & recommendation system with Python and a Node.js backend.",
@@ -187,7 +179,6 @@ export const resumeData: MultiLanguageResumeData = {
         company: "University of Seoul",
         position: "Researcher (International Urban & Infrastructure Research Center)",
         period: "Aug 2018 – Aug 2019",
-        location: "Seoul, South Korea",
         description: ["Built an MQTT-based simulation backend service."],
       },
     ],
