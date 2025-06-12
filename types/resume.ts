@@ -2,15 +2,15 @@ export interface PersonalInfo {
   name: string
   nameEn: string
   email: string
-  phone: string
-  address: string
-  linkedin: string
+  phone?: string
+  address?: string
+  linkedin?: string
   position?: string
 }
 
 export interface Experience {
   company: string
-  position: string
+  position?: string
   period: string
   location: string
   description: string[]
@@ -23,13 +23,26 @@ export interface Education {
   description: string
 }
 
+export interface Skill {
+  name: string
+  level: number
+}
+
+export interface InterpersonalSkill {
+  name: string
+  description: string
+  examples: string
+  level: number
+}
+
 export interface Skills {
-  languages: string[]
-  frameworks: string[]
-  databases?: string[]
-  backendInfra?: string[]
-  tools: string[]
-  "ai-tools"?: string[]
+  languages: Skill[]
+  frameworks: Skill[]
+  databases?: Skill[]
+  backendInfra?: Skill[]
+  tools: Skill[]
+  "ai-tools"?: Skill[]
+  interpersonal?: InterpersonalSkill[]
 }
 
 export interface Project {
@@ -80,6 +93,7 @@ export interface SectionLabels {
   backendInfra: string
   toolsAndEnvironments: string
   aiTools: string
+  interpersonal: string
   print: string
 }
 
@@ -94,8 +108,9 @@ export const labels: Record<Language, SectionLabels> = {
     frameworksAndLibraries: "프레임워크 및 라이브러리",
     databases: "데이터베이스",
     backendInfra: "백엔드 인프라",
-    toolsAndEnvironments: "개발 도구 및 환경",
+    toolsAndEnvironments: "협업 도구",
     aiTools: "AI 도구",
+    interpersonal: "Interpersonal Skills",
     print: "인쇄하기",
   },
   en: {
@@ -108,8 +123,9 @@ export const labels: Record<Language, SectionLabels> = {
     frameworksAndLibraries: "Frameworks & Libraries",
     databases: "Databases",
     backendInfra: "Backend Infrastructure",
-    toolsAndEnvironments: "Tools & Environments",
+    toolsAndEnvironments: "Collaboration Tools",
     aiTools: "AI Tools",
+    interpersonal: "Interpersonal Skills",
     print: "Print",
   },
 }

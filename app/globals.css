@@ -68,13 +68,46 @@
   body {
     width: 210mm;
     height: 297mm;
-    font-size: 12pt;
+    font-size: 10pt;
   }
 
   body {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
     color-adjust: exact !important;
+  }
+
+  /* 이력서 콘텐츠의 전체적인 패딩을 줄입니다. */
+  .print-layout-compact .p-8 {
+    padding: 1.25rem !important;
+  }
+
+  /* 섹션 간의 하단 마진을 줄입니다. */
+  .print-layout-compact .mb-8 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* 제목 폰트 크기를 약간 줄입니다. */
+  .print-layout-compact h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* 작은 텍스트를 더 작게 만듭니다. */
+  .print-layout-compact .text-sm {
+    font-size: 0.8rem !important;
+  }
+
+  /* 목록의 줄 간격을 줄입니다. */
+  .print-layout-compact .space-y-1-5 {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+  }
+  .print-layout-compact .space-y-1-5 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
   }
 
   /* 인쇄 시 숨길 요소 */

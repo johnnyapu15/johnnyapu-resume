@@ -1,31 +1,134 @@
 "use client"
 
-import { useState } from "react"
-import {
-  Printer,
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  Award,
-  Calendar,
-  Building,
-  GraduationCap,
-  Code,
-  Server,
-  PenToolIcon as Tool,
-  Sparkles,
-} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { resumeData } from "@/data/resume-data"
-import type { Language } from "@/types/resume"
+import type { InterpersonalSkill, Language, Skill } from "@/types/resume"
 import { labels } from "@/types/resume"
+import {
+  Award,
+  Building,
+  Calendar,
+  Code,
+  GraduationCap,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Printer,
+  Server,
+  Sparkles,
+  PenToolIcon as Tool,
+  Users,
+} from "lucide-react"
+import React, { useState } from "react"
 import { LanguageToggle } from "./language-toggle"
 
 interface ResumeTemplateProps {
   defaultLanguage?: Language
   isPrintPreview?: boolean
+}
+
+// Helper function to render text with **text** as bold
+const renderWithBold = (text: string) => {
+  if (!text) return null
+
+  const parts = text.split(/(\*\*.*?\*\*)/g)
+
+  return (
+    <>
+      {parts.map((part, i) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={i} className="font-semibold text-gray-800">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  )
+}
+
+// Helper component for rendering a skill category
+const SkillCategory = ({
+  title,
+  icon,
+  skills,
+}: {
+  title: string
+  icon: React.ReactNode
+  skills: Skill[] | undefined
+}) => {
+  if (!skills || skills.length === 0) return null
+
+  return (
+    <div className="bg-leather-50 p-4 print:p-reduced rounded-lg">
+      <h3 className="font-semibold text-leather-800 mb-4 print:mb-2 flex items-center">
+        {icon}
+        {title}
+      </h3>
+      <div className="space-y-3">
+        {skills.map((skill, i) => (
+          <div key={i} className="flex justify-between items-center">
+            <span className="text-sm font-medium text-gray-700">{skill.name}</span>
+            <div className="flex items-center">
+              {Array.from({ length: 5 }).map((_, j) => (
+                <div
+                  key={j}
+                  className={`h-3 w-3 rounded-full ml-1 ${
+                    j < skill.level ? "bg-leather-600" : "bg-leather-200"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const InterpersonalSkillsSection = ({
+  title,
+  icon,
+  skills,
+}: {
+  title: string
+  icon: React.ReactNode
+  skills: InterpersonalSkill[] | undefined
+}) => {
+  if (!skills || skills.length === 0) return null
+
+  return (
+    <div className="md:col-span-2">
+      <h3 className="font-semibold text-leather-800 mb-4 print:mb-2 flex items-center text-lg">
+        {icon}
+        {title}
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 print:gap-reduced">
+        {skills.map((skill, i) => (
+          <div key={i} className="bg-leather-50 p-4 rounded-lg flex flex-col">
+            <div className="flex justify-between items-center mb-2">
+              <p className="font-bold text-base text-leather-800">{skill.name}</p>
+              <div className="flex items-center">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <div
+                    key={j}
+                    className={`h-3 w-3 rounded-full ml-1 ${
+                      j < skill.level ? "bg-leather-600" : "bg-leather-200"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+            <p className="text-sm text-gray-700 mb-2 flex-grow">{skill.description}</p>
+            <p className="text-xs text-gray-500 italic mt-auto">{skill.examples}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview = false }: ResumeTemplateProps) {
@@ -41,7 +144,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto print-layout-compact">
       {!isPrintPreview && (
         <div className="flex justify-between items-center mb-4 print:hidden">
           <LanguageToggle language={language} onLanguageChange={handleLanguageChange} />
@@ -56,35 +159,40 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
         {/* 헤더 섹션 */}
         <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-8 print:p-reduced">
           <h1 className="text-4xl font-bold mb-1">{data.personalInfo.name}</h1>
-          <p className="text-leather-100 text-lg mb-4">Software Engineer</p>
+          <p className="text-leather-100 text-lg mb-4">{data.personalInfo.position}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-leather-50 mt-4 print:gap-reduced">
-            <div className="flex items-center">
-              <Mail className="h-4 w-4 mr-2" />
-              <span>{data.personalInfo.email}</span>
-            </div>
-            <div className="flex items-center">
-              <Phone className="h-4 w-4 mr-2" />
-              <span>{data.personalInfo.phone}</span>
-            </div>
-            <div className="flex items-center">
-              <MapPin className="h-4 w-4 mr-2" />
-              <span>{data.personalInfo.address}</span>
-            </div>
-            <div className="flex items-center">
-              <Linkedin className="h-4 w-4 mr-2" />
-              <span>{data.personalInfo.linkedin}</span>
-            </div>
+            {data.personalInfo.email && (
+              <div className="flex items-center">
+                <Mail className="h-4 w-4 mr-2" />
+                <span>{data.personalInfo.email}</span>
+              </div>
+            )}
+            {data.personalInfo.phone && (
+              <div className="flex items-center">
+                <Phone className="h-4 w-4 mr-2" />
+                <span>{data.personalInfo.phone}</span>
+              </div>
+            )}
+            {data.personalInfo.address && (
+              <div className="flex items-center">
+                <MapPin className="h-4 w-4 mr-2" />
+                <span>{data.personalInfo.address}</span>
+              </div>
+            )}
+            {data.personalInfo.linkedin && (
+              <div className="flex items-center">
+                <Linkedin className="h-4 w-4 mr-2" />
+                <span>{data.personalInfo.linkedin}</span>
+              </div>
+            )}
           </div>
         </div>
 
         <div className="p-8 print:p-reduced">
           {/* 자기소개 */}
           <div className="mb-8 print:mb-4">
-            <h2 className="text-2xl font-bold mb-4 text-gray-800 border-b border-leather-200 pb-2">
-              {labels[language].introduction}
-            </h2>
-            <p className="text-gray-700 leading-relaxed">{data.summary}</p>
+            <p className="text-gray-700 leading-relaxed">{renderWithBold(data.summary)}</p>
           </div>
 
           {/* 경력 사항 */}
@@ -111,10 +219,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                     <li
                       key={i}
                       className={`print:text-sm ${
-                        desc.startsWith("-") ? "ml-4 text-gray-600" : desc.startsWith("  -") ? "ml-8 text-gray-600" : ""
+                        desc.startsWith(" ") ? "ml-4 text-gray-600" : desc.startsWith("  ") ? "ml-8 text-gray-600" : ""
                       }`}
                     >
-                      {desc}
+                      {renderWithBold(desc)}
                     </li>
                   ))}
                 </ul>
@@ -152,121 +260,83 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               {labels[language].skills}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 print:gap-reduced">
-              <div className="bg-leather-50 p-4 print:p-reduced rounded-lg">
-                <h3 className="font-semibold text-leather-800 mb-3 print:mb-2 flex items-center">
-                  <Code className="h-4 w-4 mr-2" />
-                  {labels[language].programmingLanguages}
-                </h3>
-                <div className="flex flex-wrap gap-2 print:gap-1">
-                  {data.skills.languages.map((lang, i) => (
-                    <span
-                      key={i}
-                      className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm print:text-xs"
-                    >
-                      {lang}
-                    </span>
-                  ))}
-                </div>
+              <SkillCategory
+                title={labels[language].programmingLanguages}
+                icon={<Code className="h-4 w-4 mr-2" />}
+                skills={data.skills.languages}
+              />
+              <SkillCategory
+                title={labels[language].frameworksAndLibraries}
+                icon={<Code className="h-4 w-4 mr-2" />}
+                skills={data.skills.frameworks}
+              />
+              <SkillCategory
+                title={labels[language].backendInfra}
+                icon={<Server className="h-4 w-4 mr-2" />}
+                skills={data.skills.backendInfra}
+              />
+              <SkillCategory
+                title={labels[language].toolsAndEnvironments}
+                icon={<Tool className="h-4 w-4 mr-2" />}
+                skills={data.skills.tools}
+              />
+              <div className="md:col-span-2">
+                <SkillCategory
+                  title={labels[language].aiTools}
+                  icon={<Sparkles className="h-4 w-4 mr-2" />}
+                  skills={data.skills["ai-tools"]}
+                />
               </div>
-              <div className="bg-leather-50 p-4 print:p-reduced rounded-lg">
-                <h3 className="font-semibold text-leather-800 mb-3 print:mb-2 flex items-center">
-                  <Code className="h-4 w-4 mr-2" />
-                  {labels[language].frameworksAndLibraries}
-                </h3>
-                <div className="flex flex-wrap gap-2 print:gap-1">
-                  {data.skills.frameworks.map((framework, i) => (
-                    <span
-                      key={i}
-                      className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm print:text-xs"
-                    >
-                      {framework}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {data.skills.backendInfra && (
-                <div className="bg-leather-50 p-4 print:p-reduced rounded-lg">
-                  <h3 className="font-semibold text-leather-800 mb-3 print:mb-2 flex items-center">
-                    <Server className="h-4 w-4 mr-2" />
-                    {labels[language].backendInfra}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 print:gap-1">
-                    {data.skills.backendInfra.map((infra, i) => (
-                      <span
-                        key={i}
-                        className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm print:text-xs"
-                      >
-                        {infra}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-              <div className="bg-leather-50 p-4 print:p-reduced rounded-lg">
-                <h3 className="font-semibold text-leather-800 mb-3 print:mb-2 flex items-center">
-                  <Tool className="h-4 w-4 mr-2" />
-                  {labels[language].toolsAndEnvironments}
-                </h3>
-                <div className="flex flex-wrap gap-2 print:gap-1">
-                  {data.skills.tools.map((tool, i) => (
-                    <span
-                      key={i}
-                      className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm print:text-xs"
-                    >
-                      {tool}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              {data.skills["ai-tools"] && (
-                <div className="bg-leather-50 p-4 print:p-reduced rounded-lg md:col-span-2">
-                  <h3 className="font-semibold text-leather-800 mb-3 print:mb-2 flex items-center">
-                    <Sparkles className="h-4 w-4 mr-2" />
-                    {labels[language].aiTools}
-                  </h3>
-                  <div className="flex flex-wrap gap-2 print:gap-1">
-                    {data.skills["ai-tools"].map((tool, i) => (
-                      <span
-                        key={i}
-                        className="bg-leather-100 text-leather-800 px-3 py-1 rounded-full text-sm print:text-xs"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <InterpersonalSkillsSection
+                title={labels[language].interpersonal}
+                icon={<Users className="h-5 w-5 mr-2 text-leather-700" />}
+                skills={data.skills.interpersonal}
+              />
             </div>
           </div>
 
           {/* 주요 프로젝트 */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6 print:mb-3 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
-              <Award className="h-5 w-5 mr-2 text-leather-700" />
-              {labels[language].projects}
-            </h2>
-            <div className="grid grid-cols-1 gap-6 print:gap-4">
-              {data.projects.map((project, index) => (
-                <div key={index} className="bg-leather-50 p-5 print:p-3 rounded-lg">
-                  <div className="flex flex-col md:flex-row md:justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-leather-800">{project.name}</h3>
-                    <span className="text-gray-600 text-sm mt-1 md:mt-0">{project.period}</span>
+          {data.projects && data.projects.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-bold mb-6 print:mb-3 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+                <Award className="h-5 w-5 mr-2 text-leather-700" />
+                {labels[language].projects}
+              </h2>
+              <div className="grid grid-cols-1 gap-6 print:gap-4">
+                {data.projects.map((project, index) => (
+                  <div key={index} className="bg-leather-50 p-5 print:p-3 rounded-lg">
+                    <div className="flex flex-col md:flex-row md:justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-leather-700">{project.name}</h3>
+                      <div className="flex items-center text-gray-600 mt-1 md:mt-0">
+                        <Calendar className="h-4 w-4 mr-1 flex-shrink-0" />
+                        <span>{project.period}</span>
+                      </div>
+                    </div>
+                    {Array.isArray(project.description) ? (
+                      <ul className="list-disc pl-5 text-gray-700 space-y-1.5 print:space-y-1">
+                        {project.description.map((desc, i) => (
+                          <li
+                            key={i}
+                            className={`print:text-sm ${
+                              desc.startsWith("-")
+                                ? "ml-4 text-gray-600"
+                                : desc.startsWith("  -")
+                                ? "ml-8 text-gray-600"
+                                : ""
+                            }`}
+                          >
+                            {renderWithBold(desc)}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-gray-700">{renderWithBold(project.description)}</p>
+                    )}
                   </div>
-                  {Array.isArray(project.description) ? (
-                    <ul className="list-disc pl-5 text-gray-700 space-y-1.5 print:space-y-1 mt-2">
-                      {project.description.map((desc, i) => (
-                        <li key={i} className="print:text-sm">
-                          {desc}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p className="text-gray-700 print:text-sm">{project.description}</p>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </Card>
     </div>
