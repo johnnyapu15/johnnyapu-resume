@@ -77,6 +77,36 @@
     color-adjust: exact !important;
   }
 
+  /* Compact Layout */
+  .print-layout-compact .p-8 {
+    padding: 1rem 1.25rem !important;
+  }
+  .print-layout-compact .mb-8 {
+    margin-bottom: 1.25rem !important;
+  }
+  .print-layout-compact h2 {
+    font-size: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+  .print-layout-compact .text-sm {
+    font-size: 0.8rem !important;
+  }
+  .print-layout-compact .space-y-1-5 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* General Print Utilities */
+  .print\:hidden {
+    display: none !important;
+  }
+  .print\:shadow-none {
+    box-shadow: none !important;
+  }
+  .print\:bg-white {
+    background-color: white !important;
+  }
+
   /* 이력서 콘텐츠의 전체적인 패딩을 줄입니다. */
   .print-layout-compact .p-8 {
     padding: 1.25rem !important;
@@ -108,21 +138,6 @@
     --tw-space-y-reverse: 0;
     margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
-  }
-
-  /* 인쇄 시 숨길 요소 */
-  .print\:hidden {
-    display: none !important;
-  }
-
-  /* 인쇄 시 그림자 제거 */
-  .print\:shadow-none {
-    box-shadow: none !important;
-  }
-
-  /* 인쇄 시 배경색 강제 적용 */
-  .print\:bg-white {
-    background-color: white !important;
   }
 
   /* 인쇄 시 여백 조정 */

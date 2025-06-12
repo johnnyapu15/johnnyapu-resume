@@ -157,7 +157,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
 
       <Card id="resume-content" className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white">
         {/* 헤더 섹션 */}
-        <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-8 print:p-reduced">
+        <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-8">
           <h1 className="text-4xl font-bold mb-1">{data.personalInfo.name}</h1>
           <p className="text-leather-100 text-lg mb-4">{data.personalInfo.position}</p>
 
@@ -189,15 +189,15 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           </div>
         </div>
 
-        <div className="p-8 print:p-reduced">
+        <div className="p-8">
           {/* 자기소개 */}
-          <div className="mb-8 print:mb-4">
+          <div className="mb-8">
             <p className="text-gray-700 leading-relaxed">{renderWithBold(data.summary)}</p>
           </div>
 
           {/* 경력 사항 */}
-          <div className="mb-8 print:mb-4">
-            <h2 className="text-2xl font-bold mb-6 print:mb-3 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
               <Building className="h-5 w-5 mr-2 text-leather-700" />
               {labels[language].experience}
             </h2>
@@ -231,8 +231,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           </div>
 
           {/* 학력 사항 */}
-          <div className="mb-8 print:mb-4">
-            <h2 className="text-2xl font-bold mb-6 print:mb-3 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
               <GraduationCap className="h-5 w-5 mr-2 text-leather-700" />
               {labels[language].education}
             </h2>
@@ -254,8 +254,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           </div>
 
           {/* 기술 스택 */}
-          <div className="mb-8 print:mb-4">
-            <h2 className="text-2xl font-bold mb-6 print:mb-3 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
               <Code className="h-5 w-5 mr-2 text-leather-700" />
               {labels[language].skills}
             </h2>
@@ -298,7 +298,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           {/* 주요 프로젝트 */}
           {data.projects && data.projects.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold mb-6 print:mb-3 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+              <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
                 <Award className="h-5 w-5 mr-2 text-leather-700" />
                 {labels[language].projects}
               </h2>
