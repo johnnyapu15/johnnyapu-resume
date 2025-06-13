@@ -63,10 +63,18 @@ export interface Activity {
   description: string
 }
 
+export interface KeyExperience {
+  name: string
+  problem: string[]
+  approach: string[]
+  result: string[]
+}
+
 export interface ResumeData {
   personalInfo: PersonalInfo
   summary: string
   experience: Experience[]
+  keyExperience: KeyExperience[]
   education: Education[]
   skills: Skills
   projects: Project[]
@@ -84,6 +92,7 @@ export type Language = "ko" | "en"
 export interface SectionLabels {
   introduction: string
   experience: string
+  keyExperience: string
   education: string
   skills: string
   projects: string
@@ -101,6 +110,7 @@ export const labels: Record<Language, SectionLabels> = {
   ko: {
     introduction: "자기소개",
     experience: "경력 사항",
+    keyExperience: "주요 경험",
     education: "학력 사항",
     skills: "기술 스택",
     projects: "주요 프로젝트",
@@ -116,6 +126,7 @@ export const labels: Record<Language, SectionLabels> = {
   en: {
     introduction: "Introduction",
     experience: "Experience",
+    keyExperience: "Key Experience",
     education: "Education",
     skills: "Skills",
     projects: "Projects",

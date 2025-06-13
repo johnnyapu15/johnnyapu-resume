@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { resumeData } from "@/data/resume-data"
-import type { InterpersonalSkill, Language, Skill } from "@/types/resume"
+import type { InterpersonalSkill, KeyExperience, Language, Skill } from "@/types/resume"
 import { labels } from "@/types/resume"
 import {
   Award,
@@ -18,8 +18,9 @@ import {
   Printer,
   Server,
   Sparkles,
+  Star,
   PenToolIcon as Tool,
-  Users,
+  Users
 } from "lucide-react"
 import React, { useState } from "react"
 import { LanguageToggle } from "./language-toggle"
@@ -131,6 +132,63 @@ const InterpersonalSkillsSection = ({
   )
 }
 
+const KeyExperienceSection = ({
+  title,
+  icon,
+  experiences,
+  language,
+}: {
+  title: string
+  icon: React.ReactNode
+  experiences: KeyExperience[] | undefined
+  language: Language
+}) => {
+  if (!experiences || experiences.length === 0) return null
+
+  const sectionLabels = {
+    ko: { problem: "문제", approach: "접근", result: "결과" },
+    en: { problem: "Problem", approach: "Approach", result: "Result" },
+  }
+
+  return (
+    <div className="mb-8 print-avoid-break">
+      <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+        {icon}
+        {title}
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {experiences.map((exp, i) => (
+          <div key={i} className="bg-leather-50 p-4 rounded-lg flex flex-col">
+            <h3 className="text-lg font-semibold text-leather-700 mb-4">{exp.name}</h3>
+            <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
+              <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
+              <div className="space-y-1 text-gray-700">
+                {exp.problem.map((item, j) => (
+                  <p key={j}>{renderWithBold(item)}</p>
+                ))}
+              </div>
+
+              <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].approach}</strong>
+              <div className="space-y-1 text-gray-700">
+                {exp.approach.map((item, j) => (
+                  <p key={j}>{renderWithBold(item)}</p>
+                ))}
+              </div>
+
+              <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].result}</strong>
+              <div className="space-y-1 text-gray-700">
+                {exp.result.map((item, j) => (
+                  <p key={j}>{renderWithBold(item)}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview = false }: ResumeTemplateProps) {
   const [language, setLanguage] = useState<Language>(defaultLanguage)
   const data = resumeData[language]
@@ -202,7 +260,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               {labels[language].experience}
             </h2>
             {data.experience.map((exp, index) => (
-              <div key={index} className={`${index !== data.experience.length - 1 ? "mb-8 print:mb-4" : ""}`}>
+              <div key={index} className={`${index !== data.experience.length - 1 ? "mb-8" : ""}`}>
                 <div className="flex flex-col md:flex-row md:justify-between mb-2">
                   <div>
                     <h3 className="text-xl font-semibold text-leather-700">{exp.company}</h3>
@@ -213,8 +271,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                     <span>{exp.period}</span>
                   </div>
                 </div>
-                <p className="text-gray-600 mb-2 text-sm">{exp.location}</p>
-                <ul className="list-disc pl-5 text-gray-700 space-y-1.5 print:space-y-1">
+                <ul className="list-disc pl-5 text-gray-700 space-y-1.5">
                   {exp.description.map((desc, i) => (
                     <li
                       key={i}
@@ -230,28 +287,13 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             ))}
           </div>
 
-          {/* 학력 사항 */}
-          <div className="mb-8 print-avoid-break">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
-              <GraduationCap className="h-5 w-5 mr-2 text-leather-700" />
-              {labels[language].education}
-            </h2>
-            {data.education.map((edu, index) => (
-              <div key={index} className={`${index !== data.education.length - 1 ? "mb-4 print:mb-2" : ""}`}>
-                <div className="flex flex-col md:flex-row md:justify-between mb-1">
-                  <div>
-                    <h3 className="text-lg font-semibold text-leather-700">{edu.school}</h3>
-                    <p className="text-gray-700">{edu.degree}</p>
-                  </div>
-                  <div className="flex items-center text-gray-600 mt-1 md:mt-0">
-                    <Calendar className="h-4 w-4 mr-1 flex-shrink-0" />
-                    <span>{edu.period}</span>
-                  </div>
-                </div>
-                {edu.description && <p className="text-gray-700 print:text-sm">{edu.description}</p>}
-              </div>
-            ))}
-          </div>
+          {/* 주요 경험 */}
+          <KeyExperienceSection
+            title={labels[language].keyExperience}
+            icon={<Star className="h-5 w-5 mr-2 text-leather-700" />}
+            experiences={data.keyExperience}
+            language={language}
+          />
 
           {/* 기술 스택 */}
           <div className="mb-8 print-avoid-break">
@@ -259,7 +301,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               <Code className="h-5 w-5 mr-2 text-leather-700" />
               {labels[language].skills}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 print:gap-reduced">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <SkillCategory
                 title={labels[language].programmingLanguages}
                 icon={<Code className="h-4 w-4 mr-2" />}
@@ -280,13 +322,11 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 icon={<Tool className="h-4 w-4 mr-2" />}
                 skills={data.skills.tools}
               />
-              <div className="md:col-span-2">
-                <SkillCategory
-                  title={labels[language].aiTools}
-                  icon={<Sparkles className="h-4 w-4 mr-2" />}
-                  skills={data.skills["ai-tools"]}
-                />
-              </div>
+              <SkillCategory
+                title={labels[language].aiTools}
+                icon={<Sparkles className="h-4 w-4 mr-2" />}
+                skills={data.skills["ai-tools"]}
+              />
               <InterpersonalSkillsSection
                 title={labels[language].interpersonal}
                 icon={<Users className="h-5 w-5 mr-2 text-leather-700" />}
@@ -302,9 +342,9 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 <Award className="h-5 w-5 mr-2 text-leather-700" />
                 {labels[language].projects}
               </h2>
-              <div className="grid grid-cols-1 gap-6 print:gap-4">
+              <div className="grid grid-cols-1 gap-6">
                 {data.projects.map((project, index) => (
-                  <div key={index} className="bg-leather-50 p-5 print:p-3 rounded-lg">
+                  <div key={index} className="bg-leather-50 p-5 rounded-lg">
                     <div className="flex flex-col md:flex-row md:justify-between mb-2">
                       <h3 className="text-lg font-semibold text-leather-700">{project.name}</h3>
                       <div className="flex items-center text-gray-600 mt-1 md:mt-0">
@@ -313,16 +353,12 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                       </div>
                     </div>
                     {Array.isArray(project.description) ? (
-                      <ul className="list-disc pl-5 text-gray-700 space-y-1.5 print:space-y-1">
+                      <ul className="list-disc pl-5 text-gray-700 space-y-1.5">
                         {project.description.map((desc, i) => (
                           <li
                             key={i}
                             className={`print:text-sm ${
-                              desc.startsWith("-")
-                                ? "ml-4 text-gray-600"
-                                : desc.startsWith("  -")
-                                ? "ml-8 text-gray-600"
-                                : ""
+                              desc.startsWith(" ") ? "ml-4 text-gray-600" : desc.startsWith("  ") ? "ml-8 text-gray-600" : ""
                             }`}
                           >
                             {renderWithBold(desc)}
@@ -337,6 +373,29 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               </div>
             </div>
           )}
+
+          {/* 학력 사항 */}
+          <div className="mb-8 print-avoid-break">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+              <GraduationCap className="h-5 w-5 mr-2 text-leather-700" />
+              {labels[language].education}
+            </h2>
+            {data.education.map((edu, index) => (
+              <div key={index} className={`${index !== data.education.length - 1 ? "mb-4" : ""}`}>
+                <div className="flex flex-col md:flex-row md:justify-between mb-1">
+                  <div>
+                    <h3 className="text-lg font-semibold text-leather-700">{edu.school}</h3>
+                    <p className="text-gray-700">{edu.degree}</p>
+                  </div>
+                  <div className="flex items-center text-gray-600 mt-1 md:mt-0">
+                    <Calendar className="h-4 w-4 mr-1 flex-shrink-0" />
+                    <span>{edu.period}</span>
+                  </div>
+                </div>
+                {edu.description && <p className="text-gray-700 print:text-sm">{edu.description}</p>}
+              </div>
+            ))}
+          </div>
         </div>
       </Card>
     </div>

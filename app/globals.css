@@ -56,11 +56,14 @@
   body {
     @apply bg-background text-foreground;
   }
+  html {
+    font-size: 14px;
+  }
 }
 
 @media print {
   @page {
-    margin: 1cm;
+    margin: 0.7cm;
     size: A4 portrait;
   }
 
@@ -68,7 +71,15 @@
   body {
     width: 210mm;
     height: 297mm;
-    font-size: 10pt;
+  }
+
+  html {
+    font-size: 9pt; /* Default print font size */
+  }
+
+  /* Set a smaller font size only for the English version when printing */
+  html[lang="en"] {
+    font-size: 8.5pt;
   }
 
   body {
@@ -77,23 +88,38 @@
     color-adjust: exact !important;
   }
 
-  /* Compact Layout */
-  .print-layout-compact .p-8 {
-    padding: 1rem 1.25rem !important;
+  /* 더 압축적인 레이아웃을 위한 스타일 재정의 */
+  .p-8 {
+    padding: 0.8rem 1rem !important;
   }
-  .print-layout-compact .mb-8 {
-    margin-bottom: 1.25rem !important;
+  .mb-8 {
+    margin-bottom: 1rem !important;
   }
-  .print-layout-compact h2 {
-    font-size: 1.25rem !important;
-    margin-bottom: 0.75rem !important;
+  .mb-6 {
+    margin-bottom: 0.6rem !important;
   }
-  .print-layout-compact .text-sm {
-    font-size: 0.8rem !important;
+  .mb-4 {
+    margin-bottom: 0.4rem !important;
   }
-  .print-layout-compact .space-y-1-5 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0.25rem !important;
-    margin-bottom: 0 !important;
+  h2 {
+    font-size: 1.15rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+  h3 {
+    font-size: 1.05rem !important;
+  }
+  .leading-relaxed {
+    line-height: 1.5 !important;
+  }
+  .space-y-8 {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  }
+  .space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
   }
 
   /* General Print Utilities */
@@ -107,7 +133,7 @@
     background-color: white !important;
   }
 
-  /* 이력서 콘텐츠의 전체적인 패딩을 줄입니다. */
+  /* 인쇄 시 여백 조정 */
   .print-layout-compact .p-8 {
     padding: 1.25rem !important;
   }
