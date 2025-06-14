@@ -63,8 +63,13 @@ export const resumeData: MultiLanguageResumeData = {
       nameEn: "Juahn Jeong",
       email: "johnnyapu15@gmail.com",
     },
-    summary:
-      "시스템의 구조와 성능을 깊이 이해하고 최적화하는 데 강점을 가진 백엔드 엔지니어입니다. 최근에는 기술적 완성도뿐 아니라 비즈니스 맥락에서 실용적인 문제 해결을 통해 사용자 및 서비스 성과에 실질적으로 기여하는 방식을 고민하며 실천하고 있습니다. 급격한 트래픽 증가 상황에서도 안정적인 서비스를 제공하기 위해, 장애 전파 방지 구조와 데이터 처리 효율화, API 성능 개선, 비동기 병렬 처리 등을 설계하고 구현해왔습니다. 자동화 파이프라인 구축을 통해 운영 효율을 27% 향상시키는 등 생산성 향상에 지속적으로 기여하며, 매 분기별 **Top Contributor로 선정**된 경험이 있습니다. 현재 Bucketplace에서 **시스템 디자인과 성능 개선, 그리고 AI 도구를 활용한 업무 효율화**를 주도하며 **백엔드 리드** 역할을 수행하고 있습니다.",
+    summary: [
+      "시스템의 구조와 성능을 깊이 이해하고 최적화하는 데 강점을 가진 백엔드 엔지니어입니다.",
+      "최근에는 기술적 완성도뿐 아니라 비즈니스 맥락에서 실용적인 문제 해결을 통해 사용자 및 서비스 성과에 실질적으로 기여하는 방식을 고민하며 실천하고 있습니다.",
+      "급격한 트래픽 증가 상황에서도 안정적인 서비스를 제공하기 위해, 장애 전파 방지 구조와 데이터 처리 효율화, API 성능 개선, 비동기 병렬 처리 등을 설계하고 구현해왔습니다.",
+      "자동화 파이프라인 구축을 통해 운영 효율을 27% 향상시키는 등 생산성 향상에 지속적으로 기여하며, 매 분기별 **Top Contributor에 여러 번 선정**된 경험이 있습니다.",
+      "현재 Bucketplace에서 **시스템 디자인과 성능 개선, 그리고 AI 도구를 활용한 업무 효율화**를 주도하며 **백엔드 리드** 역할을 수행하고 있습니다.",
+    ].join(" "),
     experience: [
       {
         company: "Bucketplace (오늘의집)",
@@ -168,8 +173,13 @@ export const resumeData: MultiLanguageResumeData = {
       email: "johnnyapu15@gmail.com",
       position: "Software Engineer",
     },
-    summary:
-      "A backend engineer with a strong aptitude for deeply understanding and optimizing system architecture and performance. I focus not just on technical excellence but on practical problem-solving within a business context to make a real impact on user and service outcomes. To ensure stable service during rapid traffic growth, I have designed and implemented fault-tolerant architectures, efficient data processing, API performance improvements, and asynchronous parallel processing. I have consistently contributed to productivity, such as improving operational efficiency by 27% through automated pipelines, and have been selected as a **Top Contributor** on a quarterly basis. Currently, as a **Backend Lead** at Bucketplace, I am leading **system design, performance improvement, and workflow optimization using AI tools**.",
+    summary: [
+      "A backend engineer with a strong aptitude for deeply understanding and optimizing system architecture and performance.",
+      "I focus not just on technical excellence but on practical problem-solving within a business context to make a real impact on user and service outcomes.",
+      "To ensure stable service during rapid traffic growth, I have designed and implemented fault-tolerant architectures, efficient data processing, API performance improvements, and asynchronous parallel processing.",
+      "I have contributed to productivity, such as improving operational efficiency by 27% through automated pipelines, and have been consistently selected as a **Top Contributor** on a quarterly basis.",
+      "Currently, as a **Backend Lead** at Bucketplace, I am leading **system design, performance improvement, and workflow optimization using AI tools**.",
+    ].join(" "),
     experience: [
       {
         company: "Bucketplace",
