@@ -108,9 +108,9 @@ export const resumeData: MultiLanguageResumeData = {
       {
         name: "LLM 기반 비동기 서비스 안정화",
         problem: [
-          "사용자 요청이 몰릴 경우 워커가 과부하되고",
-          "외부 LLM API의 응답 속도가 느리고 간헐적으로 실패하는 문제가 예상됐습니다. (OpenAI 기준 99.7% uptime)",
-          "또한, 부적절한 LLM 응답에 대한 재시도가 필요했습니다.",
+          "사용자 **요청이 몰릴 경우** 워커가 과부하되고",
+          "외부 LLM API의 응답 속도가 느리고 **간헐적으로 실패하는 문제**가 예상됐습니다. (OpenAI 기준 **99.7% uptime**)",
+          "또한, 부적절한 LLM 응답에 대한 **재시도**가 필요했습니다.",
         ],
         approach: [
           "Kafka를 도입하여 요청을 비동기 처리하고, 워커에서 순차적으로 작업을 수행하도록 설계하고,",
@@ -214,8 +214,9 @@ export const resumeData: MultiLanguageResumeData = {
       {
         name: "Stabilizing Asynchronous LLM-based Services",
         problem: [
-          "Potential for worker overload during traffic spikes.",
-          "Service degradation from slow, unreliable, and inconsistent responses from external LLM APIs.",
+          "Potential for worker overload during **traffic spikes**.",
+          "Service degradation from slow, **unreliable, and inconsistent responses** from external LLM APIs (e.g., **99.7% uptime**).",
+          "Frequent **retries** needed for inadequate responses.",
         ],
         approach: [
           "Used Kafka for asynchronous request processing with sequential, rate-limited workers to create natural **backpressure**.",
