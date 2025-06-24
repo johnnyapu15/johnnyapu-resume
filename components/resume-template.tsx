@@ -7,6 +7,7 @@ import type { InterpersonalSkill, KeyExperience, Language, Skill } from "@/types
 import { labels } from "@/types/resume"
 import {
   Award,
+  BookOpen,
   Building,
   Calendar,
   Code,
@@ -22,6 +23,7 @@ import {
   PenToolIcon as Tool,
   Users
 } from "lucide-react"
+import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import React, { useState } from "react"
 import { LanguageToggle } from "./language-toggle"
 
@@ -137,17 +139,33 @@ const KeyExperienceSection = ({
   icon,
   experiences,
   language,
+  isDetailed,
 }: {
   title: string
   icon: React.ReactNode
   experiences: KeyExperience[] | undefined
   language: Language
+  isDetailed: boolean
 }) => {
   if (!experiences || experiences.length === 0) return null
 
+  const experiencesToShow = isDetailed
+    ? experiences
+    : experiences.filter(exp => !exp.onlyDetailView).slice(0, 2)
+
   const sectionLabels = {
-    ko: { problem: "문제", approach: "접근", result: "결과" },
-    en: { problem: "Problem", approach: "Approach", result: "Result" },
+    ko: {
+      problem: "문제",
+      approach: "접근",
+      result: "결과",
+      action: "Action",
+    },
+    en: {
+      problem: "Problem",
+      approach: "Approach",
+      result: "Result",
+      action: "Action",
+    },
   }
 
   return (
@@ -156,41 +174,104 @@ const KeyExperienceSection = ({
         {icon}
         {title}
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {experiences.map((exp, i) => (
-          <div key={i} className="bg-leather-50 p-4 rounded-lg flex flex-col">
-            <h3 className="text-lg font-semibold text-leather-700 mb-4">{exp.name}</h3>
-            <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
-              <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
-              <div className="space-y-1 text-gray-700">
-                {exp.problem.map((item, j) => (
-                  <p key={j}>{renderWithBold(item)}</p>
-                ))}
+      <div className={`grid grid-cols-1 gap-6 ${isDetailed ? "" : "md:grid-cols-2"}`}>
+        {experiencesToShow.map((exp, i) => {
+          if (isDetailed && exp.detail) {
+            // 상세 보기 (STAR) 뷰
+            return (
+              <div key={i} className="bg-leather-50 p-6 rounded-lg flex flex-col">
+                <h3 className="text-xl font-bold text-leather-800 mb-4">{exp.name}</h3>
+                <div className="space-y-4 text-sm">
+                  <div>
+                    <strong className="font-semibold text-gray-800 text-base">{labels[language].situation}</strong>
+                    <div className="mt-1 space-y-1 text-gray-700">
+                      {exp.detail.situation.map((item, j) => (
+                        <p key={j} className="flex items-start">
+                          <span className="mr-2 mt-1">∙</span>
+                          <span>{renderWithBold(item)}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <strong className="font-semibold text-gray-800 text-base">{labels[language].task}</strong>
+                    <div className="mt-1 space-y-1 text-gray-700">
+                      {exp.detail.task.map((item, j) => (
+                        <p key={j} className="flex items-start">
+                          <span className="mr-2 mt-1">∙</span>
+                          <span>{renderWithBold(item)}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <strong className="font-semibold text-gray-800 text-base">{labels[language].action}</strong>
+                    <div className="mt-1 space-y-1 text-gray-700">
+                      {exp.detail.action.map((item, j) => (
+                        <p key={j} className="flex items-start">
+                          <span className="mr-2 mt-1">∙</span>
+                          <span>{renderWithBold(item)}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <strong className="font-semibold text-gray-800 text-base">{labels[language].result}</strong>
+                    <div className="mt-1 space-y-1 text-gray-700">
+                      {(exp.detail.result || exp.result).map((item, j) => (
+                        <p key={j} className="flex items-start">
+                          <span className="mr-2 mt-1">∙</span>
+                          <span>{renderWithBold(item)}</span>
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </div>
               </div>
+            )
+          }
 
-              <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].approach}</strong>
-              <div className="space-y-1 text-gray-700">
-                {exp.approach.map((item, j) => (
-                  <p key={j}>{renderWithBold(item)}</p>
-                ))}
-              </div>
+          // 기본 (요약) 뷰
+          return (
+            <div key={i} className="bg-leather-50 p-4 rounded-lg flex flex-col">
+              <h3 className="text-lg font-semibold text-leather-700 mb-4">{exp.name}</h3>
+              <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
+                <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
+                <div className="space-y-1 text-gray-700">
+                  {exp.problem.map((item, j) => (
+                    <p key={j}>{renderWithBold(item)}</p>
+                  ))}
+                </div>
 
-              <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].result}</strong>
-              <div className="space-y-1 text-gray-700">
-                {exp.result.map((item, j) => (
-                  <p key={j}>{renderWithBold(item)}</p>
-                ))}
+                <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].approach}</strong>
+                <div className="space-y-1 text-gray-700">
+                  {exp.approach.map((item, j) => (
+                    <p key={j}>{renderWithBold(item)}</p>
+                  ))}
+                </div>
+
+                <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].result}</strong>
+                <div className="space-y-1 text-gray-700">
+                  {exp.result.map((item, j) => (
+                    <p key={j}>{renderWithBold(item)}</p>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   )
 }
 
 export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview = false }: ResumeTemplateProps) {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
   const [language, setLanguage] = useState<Language>(defaultLanguage)
+  const isDetailed = searchParams.get("isDetail") === "true"
   const data = resumeData[language]
 
   const handlePrint = () => {
@@ -201,11 +282,27 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
     setLanguage(newLanguage)
   }
 
+  const handleToggleDetail = () => {
+    const newSearchParams = new URLSearchParams(searchParams.toString())
+    if (isDetailed) {
+      newSearchParams.delete("isDetail")
+    } else {
+      newSearchParams.set("isDetail", "true")
+    }
+    router.push(`${pathname}?${newSearchParams.toString()}`, { scroll: false })
+  }
+
   return (
     <div className="max-w-4xl mx-auto print-layout-compact">
       {!isPrintPreview && (
         <div className="flex justify-between items-center mb-4 print:hidden">
-          <LanguageToggle language={language} onLanguageChange={handleLanguageChange} />
+          <div className="flex gap-2">
+            <LanguageToggle language={language} onLanguageChange={handleLanguageChange} />
+            <Button variant="outline" onClick={handleToggleDetail} className="bg-white hover:bg-gray-50">
+              <BookOpen className="mr-2 h-4 w-4" />
+              {isDetailed ? labels[language].summary : labels[language].details}
+            </Button>
+          </div>
           <Button variant="outline" onClick={handlePrint} className="bg-white hover:bg-gray-50">
             <Printer className="mr-2 h-4 w-4" />
             {labels[language].print}
@@ -215,35 +312,39 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
 
       <Card id="resume-content" className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white">
         {/* 헤더 섹션 */}
-        <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-8">
-          <h1 className="text-4xl font-bold mb-1">{data.personalInfo.name}</h1>
-          <p className="text-leather-100 text-lg mb-4">{data.personalInfo.position}</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-leather-50 mt-4 print:gap-reduced">
-            {data.personalInfo.email && (
-              <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2" />
-                <span>{data.personalInfo.email}</span>
-              </div>
-            )}
-            {data.personalInfo.phone && (
-              <div className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                <span>{data.personalInfo.phone}</span>
-              </div>
-            )}
-            {data.personalInfo.address && (
-              <div className="flex items-center">
-                <MapPin className="h-4 w-4 mr-2" />
-                <span>{data.personalInfo.address}</span>
-              </div>
-            )}
-            {data.personalInfo.linkedin && (
-              <div className="flex items-center">
-                <Linkedin className="h-4 w-4 mr-2" />
-                <span>{data.personalInfo.linkedin}</span>
-              </div>
-            )}
+        <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-6">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div className="mb-4 md:mb-0">
+              <h1 className="text-3xl font-bold mb-1">{data.personalInfo.name}</h1>
+              <p className="text-leather-100 text-base">{data.personalInfo.position}</p>
+            </div>
+            
+            <div className="flex flex-col md:flex-row md:items-center gap-3 text-leather-50 text-sm">
+              {data.personalInfo.email && (
+                <div className="flex items-center">
+                  <Mail className="h-4 w-4 mr-2" />
+                  <span>{data.personalInfo.email}</span>
+                </div>
+              )}
+              {data.personalInfo.phone && (
+                <div className="flex items-center">
+                  <Phone className="h-4 w-4 mr-2" />
+                  <span>{data.personalInfo.phone}</span>
+                </div>
+              )}
+              {data.personalInfo.address && (
+                <div className="flex items-center">
+                  <MapPin className="h-4 w-4 mr-2" />
+                  <span>{data.personalInfo.address}</span>
+                </div>
+              )}
+              {data.personalInfo.linkedin && (
+                <div className="flex items-center">
+                  <Linkedin className="h-4 w-4 mr-2" />
+                  <span>{data.personalInfo.linkedin}</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -290,9 +391,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           {/* 주요 경험 */}
           <KeyExperienceSection
             title={labels[language].keyExperience}
-            icon={<Star className="h-5 w-5 mr-2 text-leather-700" />}
+            icon={<Star className="h-6 w-6 mr-3 text-leather-600" />}
             experiences={data.keyExperience}
             language={language}
+            isDetailed={isDetailed}
           />
 
           {/* 기술 스택 */}

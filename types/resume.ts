@@ -68,6 +68,13 @@ export interface KeyExperience {
   problem: string[]
   approach: string[]
   result: string[]
+  detail?: {
+    situation: string[]
+    task: string[]
+    action: string[]
+    result?: string[]
+  }
+  onlyDetailView?: boolean
 }
 
 export interface ResumeData {
@@ -104,6 +111,12 @@ export interface SectionLabels {
   aiTools: string
   interpersonal: string
   print: string
+  situation: string
+  task: string
+  action: string
+  result: string
+  summary: string
+  details: string
 }
 
 export const labels: Record<Language, SectionLabels> = {
@@ -122,6 +135,12 @@ export const labels: Record<Language, SectionLabels> = {
     aiTools: "AI 도구",
     interpersonal: "Interpersonal Skills",
     print: "인쇄하기",
+    situation: "Situation",
+    task: "Task",
+    action: "Action",
+    result: "Result",
+    summary: "요약 보기",
+    details: "상세 보기",
   },
   en: {
     introduction: "Introduction",
@@ -138,5 +157,11 @@ export const labels: Record<Language, SectionLabels> = {
     aiTools: "AI Tools",
     interpersonal: "Interpersonal Skills",
     print: "Print",
+    situation: "Situation",
+    task: "Task",
+    action: "Action",
+    result: "Result",
+    summary: "Summary",
+    details: "Details",
   },
 }
