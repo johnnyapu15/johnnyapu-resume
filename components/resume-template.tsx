@@ -271,7 +271,15 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const searchParams = useSearchParams()
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
-  const isDetailed = searchParams.get("isDetail") === "true"
+  const [isDetailed, setIsDetailed] = useState(false)
+  
+  // useEffect를 사용해서 클라이언트에서만 searchParams를 읽도록 처리
+  React.useEffect(() => {
+    if (searchParams) {
+      setIsDetailed(searchParams.get("isDetail") === "true")
+    }
+  }, [searchParams])
+  
   const data = resumeData[language]
 
   const handlePrint = () => {
