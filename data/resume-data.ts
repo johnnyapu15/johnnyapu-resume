@@ -96,12 +96,14 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         company: "BlackTangerine (Side-project)",
+        position: "Software Developer",
         period: "2020년 12월 - 2021년 6월",
         description: [
           "**딥러닝 기반 얼굴 피부 분석 및 의류 추천 시스템** 개발.",
           "Python 기반 personal color 분석 & 추천 시스템과 Node.js backend 개발.",
           "GCP CloudRun 기반 확장 가능한 서비스 구축.",
         ],
+        hiddenInDetailView: true,
       },
       // {
       //   company: "서울시립대학교",
@@ -299,6 +301,7 @@ export const resumeData: MultiLanguageResumeData = {
           "Built a personal color analysis & recommendation system with Python and a Node.js backend.",
           "Established a scalable service architecture using GCP CloudRun.",
         ],
+        hiddenInDetailView: true,
       },
       // {
       //   company: "University of Seoul",
@@ -337,13 +340,11 @@ export const resumeData: MultiLanguageResumeData = {
             "New launch within **5 weeks** total development period (3 backend developers, leading overall system design and implementation)"
           ],
           action: [
-            "**1. Webflux-based asynchronous API server construction**: Introduced Webflux for asynchronous processing to build asynchronous APIs",
-            "**2. Kafka-based asynchronous processing design**: Kafka configuration was set to 15 partitions and 3 replications. This number was matched to the maximum scaling number of workers (8) and designed to be stable and efficient",
-            "**3. Worker processing performance optimization and scaling**: Configured auto-scaling for API servers (2-4 pods) and workers (2-8 pods) based on Kubernetes HPA. API servers were designed to be lightweight with simple CRUD focus, while workers limited maximum **5 concurrent tasks** with semaphores considering memory usage during image processing and LLM calls",
-            "**4. Backpressure-based stability assurance**: When workers processed Kafka messages, limited the number of concurrent processing tasks with semaphores to prevent worker bottlenecks and failures due to overload",
-            "**5. External API failure propagation response (Retry & Circuit Breaker)**: For image generation and LLM call failures, implemented up to 3 retries (initial 200ms interval, exponential backoff), and Circuit Breaker open after 10 consecutive failures (recovery attempt to half-open state after 30 seconds)",
-            "**6. Cost management and service quality monitoring**: Set monthly maximum $4,000 budget per API platform (alarm at 75% consumption), built separate **internal admin page** to monitor costs and service quality. Quickly identified and improved actual user usage patterns and issues based on data",
-            "**7. CDN-based global image serving optimization**: Introduced Akamai CDN to serve images generated in each region from the nearest endpoint to global users, optimizing global user experience and minimizing server load",
+            "**1. Kafka 기반 비동기 처리**: 파티션 15개, 복제 3 설정으로 워커 최대 8개에 맞춰 안정적이고 효율적으로 설계했습니다",
+            "**2. 오토 스케일링 & 성능 최적화**: Kubernetes HPA로 API 서버(2~4개) 및 워커(2~8개) 구성, 세마포어로 동시 작업 제한했습니다",
+            "**3. CDN 기반 글로벌 최적화**: Akamai CDN으로 각 리전 이미지를 글로벌 사용자에게 최적 경로로 서빙했습니다",
+            "**4. 장애 전파 방지**: 재시도 3회, 지수 백오프, Circuit Breaker로 외부 API 장애 대응했습니다",
+            "**5. 비용 관리 & 모니터링**: API당 월 $4,000 예산 설정, 내부 어드민 페이지로 실시간 모니터링했습니다",
           ],
           result: [
             "New launch after 4 weeks of development",

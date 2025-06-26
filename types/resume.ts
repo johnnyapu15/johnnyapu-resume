@@ -14,6 +14,7 @@ export interface Experience {
   period: string
   location?: string
   description: string[]
+  hiddenInDetailView?: boolean
 }
 
 export interface Education {

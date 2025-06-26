@@ -190,4 +190,44 @@
   .print-avoid-break {
     break-inside: avoid;
   }
+
+  /* 상세 보기에서 첫 번째 경험 카드를 위한 특별한 처리 */
+  .key-experience-first {
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* 상세 보기에서만 더 컴팩트한 레이아웃 적용 */
+  .key-experience-first.print-avoid-break .space-y-4 {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+  }
+  .key-experience-first.print-avoid-break .space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+  }
+
+  .key-experience-first.print-avoid-break .space-y-1 {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+  }
+  .key-experience-first.print-avoid-break .space-y-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+  }
+
+  .key-experience-first.print-avoid-break .text-sm {
+    font-size: 0.75rem !important;
+    line-height: 1.3 !important;
+  }
+
+  .key-experience-first.print-avoid-break .mb-4 {
+    margin-bottom: 0.5rem !important;
+  }
 }

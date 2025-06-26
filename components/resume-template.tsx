@@ -169,17 +169,17 @@ const KeyExperienceSection = ({
   }
 
   return (
-    <div className="mb-8 print-avoid-break">
+    <div className={`mb-8 ${!isDetailed ? 'print-avoid-break' : ''}`}>
       <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
         {icon}
         {title}
       </h2>
-      <div className={`grid grid-cols-1 gap-6 ${isDetailed ? "" : "md:grid-cols-2"}`}>
+      <div className={`grid gap-6 ${isDetailed ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
         {experiencesToShow.map((exp, i) => {
           if (isDetailed && exp.detail) {
             // 상세 보기 (STAR) 뷰
             return (
-              <div key={i} className="bg-leather-50 p-6 rounded-lg flex flex-col">
+              <div key={i} className={`bg-leather-50 p-6 rounded-lg flex flex-col ${i === 0 ? 'key-experience-first' : ''} print-avoid-break`}>
                 <h3 className="text-xl font-bold text-leather-800 mb-4">{exp.name}</h3>
                 <div className="space-y-4 text-sm">
                   <div>
@@ -368,8 +368,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               <Building className="h-5 w-5 mr-2 text-leather-700" />
               {labels[language].experience}
             </h2>
-            {data.experience.map((exp, index) => (
-              <div key={index} className={`${index !== data.experience.length - 1 ? "mb-8" : ""}`}>
+            {data.experience
+              .filter(exp => !isDetailed || !exp.hiddenInDetailView)
+              .map((exp, index) => (
+              <div key={index} className={`${index !== data.experience.filter(e => !isDetailed || !e.hiddenInDetailView).length - 1 ? "mb-8" : ""}`}>
                 <div className="flex flex-col md:flex-row md:justify-between mb-2">
                   <div>
                     <h3 className="text-xl font-semibold text-leather-700">{exp.company}</h3>
