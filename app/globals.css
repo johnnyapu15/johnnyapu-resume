@@ -88,6 +88,18 @@
     color-adjust: exact !important;
   }
 
+  /* 헤더 압축 */
+  .p-6 {
+    padding: 0.5rem 0.8rem !important;
+  }
+  .text-3xl {
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+  }
+  .mb-4.md\:mb-0 {
+    margin-bottom: 0 !important;
+  }
+
   /* 더 압축적인 레이아웃을 위한 스타일 재정의 */
   .p-8 {
     padding: 0.8rem 1rem !important;

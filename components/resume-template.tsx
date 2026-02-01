@@ -53,6 +53,12 @@ const renderWithBold = (text: string) => {
   )
 }
 
+const getIndentedBulletClass = (desc: string) => {
+  if (desc.startsWith("  ")) return "ml-8 text-gray-600"
+  if (desc.startsWith(" ")) return "ml-4 text-gray-600"
+  return ""
+}
+
 // Helper component for rendering a skill category
 const SkillCategory = ({
   title,
@@ -151,7 +157,7 @@ const KeyExperienceSection = ({
 
   const experiencesToShow = isDetailed
     ? experiences
-    : experiences.filter(exp => !exp.onlyDetailView).slice(0, 2)
+    : experiences.filter(exp => !exp.onlyDetailView)
 
   const sectionLabels = {
     ko: {
@@ -174,8 +180,9 @@ const KeyExperienceSection = ({
         {icon}
         {title}
       </h2>
-      <div className={`grid gap-6 ${isDetailed ? "grid-cols-1" : "grid-cols-1 md:grid-cols-2"}`}>
+      <div className="grid grid-cols-1 gap-4">
         {experiencesToShow.map((exp, i) => {
+          const isFirstCard = false
           if (isDetailed && exp.detail) {
             // 상세 보기 (STAR) 뷰
             return (
@@ -233,7 +240,7 @@ const KeyExperienceSection = ({
 
           // 기본 (요약) 뷰
           return (
-            <div key={i} className="bg-leather-50 p-4 rounded-lg flex flex-col">
+            <div key={i} className={`bg-leather-50 p-4 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
               <h3 className="text-lg font-semibold text-leather-700 mb-4">{exp.name}</h3>
               <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
@@ -386,9 +393,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                   {exp.description.map((desc, i) => (
                     <li
                       key={i}
-                      className={`print:text-sm ${
-                        desc.startsWith(" ") ? "ml-4 text-gray-600" : desc.startsWith("  ") ? "ml-8 text-gray-600" : ""
-                      }`}
+                      className={`print:text-sm ${getIndentedBulletClass(desc)}`}
                     >
                       {renderWithBold(desc)}
                     </li>
@@ -407,45 +412,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             isDetailed={isDetailed}
           />
 
-          {/* 기술 스택 */}
-          <div className="mb-8 print-avoid-break">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
-              <Code className="h-5 w-5 mr-2 text-leather-700" />
-              {labels[language].skills}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <SkillCategory
-                title={labels[language].programmingLanguages}
-                icon={<Code className="h-4 w-4 mr-2" />}
-                skills={data.skills.languages}
-              />
-              <SkillCategory
-                title={labels[language].frameworksAndLibraries}
-                icon={<Code className="h-4 w-4 mr-2" />}
-                skills={data.skills.frameworks}
-              />
-              <SkillCategory
-                title={labels[language].backendInfra}
-                icon={<Server className="h-4 w-4 mr-2" />}
-                skills={data.skills.backendInfra}
-              />
-              <SkillCategory
-                title={labels[language].toolsAndEnvironments}
-                icon={<Tool className="h-4 w-4 mr-2" />}
-                skills={data.skills.tools}
-              />
-              <SkillCategory
-                title={labels[language].aiTools}
-                icon={<Sparkles className="h-4 w-4 mr-2" />}
-                skills={data.skills["ai-tools"]}
-              />
-              <InterpersonalSkillsSection
-                title={labels[language].interpersonal}
-                icon={<Users className="h-5 w-5 mr-2 text-leather-700" />}
-                skills={data.skills.interpersonal}
-              />
-            </div>
-          </div>
+          {/* 기술 스택 - removed for 1-page resume */}
 
           {/* 주요 프로젝트 */}
           {data.projects && data.projects.length > 0 && (
@@ -469,9 +436,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                         {project.description.map((desc, i) => (
                           <li
                             key={i}
-                            className={`print:text-sm ${
-                              desc.startsWith(" ") ? "ml-4 text-gray-600" : desc.startsWith("  ") ? "ml-8 text-gray-600" : ""
-                            }`}
+                            className={`print:text-sm ${getIndentedBulletClass(desc)}`}
                           >
                             {renderWithBold(desc)}
                           </li>
@@ -493,18 +458,22 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               {labels[language].education}
             </h2>
             {data.education.map((edu, index) => (
-              <div key={index} className={`${index !== data.education.length - 1 ? "mb-4" : ""}`}>
-                <div className="flex flex-col md:flex-row md:justify-between mb-1">
-                  <div>
-                    <h3 className="text-lg font-semibold text-leather-700">{edu.school}</h3>
-                    <p className="text-gray-700">{edu.degree}</p>
-                  </div>
-                  <div className="flex items-center text-gray-600 mt-1 md:mt-0">
-                    <Calendar className="h-4 w-4 mr-1 flex-shrink-0" />
-                    <span>{edu.period}</span>
-                  </div>
+              <div key={index} className={`flex items-baseline justify-between text-sm ${index !== data.education.length - 1 ? "mb-1" : ""}`}>
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <h3 className="text-base font-semibold text-leather-700">{edu.school}</h3>
+                  <span className="text-gray-400">|</span>
+                  <span className="text-gray-700">{edu.degree}</span>
+                  {edu.description && (
+                    <>
+                      <span className="text-gray-400">|</span>
+                      <span className="text-gray-600">{edu.description}</span>
+                    </>
+                  )}
                 </div>
-                {edu.description && <p className="text-gray-700 print:text-sm">{edu.description}</p>}
+                <div className="flex items-center text-gray-500 flex-shrink-0 ml-4">
+                  <Calendar className="h-3 w-3 mr-1" />
+                  <span>{edu.period}</span>
+                </div>
               </div>
             ))}
           </div>
