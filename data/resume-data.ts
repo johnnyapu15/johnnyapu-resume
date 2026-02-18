@@ -42,13 +42,13 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "4주 만에 170개국 글로벌 런칭, 3D 모델 자동화로 생산량 12배 증가 / 비용 88% 절감으로 **Eng Award**를 수상했습니다.",
       "AI/LLM 기반 서비스의 백엔드 아키텍처를 설계하고, 글로벌 런칭부터 안정화, 확장까지 E2E로 담당한 백엔드 엔지니어입니다.",
       "기술적 완성도뿐 아니라 비즈니스 맥락에서 실용적인 문제를 해결하여 서비스 성과에 기여해왔습니다.",
       "외부 LLM API가 불안정한 환경에서도 장애 전파 방지 구조, Circuit Breaker, 비동기 처리 등으로 서비스 안정성을 확보해왔습니다.",
       "자동화 파이프라인으로 운영 효율 27% 향상, 3D 모델 최적화로 연간 40일 절감 등 생산성에 지속적으로 기여하며, 매 분기 **Top Contributor**에 선정되었습니다.",
       "BE/FE/ML/인프라를 넘나들며 필요할 때는 풀스택으로 직접 구현하여 조직의 병목을 해소했습니다.",
       "AI 도구를 적극 활용하여 팀의 개발 프로세스를 개선하고 AI 활용 문화를 확산시켜 **AI Native MVP** 및 **AI Award**를 수상했습니다.",
+      "4주 만에 170개국 글로벌 런칭, 3D 모델 자동화로 생산량 12배 증가 / 비용 88% 절감으로 **Eng Award**를 수상했습니다.",
     ].join(" "),
     experience: [
       {
@@ -143,13 +143,13 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Launched a global AI service to 170 countries in 4 weeks and automated 3D model production with 12x output increase and 88% cost reduction, receiving the **Eng Award**.",
       "Backend engineer who has designed AI/LLM service architectures and owned them end-to-end — from global launch to scaling in production.",
       "I focus not just on technical excellence, but on solving practical problems in a business context to contribute to service outcomes.",
       "I've kept services stable even when external LLM APIs are unreliable, using fault-tolerant architecture, circuit breakers, and async processing.",
       "I've consistently contributed to productivity by improving operational efficiency by 27% through automation pipelines and saving 40 person-days annually with 3D optimization, earning **Top Contributor** recognition every quarter.",
       "I work across BE/FE/ML/infrastructure and implement full-stack solutions when needed to remove organizational bottlenecks.",
       "I actively leverage AI tools to improve team development processes and spread AI adoption culture, receiving **AI Native MVP** and **AI Award**.",
+      "Launched a global AI service to 170 countries in 4 weeks and automated 3D model production with 12x output increase and 88% cost reduction, receiving the **Eng Award**.",
     ].join(" "),
     experience: [
       {
