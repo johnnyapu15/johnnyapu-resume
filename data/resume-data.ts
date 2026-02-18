@@ -58,7 +58,7 @@ export const resumeData: MultiLanguageResumeData = {
         description: [
           "백엔드 아키텍처 설계·구축·운영을 리드하며, AI/3D/커머스 도메인의 핵심 시스템을 담당",
           "  **AI 기반 인테리어 서비스**: 6주 데드라인을 **4주로 단축하여 170개국 글로벌 런칭**. Gemini 선배포 및 LLM Provider 전환 구조 설계. 이후 IAP 구독 모델과 Langgraph 기반 워커 재설계로 수익화 및 확장성 확보.",
-          "  **3D 인테리어 디자인 서비스**: **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여. 트래픽 **10.2배** 증가에도 **99.95% 가용성** 확보. 현재 전사 AI Agent의 클라이언트로 확장 설계 및 AI Agent 서비스 구축 중.",
+          "  **3D 인테리어 디자인 서비스**: **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여. 트래픽 **10.2배** 증가에도 **99.95% 가용성** 확보. 현재 전사 AI Agent의 핵심 클라이언트로 확장 중.",
           "  **Image-to-3D 자동화**: 수작업 기반 3D 제작의 생산량 한계를 돌파. **생산량 12배 증가**, **비용 88% 절감**으로 **Eng Award** 수상.",
           "  **AI Native 문화 선도**: 릴리즈 노트 자동 생성, Unit Test 고도화, 부하 테스트 설계 가이드 수립 등으로 팀의 AI 활용 문화 확산. AI Native MVP 및 AI Award 수상.",
         ],
@@ -159,7 +159,7 @@ export const resumeData: MultiLanguageResumeData = {
         description: [
           "Led backend architecture design, implementation, and operations across AI, 3D, and commerce domains.",
           "  **AI-based Interior Service**: Delivered a **170-country global launch in 4 weeks**, 2 weeks ahead of the 6-week deadline. Built Gemini pre-deployment and switchable LLM provider architecture. Post-launch: implemented IAP subscription model and Langgraph-based worker redesign for monetization and scalability.",
-          "  **3D Interior Design Service**: Drove **704% WAU** growth and **600% annual GMV (₩860M)**. Maintained **99.95% availability** under **10.2x** traffic. Currently extending the service as a client for the company-wide AI Agent, and building the AI Agent service.",
+          "  **3D Interior Design Service**: Drove **704% WAU** growth and **600% annual GMV (₩860M)**. Maintained **99.95% availability** under **10.2x** traffic. Currently extending as a core client for the company-wide AI Agent.",
           "  **Image-to-3D Automation**: Overcame production limits of manual 3D creation. **12x production increase** and **88% cost reduction**, earning the **Eng Award**.",
           "  **AI Native Culture**: Automated release notes, enhanced unit testing, and established load testing guidelines to spread AI adoption across the team. Received AI Native MVP and AI Award.",
         ],
@@ -201,12 +201,12 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         detail: {
           situation: [
-            "Ohouse AI is a global service that automatically places furniture in real interior photos using Ohouse data and AI, targeting **170 countries** with a **4-week launch** goal",
+            "Ohouse AI is a global service that automatically places furniture in real interior photos using Ohouse data and AI, targeting **170 countries** with a **6-week deadline**",
             "As a global service, traffic was unpredictable and we needed to handle sudden spikes",
             "The service uses LLM for multi-turn image generation and responses, with expected failures like **HTTP 402 errors** from quota limits, especially during image generation"
           ],
           task: [
-            "Launch globally in **4 weeks** while staying stable under unpredictable traffic spikes",
+            "Launch globally within the **6-week deadline** while staying stable under unpredictable traffic spikes",
             "Prevent external API failures from bringing down the service with retry/fallback architecture",
             "Build a worker-based structure that can scale quickly after launch",
             "Post-launch: quickly validate the subscription model and evolve the system to handle complex AI workflows"
