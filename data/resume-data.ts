@@ -43,7 +43,7 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "AI 인테리어 서비스를 4주 만에 170개국에 런칭하고, 3D 모델 제작 자동화로 생산량 12배 / 비용 88% 절감을 달성하여 **Eng Award**를 수상한 백엔드 엔지니어입니다.",
-      "AI/LLM/3D 서비스의 백엔드 아키텍처를 런칭부터 안정화, 확장까지 E2E로 설계·운영해왔습니다.",
+      "AI/3D 서비스의 백엔드 아키텍처를 런칭부터 안정화, 확장까지 E2E로 설계·운영해왔습니다.",
       "기술적 완성도뿐 아니라 비즈니스 맥락에서 실용적인 문제를 해결하여 **WAU 704%** 성장, **연간 GMV 600%** 달성에 기여해왔습니다.",
       "자동화 파이프라인으로 운영 효율 27% 향상, 연간 40일 절감 등 생산성에 기여하며 매 분기 **Top Contributor**에 선정되었고, 필요할 때는 BE/FE/ML/인프라를 넘나들며 조직의 병목을 직접 해소했습니다.",
       "AI 도구를 적극 활용하여 팀의 개발 프로세스를 개선하고 AI 활용 문화를 확산시켜 **AI Native MVP** 및 **AI Award**를 수상했습니다.",
@@ -54,7 +54,7 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "2022년 8월 - 현재",
         description: [
-          "백엔드 아키텍처 설계·구축·운영을 리드하며, AI/3D/커머스 도메인의 핵심 시스템을 담당",
+          "백엔드 아키텍처 설계·구축·운영을 리드하며, AI/3D 도메인의 핵심 시스템을 담당",
           "  **AI 기반 인테리어 서비스**: 6주 데드라인을 **4주로 단축하여 170개국 글로벌 런칭**. Gemini 선배포 및 LLM Provider 전환 구조 설계. 이후 IAP 구독 모델과 Langgraph 기반 워커 재설계로 수익화 및 확장성 확보.",
           "  **3D 인테리어 디자인 서비스**: **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여. 트래픽 **10.2배** 증가에도 **99.95% 가용성** 확보. 현재 전사 AI Agent의 핵심 클라이언트로 확장 중.",
           "  **Image-to-3D 자동화**: 수작업 기반 3D 제작의 생산량 한계를 돌파. **생산량 12배 증가**, **비용 88% 절감**으로 **Eng Award** 수상.",
@@ -142,7 +142,7 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "Backend engineer who launched an AI interior service to 170 countries in 4 weeks and achieved 12x production increase / 88% cost reduction through 3D model automation, receiving the **Eng Award**.",
-      "Designed and operated AI/LLM/3D service backend architectures end-to-end — from launch to stabilization and scaling.",
+      "Designed and operated AI/3D service backend architectures end-to-end — from launch to stabilization and scaling.",
       "Delivered business impact by solving practical problems beyond technical excellence, contributing to **704% WAU** growth and **600% annual GMV** increase.",
       "Consistently contributed to productivity — 27% operational efficiency improvement, 40 person-days saved annually — earning **Top Contributor** every quarter, while working across BE/FE/ML/infrastructure to remove organizational bottlenecks.",
       "Actively leveraged AI tools to improve team development processes and spread AI adoption culture, receiving **AI Native MVP** and **AI Award**.",
@@ -153,7 +153,7 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "Led backend architecture design, implementation, and operations across AI, 3D, and commerce domains.",
+          "Led backend architecture design, implementation, and operations across AI and 3D domains.",
           "  **AI-based Interior Service**: Delivered a **170-country global launch in 4 weeks**, 2 weeks ahead of the 6-week deadline. Built Gemini pre-deployment and switchable LLM provider architecture. Post-launch: implemented IAP subscription model and Langgraph-based worker redesign for monetization and scalability.",
           "  **3D Interior Design Service**: Drove **704% WAU** growth and **600% annual GMV (₩860M)**. Maintained **99.95% availability** under **10.2x** traffic. Currently extending as a core client for the company-wide AI Agent.",
           "  **Image-to-3D Automation**: Overcame production limits of manual 3D creation. **12x production increase** and **88% cost reduction**, earning the **Eng Award**.",
