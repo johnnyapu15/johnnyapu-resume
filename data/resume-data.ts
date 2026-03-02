@@ -42,10 +42,10 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "AI 인테리어 서비스를 **6주 데드라인을 4주로 단축**해 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량 12배·비용 **88%** 절감을 달성해 **Eng Award**를 받았습니다.",
+      "**6주 데드라인을 4주로 단축**해 AI 인테리어 서비스를 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량 12배·비용 **88%** 절감을 이끌어 **Eng Award**를 받았습니다.",
       "AI/3D 백엔드의 런칭·안정화·확장을 E2E로 주도해 트래픽 **10.2배** 상황에서도 **99.95% 가용성**을 유지했습니다.",
-      "성과로 **WAU 704% 성장**, **연간 GMV 600%**, 운영 효율 **27%** 개선 및 **40일 이상** 절감 성과를 만들었습니다.",
-      "릴리즈 자동화, Unit Test 고도화, 부하 테스트 정착으로 AI 활용을 팀 표준으로 확산하고, 필요 시 BE/FE/ML/인프라 병목을 직접 해소해 **매 분기 Top Contributor**가 되었습니다.",
+      "**WAU 704%** 성장, **연간 GMV 600%**, 운영 효율 **27%** 개선, **연간 40일 이상** 절감에 기여했습니다.",
+      "릴리즈 자동화·부하 테스트 가이드·공통 배포 도구 등 팀 생산성 개선을 주도하고, 필요 시 BE/FE/ML/인프라 병목을 직접 해소해 **매 분기 Top Contributor**로 선정되었습니다.",
     ].join(" "),
     experience: [
       {
@@ -54,12 +54,11 @@ export const resumeData: MultiLanguageResumeData = {
         period: "2022년 8월 - 현재",
         description: [
           "AI/3D 도메인 백엔드 아키텍처 설계·구축·운영을 리드했습니다.",
-          "  **Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭. **비동기 워커 풀 + circuit breaker**로 LLM 장애를 격리하고, 국가별 feature flag와 remote config로 무배포 실험 체계를 구축했습니다.",
-          "  **Ohouse AI 수익화**: iOS/Google IAP 이벤트를 상태 머신으로 통합해 구독 정합성을 확보하고, 제휴 상품 **CVR 10.5%** 달성 및 **CAC < LTV**를 검증했습니다.",
-          "  **3D 인테리어 디자인 서비스**: 성능 최적화로 **WAU 704%** 성장, **연간 GMV 600%(8.6억)** 달성. **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
+          "  **Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국**에 글로벌 런칭했습니다. **비동기 워커 풀 + circuit breaker**로 LLM 장애를 격리하고, 국가별 feature flag와 remote config로 무배포 실험 체계를 구축했습니다.",
+          "  **Ohouse AI 수익화**: iOS/Google IAP 이벤트를 상태 머신으로 통합해 구독 정합성을 확보하고, 제휴 상품 **CVR 10.5%**를 달성하고 **CAC < LTV**를 검증했습니다.",
+          "  **3D 인테리어 디자인 서비스**: 로딩 성능·안정성 개선을 통해 **WAU 704%** 성장, **연간 GMV 600%(8.6억)** 달성에 기여했습니다. **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
           "  **Image-to-3D 자동화**: 수작업 파이프라인을 E2E 자동화해 월 생산량 **68→800**, **비용 88%** 절감으로 **Eng Award**를 수상했습니다.",
-          "  **조직 기여**: FE 3명·BE 1명 온보딩을 주도하고 PAR에서 ML 3명과 시스템 구조를 가이드했습니다. 전사 최초 Spring Boot 3 마이그레이션 완료 후 트러블슈팅 가이드를 타 팀 레퍼런스로 공유했습니다.",
-          "  **AI Native 문화**: 릴리즈 노트 자동화, 부하 테스트 가이드 정착, 공통 배포 도구 개선으로 **AI Native MVP**와 **AI Award**를 수상했습니다.",
+          "  **조직 기여**: FE 3·BE 1 온보딩, PAR에서 ML 3명 시스템 구조 가이드, 전사 최초 Spring Boot 3 마이그레이션을 주도했습니다. 릴리즈 자동화·부하 테스트 가이드·배포 도구 개선 등으로 **AI Native MVP**와 **AI Award**를 수상했습니다.",
         ],
       },
       {
@@ -83,14 +82,14 @@ export const resumeData: MultiLanguageResumeData = {
       {
         name: "Ohouse AI 런칭 및 고도화",
         problem: [
-          "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM 불안정성 때문에 장애 위험이 컸습니다.",
+          "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM API 불안정성으로 서비스 중단 위험이 있었습니다.",
           "멀티턴 요청 특성상 사용자별 순서 보장과 재시도/우회 전략이 없으면 품질과 신뢰성을 동시에 잃을 수 있었습니다.",
         ],
         approach: [
           "멀티 모듈 구조로 API/워커를 분리 배포하고, Kafka partition key로 사용자별 순서를 보장해 안정적 처리량을 확보했습니다.",
           "Kafka lag 기반 오토스케일링과 retry·circuit breaker를 조합해 외부 LLM 장애를 격리·복구했습니다.",
           "Gemini 선배포와 LLM Provider 추상화를 적용해 장애·정책 변경 시 빠르게 전환 가능한 기반을 만들었습니다.",
-          "런칭 후 1주일 안에 IAP 구독 모델을 붙이고, Langgraph로 워커를 재설계해 고도화했습니다.",
+          "런칭 후 1주일 안에 IAP 구독 모델을 구현하고, Langgraph로 워커를 재설계해 고도화했습니다.",
         ],
         result: [
           "**6주 데드라인을 4주로 단축**해 **170개국 글로벌 런칭**을 완료했습니다.",
@@ -104,13 +103,13 @@ export const resumeData: MultiLanguageResumeData = {
           "수작업 중심 3D 파이프라인은 기존 모델 관리와 신규 생성 모두에서 처리량 한계와 품질 편차가 컸습니다.",
         ],
         approach: [
-          "저장→최적화→배포를 상태 머신으로 자동화하고, stateless 워커와 DB 기반 진행 관리로 장애 복구와 확장을 정비했습니다.",
-          "반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 소거해 품질 편차를 억제했습니다.",
+          "저장→최적화→배포를 상태 머신으로 자동화하고, stateless 워커와 DB 기반 진행 관리로 장애 복구와 확장이 가능하도록 설계했습니다.",
+          "반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였습니다.",
           "3D 프리뷰·AR/Room Planner 연동 운영 대시보드를 만들어 배포 전후 검수 흐름을 엔지니어 의존 없이 운영했습니다.",
           "12개 이미지 품질 기준에 GPT-4o 점수를 반영해 우수 이미지만 선별, 3D 모델 생성까지 E2E 자동화했습니다.",
         ],
         result: [
-          "GPU 20% 감소, 파일 크기 51% 축소로 운영 효율을 높여 **연간 40일 이상 절감** 및 **Top Contributor** 선정으로 이어졌습니다.",
+          "GPU 20% 감소, 파일 크기 51% 축소로 **연간 40일 이상** 운영 시간을 절감했습니다. 해당 성과로 **Top Contributor**에 선정되었습니다.",
           "생산량 **1,176% 증가**, 비용 **88% 절감**으로 **Eng Award**를 받았습니다.",
         ],
       },
@@ -121,7 +120,7 @@ export const resumeData: MultiLanguageResumeData = {
           "이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
         ],
         approach: [
-          "**LRU 캐시 메모리 관리**로 3D 모델의 메모리 회수·재사용을 제어했습니다.",
+          "**LRU 캐시**로 3D 모델의 메모리 회수·재사용 주기를 관리했습니다.",
           "**LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2MB**를 달성했습니다.",
           "데이터 구조와 호출 로직을 개선해 RP API 지연을 **200ms→80ms(60%)**로 단축했습니다.",
           "Kafka 연동 커스텀 메트릭 기반 **HPA**와 **graceful termination**으로 스케일링 안정성을 확보했습니다.",
@@ -160,10 +159,10 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Launched an AI interior service to **170 countries** by reducing a **6-week deadline to 4 weeks**. Separately, automated 3D model production to raise output **12x** and cut cost **88%**, earning the **Eng Award**.",
+      "Launched an AI interior service to **170 countries** by reducing a **6-week deadline to 4 weeks**. Also automated 3D model production to raise output **12x** and cut cost **88%**, earning the **Eng Award**.",
       "Led AI/3D backend from launch through stabilization and scaling with **99.95% availability** during **10.2x traffic**.",
       "Delivered **704% WAU growth**, **600% annual GMV**, **27%** operational efficiency improvement, and **40+ days annually** of saved effort.",
-      "Through automation of release notes, stronger unit tests, and load-testing standards, AI practices became team standard, and I removed BE/FE/ML/infrastructure bottlenecks to stay a **Top Contributor**.",
+      "Through automation of release notes, stronger unit tests, and load-testing standards, AI practices became team standard, and I removed BE/FE/ML/infrastructure bottlenecks, earning **Top Contributor** each quarter.",
     ].join(" "),
     experience: [
       {
@@ -172,12 +171,11 @@ export const resumeData: MultiLanguageResumeData = {
         period: "Aug 2022 – Present",
         description: [
           "Led AI/3D backend architecture design, build, and operations.",
-          "  **Ohouse AI**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Isolated LLM failures with an **async worker pool + circuit breaker**, and built country-level feature flags with remote config for no-redeploy experimentation.",
+          "  **Ohouse AI**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Isolated LLM failures with an **async worker pool + circuit breaker**. Built country-level feature flags with remote config for no-redeploy experimentation.",
           "  **Ohouse AI Monetization**: Unified iOS/Google IAP events via a state machine for subscription consistency, achieved affiliate **CVR 10.5%**, and validated **CAC below LTV**.",
           "  **3D Interior Design Service**: Performance optimization drove **704% WAU growth** and **600% annual GMV (₩860M)**, sustaining **99.95% availability** at **10.2x traffic**.",
           "  **Image-to-3D Automation**: Automated the manual pipeline end-to-end, raising monthly output from **68→800** and cutting cost by **88%**, earning the **Eng Award**.",
-          "  **Org Impact**: Led onboarding/technical guidance for FE 3 and BE 1; guided system structure with ML 3 in PAR. Completed the company's first Spring Boot 3 migration and shared troubleshooting guides adopted by other teams.",
-          "  **AI Native Culture**: Automated release notes, established load-testing guidelines, and improved shared deployment tooling, earning **AI Native MVP** and **AI Award**.",
+          "  **Org Impact**: Led onboarding for FE 3 and BE 1, guided ML 3 system structure in PAR, and completed the company's first Spring Boot 3 migration. Automated release notes, load-testing guides, and deployment tooling, earning **AI Native MVP** and **AI Award**.",
         ],
       },
       {
@@ -211,7 +209,7 @@ export const resumeData: MultiLanguageResumeData = {
           "Added IAP within one week after launch and redesigned workers with Langgraph for monetization and workflow scalability.",
         ],
         result: [
-          "**6-week deadline to 4 weeks**: completed global launch across **170 countries**.",
+          "Reduced a **6-week deadline to 4 weeks** and completed global launch across **170 countries**.",
           "Maintained service continuity under uneven traffic with queue control and failure isolation.",
           "Built a revenue and scaling path by validating subscription in one week and redesigning workers.",
         ],
@@ -254,7 +252,7 @@ export const resumeData: MultiLanguageResumeData = {
           "A manual 3D pipeline was limiting throughput and quality consistency across existing model updates and new model creation.",
         ],
         approach: [
-          "Automated storage → optimization → deployment with a state machine and backed workers with DB-based progress tracking for recovery and scaling.",
+          "Automated storage → optimization → deployment with a state machine and paired workers with DB-based progress tracking for recovery and scaling.",
           "Used repeated experiments and fallback logic to lock in stable quality while reducing edge-case variance.",
           "Built an ops dashboard with 3D preview + AR/Room Planner integration to run release and operational checks without specialist dependence.",
           "Scored images across **12 criteria** with GPT-4o, automatically selected the best candidates, then generated 3D models end-to-end.",
@@ -279,7 +277,7 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         result: [
           "Achieved **no incidents** during event/challenge traffic surges.",
-          "Resolved initial loading bottleneck: API **200ms→80ms**, payload **54%** reduction, model **90%** lightweighting.",
+          "Resolved initial loading bottleneck — API latency **200ms→80ms**, payload **54%** smaller, model **90%** lighter.",
         ],
       },
     ],
