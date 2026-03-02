@@ -32,6 +32,8 @@ interface ResumeTemplateProps {
   isPrintPreview?: boolean
 }
 
+const RESUME_VERSION = "v1.0.0"
+
 // Helper function to render text with **text** as bold
 const renderWithBold = (text: string) => {
   if (!text) return null
@@ -476,6 +478,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-6 pt-2 text-right border-t border-gray-100">
+            <p className="text-xs text-gray-400 print:text-[8pt]">{RESUME_VERSION}</p>
           </div>
         </div>
       </Card>
