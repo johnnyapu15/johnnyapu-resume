@@ -42,11 +42,10 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "AI 인테리어 서비스를 4주 만에 170개국에 런칭하고, 3D 모델 제작 자동화로 생산량 12배 / 비용 88% 절감을 달성하여 **Eng Award**를 수상한 백엔드 엔지니어입니다.",
-      "AI/3D 서비스의 백엔드 아키텍처를 런칭부터 안정화, 확장까지 E2E로 설계·운영해왔습니다.",
-      "기술적 완성도뿐 아니라 비즈니스 맥락에서 실용적인 문제를 해결하여 **WAU 704%** 성장, **연간 GMV 600%** 달성에 기여해왔습니다.",
-      "자동화 파이프라인으로 운영 효율 27% 향상, 연간 40일 절감 등 생산성에 기여하며 매 분기 **Top Contributor**에 선정되었고, 필요할 때는 BE/FE/ML/인프라를 넘나들며 조직의 병목을 직접 해소했습니다.",
-      "AI 도구를 적극 활용하여 팀의 개발 프로세스를 개선하고 AI 활용 문화를 확산시켜 **AI Native MVP** 및 **AI Award**를 수상했습니다.",
+      "AI 인테리어 서비스를 **6주 데드라인을 4주로 단축**해 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량 12배·비용 **88%** 절감을 달성해 **Eng Award**를 받았습니다.",
+      "AI/3D 백엔드의 런칭·안정화·확장을 E2E로 주도해 트래픽 **10.2배** 상황에서도 **99.95% 가용성**을 유지했습니다.",
+      "성과로 **WAU 704% 성장**, **연간 GMV 600%**, 운영 효율 **27%** 개선 및 **40일 이상** 절감 성과를 만들었습니다.",
+      "릴리즈 자동화, Unit Test 고도화, 부하 테스트 정착으로 AI 활용을 팀 표준으로 확산하고, 필요 시 BE/FE/ML/인프라 병목을 직접 해소해 **매 분기 Top Contributor**가 되었습니다.",
     ].join(" "),
     experience: [
       {
@@ -54,11 +53,13 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "2022년 8월 - 현재",
         description: [
-          "백엔드 아키텍처 설계·구축·운영을 리드하며, AI/3D 도메인의 핵심 시스템을 담당",
-          "  **AI 기반 인테리어 서비스**: 6주 데드라인을 **4주로 단축하여 170개국 글로벌 런칭**. Gemini 선배포 및 LLM Provider 전환 구조 설계. 이후 IAP 구독 모델과 Langgraph 기반 워커 재설계로 수익화 및 확장성 확보.",
-          "  **3D 인테리어 디자인 서비스**: **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여. 트래픽 **10.2배** 증가에도 **99.95% 가용성** 확보. 현재 전사 AI Agent의 핵심 클라이언트로 확장 중.",
-          "  **Image-to-3D 자동화**: 수작업 기반 3D 제작의 생산량 한계를 돌파. **생산량 12배 증가**, **비용 88% 절감**으로 **Eng Award** 수상.",
-          "  **AI Native 문화 선도**: 릴리즈 노트 자동 생성, Unit Test 고도화, 부하 테스트 설계 가이드 수립 등으로 팀의 AI 활용 문화 확산. AI Native MVP 및 AI Award 수상.",
+          "AI/3D 도메인 백엔드 아키텍처 설계·구축·운영을 리드했습니다.",
+          "  **Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭. **비동기 워커 풀 + circuit breaker**로 LLM 장애를 격리하고, 국가별 feature flag와 remote config로 무배포 실험 체계를 구축했습니다.",
+          "  **Ohouse AI 수익화**: iOS/Google IAP 이벤트를 상태 머신으로 통합해 구독 정합성을 확보하고, 제휴 상품 **CVR 10.5%** 달성 및 **CAC < LTV**를 검증했습니다.",
+          "  **3D 인테리어 디자인 서비스**: 성능 최적화로 **WAU 704%** 성장, **연간 GMV 600%(8.6억)** 달성. **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
+          "  **Image-to-3D 자동화**: 수작업 파이프라인을 E2E 자동화해 월 생산량 **68→800**, **비용 88%** 절감으로 **Eng Award**를 수상했습니다.",
+          "  **조직 기여**: FE 3명·BE 1명 온보딩을 주도하고 PAR에서 ML 3명과 시스템 구조를 가이드했습니다. 전사 최초 Spring Boot 3 마이그레이션 완료 후 트러블슈팅 가이드를 타 팀 레퍼런스로 공유했습니다.",
+          "  **AI Native 문화**: 릴리즈 노트 자동화, 부하 테스트 가이드 정착, 공통 배포 도구 개선으로 **AI Native MVP**와 **AI Award**를 수상했습니다.",
         ],
       },
       {
@@ -80,37 +81,55 @@ export const resumeData: MultiLanguageResumeData = {
     ],
     keyExperience: [
       {
-        name: "AI 인테리어 서비스 런칭 및 고도화",
+        name: "Ohouse AI 런칭 및 고도화",
         problem: [
-          "6주 안에 글로벌 런칭이 필요했고, 외부 LLM의 불안정성으로 서비스 장애 위험이 있었습니다.",
-          "멀티턴 요청 특성상 사용자별 순서 보장과 재시도/우회가 필요했습니다.",
+          "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM 불안정성 때문에 장애 위험이 컸습니다.",
+          "멀티턴 요청 특성상 사용자별 순서 보장과 재시도/우회 전략이 없으면 품질과 신뢰성을 동시에 잃을 수 있었습니다.",
         ],
         approach: [
-          "멀티 모듈 구조로 API, 워커를 분리 배포하고, Kafka 파티션 키로 사용자별 순서를 보장하며 Kafka lag 기반 오토스케일링으로 안정적인 처리량을 유지했습니다.",
-          "Retry, Circuit Breaker로 LLM API 장애를 격리하고, LLM Provider 추상화로 4주 만에 런칭했습니다.",
-          "런칭 이후 IAP 구독 모델을 일주일 만에 구축하여 수익화 기반을 마련했습니다.",
-          "Langgraph로 워커를 재설계하고 RAG 기반 제휴 상품 추천을 구현하여 서비스를 고도화했습니다.",
+          "멀티 모듈 구조로 API/워커를 분리 배포하고, Kafka partition key로 사용자별 순서를 보장해 안정적 처리량을 확보했습니다.",
+          "Kafka lag 기반 오토스케일링과 retry·circuit breaker를 조합해 외부 LLM 장애를 격리·복구했습니다.",
+          "Gemini 선배포와 LLM Provider 추상화를 적용해 장애·정책 변경 시 빠르게 전환 가능한 기반을 만들었습니다.",
+          "런칭 후 1주일 안에 IAP 구독 모델을 붙이고, Langgraph로 워커를 재설계해 고도화했습니다.",
         ],
         result: [
-          "4주 만에 **170개국 글로벌 런칭**을 완료했습니다.",
-          "외부 LLM 장애 상황에서도 안정적으로 처리하고, LLM Provider 추상화 구조로 빠르게 신규 LLM API에 대응할 수 있었습니다.",
-          "구독 모델 검증과 워커 재설계로 수익화 기반을 마련하고 시스템 안정성을 높였습니다.",
+          "**6주 데드라인을 4주로 단축**해 **170개국 글로벌 런칭**을 완료했습니다.",
+          "예측 불가 트래픽 환경에서도 오토스케일링과 장애 격리 설계로 중단 없는 운영을 유지했습니다.",
+          "IAP 검증과 워커 재설계로 수익화·확장성을 동시에 확보했습니다.",
         ],
       },
       {
-        name: "3D 파이프라인 자동화",
+        name: "Image-to-3D 자동화",
         problem: [
-          "수작업 기반 3D 파이프라인은 기존 모델의 관리·최적화와 신규 모델 생성 모두 한계에 부딪혀 있었습니다.",
+          "수작업 중심 3D 파이프라인은 기존 모델 관리와 신규 생성 모두에서 처리량 한계와 품질 편차가 컸습니다.",
         ],
         approach: [
-          "상태 머신으로 저장→최적화→배포를 자동화하고, stateless 워커와 DB 기반 진행 관리로 장애 복구와 확장이 가능하게 했습니다.",
-          "반복 실험으로 최적 파라미터를 찾고, fallback 로직으로 예외 케이스에 대응해 품질을 유지했습니다.",
-          "운영 전용 대시보드(3D 프리뷰, AR/Room Planner 연동)를 만들어 엔지니어 의존을 제거했습니다.",
-          "GPT-4o로 12개 기준의 이미지 품질 점수화 → 3D 모델 생성까지 E2E 자동화 파이프라인을 구축했습니다.",
+          "저장→최적화→배포를 상태 머신으로 자동화하고, stateless 워커와 DB 기반 진행 관리로 장애 복구와 확장을 정비했습니다.",
+          "반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 소거해 품질 편차를 억제했습니다.",
+          "3D 프리뷰·AR/Room Planner 연동 운영 대시보드를 만들어 배포 전후 검수 흐름을 엔지니어 의존 없이 운영했습니다.",
+          "12개 이미지 품질 기준에 GPT-4o 점수를 반영해 우수 이미지만 선별, 3D 모델 생성까지 E2E 자동화했습니다.",
         ],
         result: [
-          "GPU 20%↓, 파일 크기 51%↓, **연간 40일 이상 절감** → **Top Contributor** 선정.",
-          "생산량 **1,176%↑**, 비용 **88%↓** → **Eng Award** 수상.",
+          "GPU 20% 감소, 파일 크기 51% 축소로 운영 효율을 높여 **연간 40일 이상 절감** 및 **Top Contributor** 선정으로 이어졌습니다.",
+          "생산량 **1,176% 증가**, 비용 **88% 절감**으로 **Eng Award**를 받았습니다.",
+        ],
+      },
+      {
+        name: "Room Planner 성능 안정성 강화",
+        problem: [
+          "모바일 3D 서비스 특성상 초기 로딩 지연이 사용자 이탈로 직결되어 성장의 가장 큰 병목이었습니다.",
+          "이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
+        ],
+        approach: [
+          "**LRU 캐시 메모리 관리**로 3D 모델의 메모리 회수·재사용을 제어했습니다.",
+          "**LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2MB**를 달성했습니다.",
+          "데이터 구조와 호출 로직을 개선해 RP API 지연을 **200ms→80ms(60%)**로 단축했습니다.",
+          "Kafka 연동 커스텀 메트릭 기반 **HPA**와 **graceful termination**으로 스케일링 안정성을 확보했습니다.",
+          "부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증해 장애를 선제 차단했습니다.",
+        ],
+        result: [
+          "이벤트/챌린지 트래픽 급증 구간에서 **무사건(no incidents)** 운영을 달성했습니다.",
+          "API **200ms→80ms**, payload **54%** 절감, 모델 **90%** 경량화로 초기 로딩 병목을 해소했습니다.",
         ],
       },
     ],
@@ -141,11 +160,10 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Backend engineer who launched an AI interior service to 170 countries in 4 weeks and achieved 12x production increase / 88% cost reduction through 3D model automation, receiving the **Eng Award**.",
-      "Designed and operated AI/3D service backend architectures end-to-end — from launch to stabilization and scaling.",
-      "Delivered business impact by solving practical problems beyond technical excellence, contributing to **704% WAU** growth and **600% annual GMV** increase.",
-      "Consistently contributed to productivity — 27% operational efficiency improvement, 40 person-days saved annually — earning **Top Contributor** every quarter, while working across BE/FE/ML/infrastructure to remove organizational bottlenecks.",
-      "Actively leveraged AI tools to improve team development processes and spread AI adoption culture, receiving **AI Native MVP** and **AI Award**.",
+      "Launched an AI interior service to **170 countries** by reducing a **6-week deadline to 4 weeks**. Separately, automated 3D model production to raise output **12x** and cut cost **88%**, earning the **Eng Award**.",
+      "Led AI/3D backend from launch through stabilization and scaling with **99.95% availability** during **10.2x traffic**.",
+      "Delivered **704% WAU growth**, **600% annual GMV**, **27%** operational efficiency improvement, and **40+ days annually** of saved effort.",
+      "Through automation of release notes, stronger unit tests, and load-testing standards, AI practices became team standard, and I removed BE/FE/ML/infrastructure bottlenecks to stay a **Top Contributor**.",
     ].join(" "),
     experience: [
       {
@@ -153,11 +171,13 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "Led backend architecture design, implementation, and operations across AI and 3D domains.",
-          "  **AI-based Interior Service**: Delivered a **170-country global launch in 4 weeks**, 2 weeks ahead of the 6-week deadline. Built Gemini pre-deployment and switchable LLM provider architecture. Post-launch: implemented IAP subscription model and Langgraph-based worker redesign for monetization and scalability.",
-          "  **3D Interior Design Service**: Drove **704% WAU** growth and **600% annual GMV (₩860M)**. Maintained **99.95% availability** under **10.2x** traffic. Currently extending as a core client for the company-wide AI Agent.",
-          "  **Image-to-3D Automation**: Overcame production limits of manual 3D creation. **12x production increase** and **88% cost reduction**, earning the **Eng Award**.",
-          "  **AI Native Culture**: Automated release notes, enhanced unit testing, and established load testing guidelines to spread AI adoption across the team. Received AI Native MVP and AI Award.",
+          "Led AI/3D backend architecture design, build, and operations.",
+          "  **Ohouse AI**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Isolated LLM failures with an **async worker pool + circuit breaker**, and built country-level feature flags with remote config for no-redeploy experimentation.",
+          "  **Ohouse AI Monetization**: Unified iOS/Google IAP events via a state machine for subscription consistency, achieved affiliate **CVR 10.5%**, and validated **CAC below LTV**.",
+          "  **3D Interior Design Service**: Performance optimization drove **704% WAU growth** and **600% annual GMV (₩860M)**, sustaining **99.95% availability** at **10.2x traffic**.",
+          "  **Image-to-3D Automation**: Automated the manual pipeline end-to-end, raising monthly output from **68→800** and cutting cost by **88%**, earning the **Eng Award**.",
+          "  **Org Impact**: Led onboarding/technical guidance for FE 3 and BE 1; guided system structure with ML 3 in PAR. Completed the company's first Spring Boot 3 migration and shared troubleshooting guides adopted by other teams.",
+          "  **AI Native Culture**: Automated release notes, established load-testing guidelines, and improved shared deployment tooling, earning **AI Native MVP** and **AI Award**.",
         ],
       },
       {
@@ -179,21 +199,21 @@ export const resumeData: MultiLanguageResumeData = {
     ],
     keyExperience: [
       {
-        name: "AI Interior Service: Launch and Evolution",
+        name: "Ohouse AI: Launch and Evolution",
         problem: [
-          "Needed to launch globally within 6 weeks, but external LLM instability risked service outages.",
-          "Multi-turn flows required per-user ordering and reliable retry/fallback handling.",
+          "A global launch was required within **6 weeks**, but instability in external LLM APIs created outage risk.",
+          "Multi-turn generation required strict per-user ordering and robust retry/fallback behavior to avoid quality and reliability loss.",
         ],
         approach: [
-          "Deployed API and workers separately using multi-module structure, ensured per-user ordering with Kafka partition keys, and maintained stable throughput with Kafka lag-based auto-scaling.",
-          "Isolated LLM API failures with retry and circuit breaker patterns, and launched in 4 weeks with LLM provider abstraction.",
-          "Post-launch: built IAP subscription model in one week to establish monetization foundation.",
-          "Redesigned workers with Langgraph and implemented RAG-based affiliate product recommendations to evolve the service.",
+          "Used a multi-module split of APIs and workers, then enforced per-user order with Kafka partition keys to stabilize throughput.",
+          "Combined Kafka lag-based auto-scaling with retry/circuit-breaker handling to isolate and recover from external LLM failures.",
+          "Added Gemini pre-deployment and LLM-provider abstraction so provider or policy changes could be applied quickly.",
+          "Added IAP within one week after launch and redesigned workers with Langgraph for monetization and workflow scalability.",
         ],
         result: [
-          "Launched to **170 countries in 4 weeks**.",
-          "Handled external LLM failures stably and adapted quickly with provider switching.",
-          "Validated subscription model and improved system stability through worker redesign.",
+          "**6-week deadline to 4 weeks**: completed global launch across **170 countries**.",
+          "Maintained service continuity under uneven traffic with queue control and failure isolation.",
+          "Built a revenue and scaling path by validating subscription in one week and redesigning workers.",
         ],
         detail: {
           situation: [
@@ -229,19 +249,37 @@ export const resumeData: MultiLanguageResumeData = {
         },
       },
       {
-        name: "3D Pipeline Automation",
+        name: "Image-to-3D Automation",
         problem: [
-          "The manual 3D pipeline had hit its limits — both managing existing models and producing new ones.",
+          "A manual 3D pipeline was limiting throughput and quality consistency across existing model updates and new model creation.",
         ],
         approach: [
-          "Automated storage → optimization → deployment with a state machine. Stateless workers with DB-based progress tracking for failure recovery and scaling.",
-          "Found optimal parameters through repeated experiments and used fallback logic for edge cases to maintain quality.",
-          "Built an ops dashboard (3D preview, AR/Room Planner integration) to remove engineer dependency.",
-          "Built an E2E pipeline: GPT-4o scores images across 12 criteria → auto-selects best photo → generates 3D model.",
+          "Automated storage → optimization → deployment with a state machine and backed workers with DB-based progress tracking for recovery and scaling.",
+          "Used repeated experiments and fallback logic to lock in stable quality while reducing edge-case variance.",
+          "Built an ops dashboard with 3D preview + AR/Room Planner integration to run release and operational checks without specialist dependence.",
+          "Scored images across **12 criteria** with GPT-4o, automatically selected the best candidates, then generated 3D models end-to-end.",
         ],
         result: [
-          "GPU 20%↓, file size 51%↓, **40+ person-days saved annually** → **Top Contributor**.",
-          "Production **1,176%↑**, cost **88%↓** → **Eng Award**.",
+          "Reduced GPU use by **20%**, file size by **51%**, and saved **40+ person-days annually**, contributing to **Top Contributor** selection.",
+          "Raised production **1,176%** and reduced cost **88%**, winning the **Eng Award**.",
+        ],
+      },
+      {
+        name: "Room Planner Performance and Reliability",
+        problem: [
+          "Initial loading delay in mobile 3D directly caused user drop-off, making it the biggest bottleneck for growth.",
+          "Event/challenge traffic spikes required handling without task loss or incidents.",
+        ],
+        approach: [
+          "Applied **LRU cache memory management** to control 3D model retention and reuse.",
+          "Combined **LoD auto-generation** with mesh simplification for **90% lightweighting** and payload reduction from **5MB to 2MB**, with minimal quality loss.",
+          "Optimized data structures and call logic to reduce RP API latency from **200ms to 80ms (60%)**.",
+          "Enabled Kafka-linked custom-metric **HPA** with **graceful termination** for scaling stability.",
+          "Validated event/challenge spike scenarios through load testing to preemptively prevent incidents.",
+        ],
+        result: [
+          "Achieved **no incidents** during event/challenge traffic surges.",
+          "Resolved initial loading bottleneck: API **200ms→80ms**, payload **54%** reduction, model **90%** lightweighting.",
         ],
       },
     ],
