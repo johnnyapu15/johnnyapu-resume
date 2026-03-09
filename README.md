@@ -33,3 +33,24 @@ The project is live at:
 ## How to Use
 
 To view the resume, simply visit the deployment link above. You can switch languages and print the resume directly from the page.
+
+## PDF Check
+
+This project is optimized for PDF submission, so browser layout alone is not enough to validate print results.
+
+Use the command below to verify the actual print-oriented output:
+
+```bash
+npm run pdf:check
+```
+
+It will:
+
+- build the app
+- start a local production server
+- export print PDFs to `artifacts/print/`
+
+Generated files:
+
+- `artifacts/print/resume-summary.pdf`
+- `artifacts/print/resume-detail.pdf`

@@ -32,8 +32,6 @@ interface ResumeTemplateProps {
   isPrintPreview?: boolean
 }
 
-const RESUME_VERSION = "v1.0.0"
-
 // Helper function to render text with **text** as bold
 const renderWithBold = (text: string) => {
   if (!text) return null
@@ -59,6 +57,31 @@ const getIndentedBulletClass = (desc: string) => {
   if (desc.startsWith("  ")) return "ml-8 text-gray-600"
   if (desc.startsWith(" ")) return "ml-4 text-gray-600"
   return ""
+}
+
+const renderSectionParagraphs = (items: string[]) => {
+  const paragraphs: string[] = []
+  let current = ""
+
+  items.forEach(item => {
+    const trimmed = item.trim()
+    if (!trimmed) return
+
+    if (item.startsWith("  ")) {
+      if (current) paragraphs.push(current)
+      paragraphs.push(trimmed)
+      current = ""
+      return
+    }
+
+    current = current ? `${current} ${trimmed}` : trimmed
+  })
+
+  if (current) paragraphs.push(current)
+
+  return paragraphs.map((paragraph, i) => (
+    <p key={i}>{renderWithBold(paragraph)}</p>
+  ))
 }
 
 // Helper component for rendering a skill category
@@ -247,23 +270,17 @@ const KeyExperienceSection = ({
               <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
                 <div className="space-y-1 text-gray-700">
-                  {exp.problem.map((item, j) => (
-                    <p key={j}>{renderWithBold(item)}</p>
-                  ))}
+                  {renderSectionParagraphs(exp.problem)}
                 </div>
 
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].approach}</strong>
                 <div className="space-y-1 text-gray-700">
-                  {exp.approach.map((item, j) => (
-                    <p key={j}>{renderWithBold(item)}</p>
-                  ))}
+                  {renderSectionParagraphs(exp.approach)}
                 </div>
 
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].result}</strong>
                 <div className="space-y-1 text-gray-700">
-                  {exp.result.map((item, j) => (
-                    <p key={j}>{renderWithBold(item)}</p>
-                  ))}
+                  {renderSectionParagraphs(exp.result)}
                 </div>
               </div>
             </div>
@@ -333,7 +350,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           <div className="flex flex-col md:flex-row md:justify-between md:items-center">
             <div className="mb-4 md:mb-0">
               <h1 className="text-3xl font-bold mb-1">{data.personalInfo.name}</h1>
-              <p className="text-leather-100 text-base">{data.personalInfo.position}</p>
+              <p className="text-leather-100 text-base print:hidden">{data.personalInfo.position}</p>
             </div>
             
             <div className="flex flex-col md:flex-row md:items-center gap-3 text-leather-50 text-sm">
@@ -478,10 +495,6 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="mt-6 pt-2 text-right border-t border-gray-100">
-            <p className="text-xs text-gray-400 print:text-[8pt]">{RESUME_VERSION}</p>
           </div>
         </div>
       </Card>
