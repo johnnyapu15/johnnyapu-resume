@@ -42,10 +42,10 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "**6주 데드라인을 4주로 단축**해 AI 인테리어 서비스를 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량 12배·비용 **88%** 절감을 이끌어 **Eng Award**를 받았습니다.",
-      "AI/3D 백엔드의 런칭·안정화·확장을 E2E로 주도해 트래픽 **10.2배** 상황에서도 **99.95% 가용성**을 유지했습니다.",
-      "**WAU 704%** 성장, **연간 GMV 600%**, 운영 효율 **27%** 개선, **연간 40일 이상** 절감에 기여했습니다.",
-      "릴리즈 자동화·부하 테스트 가이드·공통 배포 도구 등 팀 생산성 개선을 주도하고, 필요 시 BE/FE/ML/인프라 병목을 직접 해소해 **매 분기 Top Contributor**로 선정되었습니다.",
+      "AI/3D 도메인의 백엔드 아키텍처를 런칭부터 확장까지 맡아온 엔지니어입니다. **6주 데드라인을 4주로 단축**해 AI 인테리어 서비스를 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량을 12배 늘리며 비용을 **88%** 절감해 **Eng Award**를 받았습니다.",
+      "트래픽이 **10.2배**로 늘어난 상황에서도 **99.95% 가용성**을 유지했고, 성능 최적화를 통해 **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여했습니다.",
+      "자동화 파이프라인으로 운영 효율 **27%** 개선과 **연간 40일 이상**의 운영 시간을 절감했습니다.",
+      "필요할 때는 BE/FE/ML/인프라를 넘나들며 조직의 병목을 직접 해소했고, 릴리즈 자동화와 부하 테스트 정착 등으로 팀 생산성을 끌어올려 **매 분기 Top Contributor**로 선정되었습니다.",
     ].join(" "),
     experience: [
       {
@@ -54,11 +54,12 @@ export const resumeData: MultiLanguageResumeData = {
         period: "2022년 8월 - 현재",
         description: [
           "AI/3D 도메인 백엔드 아키텍처 설계·구축·운영을 리드했습니다.",
-          "  **Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국**에 글로벌 런칭했습니다. **비동기 워커 풀 + circuit breaker**로 LLM 장애를 격리하고, 국가별 feature flag와 remote config로 무배포 실험 체계를 구축했습니다.",
-          "  **Ohouse AI 수익화**: iOS/Google IAP 이벤트를 상태 머신으로 통합해 구독 정합성을 확보하고, 제휴 상품 **CVR 10.5%**를 달성하고 **CAC < LTV**를 검증했습니다.",
+          "  **Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. **비동기 워커 풀 + circuit breaker**로 LLM 장애를 격리하고, 국가별 feature flag와 remote config로 무배포 실험 체계를 만들었습니다.",
+          "  **Ohouse AI 수익화**: iOS/Google IAP 이벤트를 상태 머신으로 통합해 구독 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성하며 **CAC < LTV**를 검증했습니다.",
           "  **3D 인테리어 디자인 서비스**: 로딩 성능·안정성 개선을 통해 **WAU 704%** 성장, **연간 GMV 600%(8.6억)** 달성에 기여했습니다. **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
           "  **Image-to-3D 자동화**: 수작업 파이프라인을 E2E 자동화해 월 생산량 **68→800**, **비용 88%** 절감으로 **Eng Award**를 수상했습니다.",
-          "  **조직 기여**: FE 3·BE 1 온보딩, PAR에서 ML 3명 시스템 구조 가이드, 전사 최초 Spring Boot 3 마이그레이션을 주도했습니다. 릴리즈 자동화·부하 테스트 가이드·배포 도구 개선 등으로 **AI Native MVP**와 **AI Award**를 수상했습니다.",
+          "  **조직 기여**: FE 3명·BE 1명 온보딩을 리드했고, PAR(Performance Architecture Review)에서 ML 3명과 시스템 구조를 함께 설계했습니다.",
+          "  **운영/생산성 개선**: 전사 최초 Spring Boot 3 마이그레이션을 주도해 트러블슈팅 가이드를 타 팀과 공유했습니다. 릴리즈 자동화·unit test 보강·부하 테스트 가이드·배포 도구 개선으로 운영 효율 **27%**를 개선했고, **AI Native MVP**와 **AI Award**를 받았습니다.",
         ],
       },
       {
@@ -66,8 +67,8 @@ export const resumeData: MultiLanguageResumeData = {
         position: "System & Solution Programming Consultant",
         period: "2020년 1월 - 2022년 7월",
         description: [
-          "Node.js · Redis 기반 **실시간 싱크 서버 아키텍처**를 설계하고, 다수 동시 접속 환경에서 안정적으로 운영.",
-          "GitLab/Jenkins CI/CD 파이프라인으로 빌드·테스트 자동화 및 배포 리드타임 단축.",
+          "Node.js · Redis 기반 **실시간 싱크 서버 아키텍처**를 설계하고, 다수 동시 접속 환경에서 안정적으로 운영했습니다.",
+          "GitLab/Jenkins CI/CD 파이프라인으로 빌드·테스트를 자동화하고 배포 리드타임을 단축했습니다.",
         ],
       },
       // BlackTangerine (Side-project) - removed for 1-page resume
@@ -109,8 +110,8 @@ export const resumeData: MultiLanguageResumeData = {
           "12개 이미지 품질 기준에 GPT-4o 점수를 반영해 우수 이미지만 선별, 3D 모델 생성까지 E2E 자동화했습니다.",
         ],
         result: [
-          "GPU 20% 감소, 파일 크기 51% 축소로 **연간 40일 이상** 운영 시간을 절감했습니다. 해당 성과로 **Top Contributor**에 선정되었습니다.",
-          "생산량 **1,176% 증가**, 비용 **88% 절감**으로 **Eng Award**를 받았습니다.",
+          "GPU **20%** 감소, 파일 크기 **51%** 축소로 **연간 40일 이상** 운영 시간을 절감했습니다. 해당 성과로 **Top Contributor**에 선정되었습니다.",
+          "생산량을 **약 12배** 늘리고 비용을 **88% 절감**해 **Eng Award**를 받았습니다.",
         ],
       },
       {
@@ -121,7 +122,7 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         approach: [
           "**LRU 캐시**로 3D 모델의 메모리 회수·재사용 주기를 관리했습니다.",
-          "**LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2MB**를 달성했습니다.",
+          "**LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2.3MB**를 달성했습니다.",
           "데이터 구조와 호출 로직을 개선해 RP API 지연을 **200ms→80ms(60%)**로 단축했습니다.",
           "Kafka 연동 커스텀 메트릭 기반 **HPA**와 **graceful termination**으로 스케일링 안정성을 확보했습니다.",
           "부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증해 장애를 선제 차단했습니다.",
@@ -159,10 +160,10 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Launched an AI interior service to **170 countries** by reducing a **6-week deadline to 4 weeks**. Also automated 3D model production to raise output **12x** and cut cost **88%**, earning the **Eng Award**.",
-      "Led AI/3D backend from launch through stabilization and scaling with **99.95% availability** during **10.2x traffic**.",
-      "Delivered **704% WAU growth**, **600% annual GMV**, **27%** operational efficiency improvement, and **40+ days annually** of saved effort.",
-      "Through automation of release notes, stronger unit tests, and load-testing standards, AI practices became team standard, and I removed BE/FE/ML/infrastructure bottlenecks, earning **Top Contributor** each quarter.",
+      "Backend engineer who has owned AI/3D architecture from launch through scaling. Cut a **6-week deadline to 4 weeks** to launch an AI interior service across **170 countries**, and automated 3D model production to raise output **12x** while cutting cost by **88%**, earning the **Eng Award**.",
+      "Sustained **99.95% availability** even as traffic grew **10.2x**, and drove **704% WAU growth** and **600% annual GMV (₩860M)** through performance optimization.",
+      "Improved operational efficiency by **27%** and saved **40+ days annually** through automation pipelines.",
+      "Stepped across BE/FE/ML/infrastructure boundaries to unblock the organization, and raised team productivity through release automation and load-testing standards, earning **Top Contributor** each quarter.",
     ].join(" "),
     experience: [
       {
@@ -175,7 +176,8 @@ export const resumeData: MultiLanguageResumeData = {
           "  **Ohouse AI Monetization**: Unified iOS/Google IAP events via a state machine for subscription consistency, achieved affiliate **CVR 10.5%**, and validated **CAC below LTV**.",
           "  **3D Interior Design Service**: Performance optimization drove **704% WAU growth** and **600% annual GMV (₩860M)**, sustaining **99.95% availability** at **10.2x traffic**.",
           "  **Image-to-3D Automation**: Automated the manual pipeline end-to-end, raising monthly output from **68→800** and cutting cost by **88%**, earning the **Eng Award**.",
-          "  **Org Impact**: Led onboarding for FE 3 and BE 1, guided ML 3 system structure in PAR, and completed the company's first Spring Boot 3 migration. Automated release notes, load-testing guides, and deployment tooling, earning **AI Native MVP** and **AI Award**.",
+          "  **Org Impact**: Led onboarding for FE 3 and BE 1, and partnered with ML 3 in PAR (Performance Architecture Review) to shape system structure.",
+          "  **Ops/Productivity**: Led the company's first Spring Boot 3 migration and shared troubleshooting guides across teams. Improved operational efficiency by **27%** through release automation, stronger unit tests, load-testing guidelines, and shared deployment tooling, earning **AI Native MVP** and **AI Award**.",
         ],
       },
       {
@@ -259,7 +261,7 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         result: [
           "Reduced GPU use by **20%**, file size by **51%**, and saved **40+ person-days annually**, contributing to **Top Contributor** selection.",
-          "Raised production **1,176%** and reduced cost **88%**, winning the **Eng Award**.",
+          "Raised production **~12x** and reduced cost **88%**, winning the **Eng Award**.",
         ],
       },
       {
@@ -270,7 +272,7 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         approach: [
           "Applied **LRU cache memory management** to control 3D model retention and reuse.",
-          "Combined **LoD auto-generation** with mesh simplification for **90% lightweighting** and payload reduction from **5MB to 2MB**, with minimal quality loss.",
+          "Combined **LoD auto-generation** with mesh simplification for **90% lightweighting** and payload reduction from **5MB to 2.3MB**, with minimal quality loss.",
           "Optimized data structures and call logic to reduce RP API latency from **200ms to 80ms (60%)**.",
           "Enabled Kafka-linked custom-metric **HPA** with **graceful termination** for scaling stability.",
           "Validated event/challenge spike scenarios through load testing to preemptively prevent incidents.",
