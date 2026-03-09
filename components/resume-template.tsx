@@ -59,6 +59,31 @@ const getIndentedBulletClass = (desc: string) => {
   return ""
 }
 
+const renderSectionParagraphs = (items: string[]) => {
+  const paragraphs: string[] = []
+  let current = ""
+
+  items.forEach(item => {
+    const trimmed = item.trim()
+    if (!trimmed) return
+
+    if (item.startsWith("  ")) {
+      if (current) paragraphs.push(current)
+      paragraphs.push(trimmed)
+      current = ""
+      return
+    }
+
+    current = current ? `${current} ${trimmed}` : trimmed
+  })
+
+  if (current) paragraphs.push(current)
+
+  return paragraphs.map((paragraph, i) => (
+    <p key={i}>{renderWithBold(paragraph)}</p>
+  ))
+}
+
 // Helper component for rendering a skill category
 const SkillCategory = ({
   title,
@@ -245,23 +270,17 @@ const KeyExperienceSection = ({
               <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
                 <div className="space-y-1 text-gray-700">
-                  {exp.problem.map((item, j) => (
-                    <p key={j}>{renderWithBold(item)}</p>
-                  ))}
+                  {renderSectionParagraphs(exp.problem)}
                 </div>
 
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].approach}</strong>
                 <div className="space-y-1 text-gray-700">
-                  {exp.approach.map((item, j) => (
-                    <p key={j}>{renderWithBold(item)}</p>
-                  ))}
+                  {renderSectionParagraphs(exp.approach)}
                 </div>
 
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].result}</strong>
                 <div className="space-y-1 text-gray-700">
-                  {exp.result.map((item, j) => (
-                    <p key={j}>{renderWithBold(item)}</p>
-                  ))}
+                  {renderSectionParagraphs(exp.result)}
                 </div>
               </div>
             </div>
