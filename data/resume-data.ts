@@ -43,8 +43,7 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "AI/3D 도메인의 백엔드 아키텍처를 런칭부터 확장까지 맡아온 엔지니어입니다. **6주 데드라인을 4주로 단축**하며 AI 인테리어 서비스를 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량을 12배 늘리며 비용을 **88%** 절감한 성과로 **Eng Award**를 받았습니다.",
-      "트래픽이 **10.2배**로 늘어난 상황에서도 **99.95% 가용성**을 유지했고, 성능 개선과 안정적인 운영을 바탕으로 **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여했습니다.",
-      "자동화 파이프라인으로 운영 효율을 **27%** 개선하고, **연간 40일 이상**의 운영 시간을 절감했습니다.",
+      "트래픽이 **10.2배**로 늘어난 상황에서도 **99.95% 가용성**을 유지했고, **WAU 704%** 성장, **연간 GMV 600%(8.6억)**, 운영 효율 **27%** 개선, **연간 40일 이상**의 운영 시간 절감 등 다양한 비즈니스 임팩트에 기여했습니다.",
       "필요할 때는 BE/FE/ML/인프라를 넘나들며 조직의 병목을 직접 해소했고, 릴리즈 자동화와 부하 테스트 정착 등으로 팀 생산성을 끌어올렸습니다. 이런 기여를 바탕으로 **매 분기 Top Contributor**로 선정되었습니다.",
     ].join(" "),
     experience: [
@@ -192,8 +191,7 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "Backend engineer who has owned AI/3D architecture from launch through scaling. Reduced a **6-week deadline to 4 weeks** while launching an AI interior service across **170 countries**, and automated 3D model production to increase output **12x** while cutting cost by **88%**, earning the **Eng Award**.",
-      "Maintained **99.95% availability** even as traffic grew **10.2x**, and contributed to **704% WAU growth** and **600% annual GMV (₩860M)** by improving service performance and operational stability.",
-      "Through automation pipelines, improved operational efficiency by **27%** and saved **40+ days annually**.",
+      "Maintained **99.95% availability** even as traffic grew **10.2x**, and contributed to multiple business outcomes, including **704% WAU growth**, **600% annual GMV (₩860M)**, **27%** higher operational efficiency, and **40+ days saved annually**.",
       "Stepped across BE/FE/ML/infrastructure boundaries to unblock the organization, and raised team productivity through release automation and load-testing standards. Based on those contributions, was selected as **Top Contributor** each quarter.",
     ].join(" "),
     experience: [

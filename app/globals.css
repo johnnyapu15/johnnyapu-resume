@@ -63,7 +63,7 @@
 
 @media print {
   @page {
-    margin: 0.7cm;
+    margin: 0.7cm 0.45cm;
     size: A4 portrait;
   }
 
@@ -146,8 +146,14 @@
   }
 
   /* 인쇄 시 여백 조정 */
+  .print-layout-compact {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
   .print-layout-compact .p-8 {
-    padding: 1.25rem !important;
+    padding: 1rem 0.85rem !important;
   }
 
   /* 섹션 간의 하단 마진을 줄입니다. */
