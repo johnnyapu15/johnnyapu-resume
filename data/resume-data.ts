@@ -192,9 +192,9 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Backend engineer who has owned AI/3D architecture from launch through scaling. Cut a **6-week deadline to 4 weeks** to launch an AI interior service across **170 countries**, and automated 3D model production to raise output **12x** while cutting cost by **88%**, earning the **Eng Award**.",
-      "Sustained **99.95% availability** even as traffic grew **10.2x**, and drove **704% WAU growth** and **600% annual GMV (₩860M)** through performance optimization.",
-      "Improved operational efficiency by **27%** and saved **40+ days annually** through automation pipelines.",
+      "Backend engineer who has owned AI/3D architecture from launch through scaling. Reduced a **6-week deadline to 4 weeks** while launching an AI interior service across **170 countries**, and automated 3D model production to increase output **12x** while cutting cost by **88%**, earning the **Eng Award**.",
+      "Maintained **99.95% availability** even as traffic grew **10.2x**, and drove **704% WAU growth** and **600% annual GMV (₩860M)** through performance optimization.",
+      "Through automation pipelines, improved operational efficiency by **27%** and saved **40+ days annually**.",
       "Stepped across BE/FE/ML/infrastructure boundaries to unblock the organization, and raised team productivity through release automation and load-testing standards, earning **Top Contributor** each quarter.",
     ].join(" "),
     experience: [
