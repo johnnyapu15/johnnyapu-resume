@@ -153,7 +153,15 @@
   }
 
   .print-layout-compact .p-8 {
-    padding: 1rem 0.85rem !important;
+    padding: 1rem 1rem !important;
+  }
+
+  .print-layout-compact .p-4 {
+    padding: 0.8rem 0.95rem !important;
+  }
+
+  .print-layout-compact .p-6 {
+    padding: 0.7rem 1rem !important;
   }
 
   /* 섹션 간의 하단 마진을 줄입니다. */
@@ -163,8 +171,12 @@
 
   /* 제목 폰트 크기를 약간 줄입니다. */
   .print-layout-compact h2 {
-    font-size: 1.25rem !important;
-    margin-bottom: 0.75rem !important;
+    font-size: 1.12rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .print-layout-compact .pb-2 {
+    padding-bottom: 0.2rem !important;
   }
 
   /* 작은 텍스트를 더 작게 만듭니다. */

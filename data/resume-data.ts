@@ -83,18 +83,18 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI 런칭 및 고도화",
         problem: [
           "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM API 불안정성으로 서비스 중단 위험이 있었습니다.",
-          "멀티턴 요청 특성상 사용자별 순서 보장과 재시도/우회 전략이 없으면 품질과 신뢰성을 동시에 잃을 수 있었습니다.",
+          "또한 멀티턴 요청 특성상 사용자별 순서 보장과 재시도/우회 전략이 없으면 품질과 신뢰성을 동시에 잃을 수 있었습니다.",
         ],
         approach: [
           "멀티 모듈 구조로 API/워커를 분리 배포하고, Kafka partition key로 사용자별 순서를 보장해 안정적 처리량을 확보했습니다.",
-          "Kafka lag 기반 오토스케일링과 retry·circuit breaker를 조합해 외부 LLM 장애를 격리·복구했습니다.",
-          "Gemini 선배포와 LLM Provider 추상화를 적용해 장애·정책 변경 시 빠르게 전환 가능한 기반을 만들었습니다.",
-          "런칭 후 1주일 안에 IAP 구독 모델을 구현하고, Langgraph로 워커를 재설계해 고도화했습니다.",
+          "또한 Kafka lag 기반 오토스케일링과 retry·circuit breaker를 조합해 외부 LLM 장애를 격리·복구했습니다.",
+          "그리고 Gemini 선배포와 LLM Provider 추상화를 적용해 장애·정책 변경 시 빠르게 전환 가능한 기반을 만들었습니다.",
+          "런칭 후에는 1주일 안에 IAP 구독 모델을 구현하고, Langgraph로 워커를 재설계해 고도화했습니다.",
         ],
          result: [
           "**6주 데드라인을 4주로 단축**해 **170개국 글로벌 런칭**을 완료했습니다.",
-          "예측 불가 트래픽 환경에서도 오토스케일링과 장애 격리 설계로 중단 없는 운영을 유지했습니다.",
-          "IAP 검증과 워커 재설계로 수익화·확장성을 동시에 확보했습니다.",
+          "또한 예측 불가 트래픽 환경에서도 오토스케일링과 장애 격리 설계로 중단 없는 운영을 유지했습니다.",
+          "그리고 IAP 검증과 워커 재설계로 수익화·확장성을 동시에 확보했습니다.",
         ],
         detail: {
           situation: [
@@ -136,31 +136,31 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         approach: [
           "저장→최적화→배포를 상태 머신으로 자동화하고, stateless 워커와 DB 기반 진행 관리로 장애 복구와 확장이 가능하도록 설계했습니다.",
-          "반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였습니다.",
-          "3D 프리뷰·AR/Room Planner 연동 운영 대시보드를 만들어 배포 전후 검수 흐름을 엔지니어 의존 없이 운영했습니다.",
-          "12개 이미지 품질 기준에 GPT-4o 점수를 반영해 우수 이미지만 선별, 3D 모델 생성까지 E2E 자동화했습니다.",
+          "또한 반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였습니다.",
+          "그리고 3D 프리뷰·AR/Room Planner 연동 운영 대시보드를 만들어 배포 전후 검수 흐름을 엔지니어 의존 없이 운영했습니다.",
+          "또한 12개 이미지 품질 기준에 GPT-4o 점수를 반영해 우수 이미지만 선별하고, 3D 모델 생성까지 E2E 자동화했습니다.",
         ],
         result: [
           "GPU **20%** 감소, 파일 크기 **51%** 축소로 **연간 40일 이상** 운영 시간을 절감했습니다. 해당 성과로 **Top Contributor**에 선정되었습니다.",
-          "생산량을 **약 12배** 늘리고 비용을 **88% 절감**해 **Eng Award**를 받았습니다.",
+          "또한 생산량을 **약 12배** 늘리고 비용을 **88% 절감**해 **Eng Award**를 받았습니다.",
         ],
       },
       {
         name: "Room Planner 성능 안정성 강화",
         problem: [
           "모바일 3D 서비스 특성상 초기 로딩 지연이 사용자 이탈로 직결되어 성장의 가장 큰 병목이었습니다.",
-          "이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
+          "또한 이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
         ],
         approach: [
           "**LRU 캐시**로 3D 모델의 메모리 회수·재사용 주기를 관리했습니다.",
-          "**LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2.3MB**를 달성했습니다.",
-          "데이터 구조와 호출 로직을 개선해 RP API 지연을 **200ms→80ms(60%)**로 단축했습니다.",
-          "Kafka 연동 커스텀 메트릭 기반 **HPA**와 **graceful termination**으로 스케일링 안정성을 확보했습니다.",
-          "부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증해 장애를 선제 차단했습니다.",
+          "또한 **LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2.3MB**를 달성했습니다.",
+          "그리고 데이터 구조와 호출 로직을 개선해 RP API 지연을 **200ms→80ms(60%)**로 단축했습니다.",
+          "또한 Kafka 연동 커스텀 메트릭 기반 **HPA**와 **graceful termination**으로 스케일링 안정성을 확보했습니다.",
+          "마지막으로 부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증해 장애를 선제 차단했습니다.",
         ],
         result: [
           "이벤트/챌린지 트래픽 급증 구간에서 **무사건(no incidents)** 운영을 달성했습니다.",
-          "API **200ms→80ms**, payload **54%** 절감, 모델 **90%** 경량화로 초기 로딩 병목을 해소했습니다.",
+          "또한 API **200ms→80ms**, payload **54%** 절감, 모델 **90%** 경량화로 초기 로딩 병목을 해소했습니다.",
         ],
       },
     ],
@@ -232,18 +232,18 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI: Launch and Evolution",
         problem: [
           "A global launch was required within **6 weeks**, but instability in external LLM APIs created outage risk.",
-          "Multi-turn generation required strict per-user ordering and robust retry/fallback behavior to avoid quality and reliability loss.",
+          "In addition, multi-turn generation required strict per-user ordering and robust retry/fallback behavior to avoid quality and reliability loss.",
         ],
         approach: [
           "Used a multi-module split of APIs and workers, then enforced per-user order with Kafka partition keys to stabilize throughput.",
-          "Combined Kafka lag-based auto-scaling with retry/circuit-breaker handling to isolate and recover from external LLM failures.",
-          "Added Gemini pre-deployment and LLM-provider abstraction so provider or policy changes could be applied quickly.",
-          "Added IAP within one week after launch and redesigned workers with Langgraph for monetization and workflow scalability.",
+          "In addition, combined Kafka lag-based auto-scaling with retry/circuit-breaker handling to isolate and recover from external LLM failures.",
+          "Also added Gemini pre-deployment and LLM-provider abstraction so provider or policy changes could be applied quickly.",
+          "After launch, added IAP within one week and redesigned workers with Langgraph for monetization and workflow scalability.",
         ],
         result: [
           "Reduced a **6-week deadline to 4 weeks** and completed global launch across **170 countries**.",
-          "Maintained service continuity under uneven traffic with queue control and failure isolation.",
-          "Built a revenue and scaling path by validating subscription in one week and redesigning workers.",
+          "In addition, maintained service continuity under uneven traffic with queue control and failure isolation.",
+          "Also built a revenue and scaling path by validating subscription in one week and redesigning workers.",
         ],
         detail: {
           situation: [
@@ -285,31 +285,31 @@ export const resumeData: MultiLanguageResumeData = {
         ],
         approach: [
           "Automated storage → optimization → deployment with a state machine and paired workers with DB-based progress tracking for recovery and scaling.",
-          "Used repeated experiments and fallback logic to lock in stable quality while reducing edge-case variance.",
-          "Built an ops dashboard with 3D preview + AR/Room Planner integration to run release and operational checks without specialist dependence.",
-          "Scored images across **12 criteria** with GPT-4o, automatically selected the best candidates, then generated 3D models end-to-end.",
+          "In addition, used repeated experiments and fallback logic to lock in stable quality while reducing edge-case variance.",
+          "Also built an ops dashboard with 3D preview + AR/Room Planner integration to run release and operational checks without specialist dependence.",
+          "Then scored images across **12 criteria** with GPT-4o, automatically selected the best candidates, and generated 3D models end-to-end.",
         ],
         result: [
           "Reduced GPU use by **20%**, file size by **51%**, and saved **40+ person-days annually**, contributing to **Top Contributor** selection.",
-          "Raised production **~12x** and reduced cost **88%**, winning the **Eng Award**.",
+          "Also raised production **~12x** and reduced cost **88%**, winning the **Eng Award**.",
         ],
       },
       {
         name: "Room Planner Performance and Reliability",
         problem: [
           "Initial loading delay in mobile 3D directly caused user drop-off, making it the biggest bottleneck for growth.",
-          "Event/challenge traffic spikes required handling without task loss or incidents.",
+          "In addition, event/challenge traffic spikes required handling without task loss or incidents.",
         ],
         approach: [
           "Applied **LRU cache memory management** to control 3D model retention and reuse.",
-          "Combined **LoD auto-generation** with mesh simplification for **90% lightweighting** and payload reduction from **5MB to 2.3MB**, with minimal quality loss.",
-          "Optimized data structures and call logic to reduce RP API latency from **200ms to 80ms (60%)**.",
-          "Enabled Kafka-linked custom-metric **HPA** with **graceful termination** for scaling stability.",
-          "Validated event/challenge spike scenarios through load testing to preemptively prevent incidents.",
+          "In addition, combined **LoD auto-generation** with mesh simplification for **90% lightweighting** and payload reduction from **5MB to 2.3MB**, with minimal quality loss.",
+          "Also optimized data structures and call logic to reduce RP API latency from **200ms to 80ms (60%)**.",
+          "In parallel, enabled Kafka-linked custom-metric **HPA** with **graceful termination** for scaling stability.",
+          "Finally, validated event/challenge spike scenarios through load testing to preemptively prevent incidents.",
         ],
         result: [
           "Achieved **no incidents** during event/challenge traffic surges.",
-          "Resolved initial loading bottleneck — API latency **200ms→80ms**, payload **54%** smaller, model **90%** lighter.",
+          "Also resolved the initial loading bottleneck — API latency **200ms→80ms**, payload **54%** smaller, model **90%** lighter.",
         ],
       },
     ],

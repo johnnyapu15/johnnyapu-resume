@@ -350,7 +350,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           <div className="flex flex-col md:flex-row md:justify-between md:items-center">
             <div className="mb-4 md:mb-0">
               <h1 className="text-3xl font-bold mb-1">{data.personalInfo.name}</h1>
-              <p className="text-leather-100 text-base">{data.personalInfo.position}</p>
+              <p className="text-leather-100 text-base print:hidden">{data.personalInfo.position}</p>
             </div>
             
             <div className="flex flex-col md:flex-row md:items-center gap-3 text-leather-50 text-sm">
