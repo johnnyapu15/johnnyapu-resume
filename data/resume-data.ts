@@ -42,10 +42,9 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "AI/3D 도메인의 백엔드 아키텍처를 런칭부터 확장까지 맡아온 엔지니어입니다. **6주 데드라인을 4주로 단축**하며 AI 인테리어 서비스를 **170개국**에 런칭했고, 3D 모델 제작 자동화로 생산량을 12배 늘리며 비용을 **88%** 절감한 성과로 엔지니어에게 주어지는 최고 포상인 **Eng Award**를 받았습니다.",
-      "트래픽이 **10.2배**로 늘어난 상황에서도 **99.95% 가용성**을 유지했고, **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 등 다양한 비즈니스 임팩트에 기여했습니다.",
-      "또한 자동화 파이프라인으로 운영 효율을 **27%** 개선하고, **연간 40일 이상**의 운영 시간을 절감했습니다.",
-      "필요할 때는 BE/FE/ML/인프라를 넘나들며 조직의 병목을 직접 해소했고, 릴리즈 자동화와 부하 테스트 정착 등으로 팀 생산성을 끌어올렸습니다. 이런 기여를 바탕으로 **매 분기 Top Contributor**로 선정되었습니다.",
+      "AI/3D 도메인에서 글로벌 런칭, 수익화, 자동화, 안정화를 맡아온 백엔드 엔지니어입니다. 제한된 리소스에서 **Ohouse AI를 4주 만에 170개국**에 런칭했고, 외부 AI 장애에도 실험과 운영이 가능한 구조를 설계했습니다.",
+      "또한 Room Planner의 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
+      "Image-to-3D 자동화로 월 생산량을 **68개에서 800개**로 늘리고 비용을 **88% 절감**해 **Eng Award**를 받았으며, 운영 자동화와 테스트 체계 개선으로 효율을 **27%** 높이고 **연간 40일 이상**의 시간을 절감했습니다.",
     ].join(" "),
     experience: [
       {
@@ -53,12 +52,11 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "2022년 8월 - 현재",
         description: [
-          "AI/3D 도메인 백엔드 아키텍처 설계·구축·운영을 리드했습니다.",
-          "  **Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. **비동기 작업 큐**와 **실패 격리 설계**로 외부 AI 장애가 전체 서비스로 번지지 않게 방지했고, 국가별 기능 토글/실시간 설정 배포 체계로 배포 없는 실험 검증이 가능했습니다.",
-          "  **Ohouse AI 수익화**: iOS/Google 구독 이벤트를 통합 상태 흐름으로 묶어 결제 상태 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성하며 수익화를 고속 검증했습니다.",
-          "  **3D 인테리어 디자인 서비스**: 서비스 성능과 안정적인 운영 기반을 강화해 **WAU 704%** 성장과 **연간 GMV 600%(8.6억)** 달성에 기여했습니다. 또한 **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
-          "  **Image-to-3D 자동화**: 수작업 파이프라인을 E2E 자동화해 월 생산량 **68개→800개**, **비용 88%** 절감으로 **Eng Award**를 수상했습니다.",
-          "  **운영/생산성 개선**: 릴리즈 자동화·unit test 보강·부하 테스트 가이드·배포 도구 개선으로 운영 효율 **27%**를 개선했고, **AI Native MVP**와 **AI Award**를 받았습니다.",
+          "**Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 외부 AI 장애가 전체 서비스로 번지지 않도록 비동기 처리와 실패 격리 구조를 설계했고, 국가별 실험을 배포 없이 운영할 수 있는 체계를 만들었습니다.",
+          "**Ohouse AI 수익화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합해 결제 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성해 수익화 가능성을 검증했습니다.",
+          "**Room Planner**: 성능·안정성 개선으로 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
+          "**Image-to-3D 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량을 **68개→800개**로 늘리고 **비용 88%**를 절감해 **Eng Award**를 받았습니다.",
+          "**운영/생산성 개선**: 릴리즈 자동화, 테스트 강화, 부하 테스트 정착으로 운영 효율을 **27%** 높이고 **연간 40일 이상**의 시간을 절감해 **AI Native MVP**와 **AI Award**를 받았습니다.",
         ],
       },
       {
@@ -66,8 +64,7 @@ export const resumeData: MultiLanguageResumeData = {
         position: "System & Solution Programming Consultant",
         period: "2020년 1월 - 2022년 7월",
         description: [
-          "Node.js · Redis 기반 **실시간 싱크 서버 아키텍처**를 설계하고, 다수 동시 접속 환경에서 안정적으로 운영했습니다.",
-          "GitLab/Jenkins CI/CD 파이프라인으로 빌드·테스트를 자동화하고 배포 리드타임을 단축했습니다.",
+          "Node.js · Redis 기반 실시간 싱크 서버를 설계·운영했고, GitLab/Jenkins 기반 CI/CD 자동화로 빌드·테스트와 배포 리드타임을 줄였습니다.",
         ],
       },
       // BlackTangerine (Side-project) - removed for 1-page resume
@@ -81,6 +78,7 @@ export const resumeData: MultiLanguageResumeData = {
     keyExperience: [
       {
         name: "Ohouse AI 런칭 및 고도화",
+        onlyDetailView: true,
         problem: [
           "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM API 불안정성으로 서비스 중단 위험이 있었습니다.",
           "또한 이미지 생성 과정에서 사용자별 흐름 순서를 보장하지 않으면 품질과 신뢰성을 동시에 잃을 위험이 컸습니다.",
@@ -91,7 +89,7 @@ export const resumeData: MultiLanguageResumeData = {
           "런칭 전에 공급사 대체 전략을 먼저 마련해 장애·정책 변경 시에도 즉시 우회 가능한 기반을 만들었습니다.",
           "런칭 후에는 일주일 안에 구독 모델을 적용하고, 작업 흐름을 재설계해 복잡한 AI 서비스도 확장 가능한 형태로 바꿨습니다.",
         ],
-         result: [
+        result: [
           "**6주 데드라인을 4주로 단축**해 **170개국 글로벌 런칭**을 완료했습니다.",
           "또한 예측 불가 트래픽 환경에서도 오토스케일링과 장애 격리 설계로 중단 없는 운영을 유지했습니다.",
           "그리고 IAP 검증과 워커 재설계로 수익화·확장성을 동시에 확보했습니다.",
@@ -131,6 +129,7 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Image-to-3D 자동화",
+        onlyDetailView: true,
         problem: [
           "수작업 중심 3D 파이프라인은 기존 모델 관리와 신규 생성 모두에서 처리량 한계와 품질 편차가 컸습니다.",
         ],
@@ -147,6 +146,7 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Room Planner 성능 안정성 강화",
+        onlyDetailView: true,
         problem: [
           "모바일 3D 서비스 특성상 초기 로딩 지연이 사용자 이탈로 직결되어 성장의 가장 큰 병목이었습니다.",
           "또한 이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
@@ -191,10 +191,9 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Backend engineer who has owned AI/3D architecture from launch through scaling. Reduced a **6-week deadline to 4 weeks** while launching an AI interior service across **170 countries**, and automated 3D model production to increase output **12x** while cutting cost by **88%**, earning the **Eng Award**, the top award given to engineers.",
-      "Maintained **99.95% availability** even as traffic grew **10.2x**, and contributed to business outcomes including **704% WAU growth** and **600% annual GMV (₩860M)**.",
-      "Also improved operational efficiency by **27%** and saved **40+ days annually** through automation pipelines.",
-      "Stepped across BE/FE/ML/infrastructure boundaries to unblock the organization, and raised team productivity through release automation and load-testing standards. Based on those contributions, was selected as **Top Contributor** each quarter.",
+      "Backend engineer focused on launching and scaling AI/3D products. Launched **Ohouse AI to 170 countries in 4 weeks** with limited resources, while building an operating model that kept experiments and service continuity intact despite external AI instability.",
+      "Contributed to **704% WAU growth** and **600% annual GMV (KRW 860M)** in Room Planner, while sustaining **99.95% availability** at **10.2x traffic**.",
+      "Automated Image-to-3D production from **68 to 800 items per month** and cut cost by **88%**, earning the **Eng Award**. Also improved operational efficiency by **27%** and saved **40+ days annually** through release and test automation.",
     ].join(" "),
     experience: [
       {
@@ -202,12 +201,11 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "Led AI/3D backend architecture design, build, and operations.",
-          "  **Ohouse AI**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Prevented external AI failures from spreading with queue-based async processing and failure isolation. Built country-level feature flags with configuration updates without redeploy, enabling fast experiments.",
-          "  **Ohouse AI Monetization**: Unified iOS/Google IAP events via a state machine for subscription consistency, achieved affiliate **CVR 10.5%**, and contributed to monetization.",
-          "  **3D Interior Design Service**: Performance and reliability improvements contributed to **704% WAU growth** and **600% annual GMV (₩860M)**. Also sustained **99.95% availability** at **10.2x traffic**.",
-          "  **Image-to-3D Automation**: Automated the manual pipeline end-to-end, raising monthly output from **68 items to 800 items** and cutting cost by **88%**, earning the **Eng Award**.",
-          "  **Ops/Productivity**: Improved operational efficiency by **27%** through release automation, stronger unit tests, load-testing guidelines, and shared deployment tooling, earning **AI Native MVP** and **AI Award**.",
+          "**Ohouse AI**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Designed async processing and failure isolation so external AI issues would not cascade across the service, and built a no-redeploy experimentation model for country-level operations.",
+          "**Ohouse AI Monetization**: Unified iOS/Google subscription flows into one domain model, secured payment consistency, and validated monetization with affiliate **CVR 10.5%**.",
+          "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
+          "**Image-to-3D Automation**: Automated the 3D production pipeline end to end, increasing monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
+          "**Ops/Productivity**: Raised operational efficiency by **27%** and saved **40+ days annually** through release automation, stronger tests, and load-testing practices, earning **AI Native MVP** and **AI Award**.",
         ],
       },
       {
@@ -215,8 +213,7 @@ export const resumeData: MultiLanguageResumeData = {
         position: "System & Solution Programming Consultant",
         period: "Jan 2020 – Jul 2022",
         description: [
-          "Designed Node.js + Redis-based **real-time sync server architecture** for concurrent multi-user environments with low-latency synchronization.",
-          "Led GitLab/Jenkins CI/CD automation to cut build/test cycles and speed up releases.",
+          "Designed and operated a Node.js + Redis real-time sync server, and reduced build, test, and release lead time through GitLab/Jenkins CI/CD automation.",
         ],
       },
       // BlackTangerine (Side-project) - removed for 1-page resume
@@ -230,6 +227,7 @@ export const resumeData: MultiLanguageResumeData = {
     keyExperience: [
       {
         name: "Ohouse AI: Launch and Evolution",
+        onlyDetailView: true,
         problem: [
           "A global launch was required within **6 weeks**, but instability in external LLM APIs created outage risk.",
           "In addition, image-generation flow required strict per-user ordering, otherwise quality and reliability could degrade quickly.",
@@ -280,6 +278,7 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Image-to-3D Automation",
+        onlyDetailView: true,
         problem: [
           "A manual 3D pipeline was limiting throughput and quality consistency across existing model updates and new model creation.",
         ],
@@ -296,6 +295,7 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Room Planner Performance and Reliability",
+        onlyDetailView: true,
         problem: [
           "Initial loading delay in mobile 3D directly caused user drop-off, making it the biggest bottleneck for growth.",
           "In addition, event/challenge traffic spikes required handling without task loss or incidents.",

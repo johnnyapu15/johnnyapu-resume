@@ -184,6 +184,8 @@ const KeyExperienceSection = ({
     ? experiences
     : experiences.filter(exp => !exp.onlyDetailView)
 
+  if (experiencesToShow.length === 0) return null
+
   const sectionLabels = {
     ko: {
       problem: "문제",

@@ -1,7 +1,12 @@
 #!/usr/bin/env sh
 set -eu
 
-PORT="${RESUME_PORT:-3001}"
+PORT="${RESUME_PORT:-}"
+
+if [ -z "${PORT}" ]; then
+  PORT=$(node -e 'const net = require("net"); const server = net.createServer(); server.listen(0, () => { console.log(server.address().port); server.close(); });')
+fi
+
 BASE_URL="http://127.0.0.1:${PORT}"
 
 npm run build

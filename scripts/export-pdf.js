@@ -7,6 +7,8 @@ const outputDir = path.resolve(process.env.RESUME_PDF_DIR || "artifacts/print")
 
 async function exportPdf(page, targetPath, route) {
   await page.goto(`${baseUrl}${route}`, { waitUntil: "networkidle" })
+  await page.waitForSelector("#resume-content", { state: "visible" })
+  await page.waitForTimeout(300)
   await page.emulateMedia({ media: "print" })
   await page.pdf({
     path: targetPath,
