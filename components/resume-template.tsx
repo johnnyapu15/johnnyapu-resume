@@ -266,24 +266,24 @@ const KeyExperienceSection = ({
           }
 
           // 기본 (요약) 뷰
+          const summaryView = exp.summaryView ?? {
+            problem: exp.problem.join(" "),
+            approach: exp.approach.join(" "),
+            result: exp.result.join(" "),
+          }
+
           return (
-            <div key={i} className={`bg-leather-50 p-4 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
-              <h3 className="text-lg font-semibold text-leather-700 mb-4">{exp.name}</h3>
-              <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3 text-sm">
+            <div key={i} className={`bg-leather-50 p-3 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
+              <h3 className="text-base font-semibold text-leather-700 mb-2">{exp.name}</h3>
+              <div className="grid grid-cols-[2.5rem,1fr] gap-x-3 gap-y-1 text-[0.8rem] leading-snug print:text-[0.72rem]">
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
-                <div className="space-y-1 text-gray-700">
-                  {renderSectionParagraphs(exp.problem)}
-                </div>
+                <p className="text-gray-700">{renderWithBold(summaryView.problem)}</p>
 
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].approach}</strong>
-                <div className="space-y-1 text-gray-700">
-                  {renderSectionParagraphs(exp.approach)}
-                </div>
+                <p className="text-gray-700">{renderWithBold(summaryView.approach)}</p>
 
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].result}</strong>
-                <div className="space-y-1 text-gray-700">
-                  {renderSectionParagraphs(exp.result)}
-                </div>
+                <p className="text-gray-700">{renderWithBold(summaryView.result)}</p>
               </div>
             </div>
           )

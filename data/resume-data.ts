@@ -78,7 +78,14 @@ export const resumeData: MultiLanguageResumeData = {
     keyExperience: [
       {
         name: "Ohouse AI 런칭 및 고도화",
-        onlyDetailView: true,
+        summaryView: {
+          problem:
+            "제한된 리소스와 다수 팀 의존성 속에서 6주 안에 글로벌 AI 서비스를 런칭해야 했고, 외부 AI 장애까지 감당해야 했습니다.",
+          approach:
+            "비동기 처리, 실패 격리, 배포 없는 실험 체계, 공급사 우회 경로를 함께 설계해 빠른 런칭과 안정적 운영을 동시에 확보했습니다.",
+          result:
+            "**4주 만에 170개국 런칭**을 완료했고, 중단 없는 운영과 **1주 내 구독 모델 검증**으로 수익화 기반을 마련했습니다.",
+        },
         problem: [
           "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM API 불안정성으로 서비스 중단 위험이 있었습니다.",
           "또한 이미지 생성 과정에서 사용자별 흐름 순서를 보장하지 않으면 품질과 신뢰성을 동시에 잃을 위험이 컸습니다.",
@@ -129,7 +136,14 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Image-to-3D 자동화",
-        onlyDetailView: true,
+        summaryView: {
+          problem:
+            "수작업 3D 제작 방식은 처리량과 품질 편차 때문에 상품 확대를 감당하기 어려웠습니다.",
+          approach:
+            "생성, 검수, 배포를 자동화하고 운영 대시보드와 품질 선별 로직을 붙여 엔지니어 의존도를 낮췄습니다.",
+          result:
+            "월 생산량 **68개→800개**, **비용 88% 절감**, **연간 40일 이상 절감**으로 **Eng Award**를 받았습니다.",
+        },
         problem: [
           "수작업 중심 3D 파이프라인은 기존 모델 관리와 신규 생성 모두에서 처리량 한계와 품질 편차가 컸습니다.",
         ],
@@ -146,7 +160,14 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Room Planner 성능 안정성 강화",
-        onlyDetailView: true,
+        summaryView: {
+          problem:
+            "모바일 3D 서비스의 초기 로딩 지연이 이탈과 성장 정체의 핵심 병목이었습니다.",
+          approach:
+            "모델 경량화, API 구조 개선, 부하 대응 체계를 함께 손봐 성능과 안정성을 동시에 개선했습니다.",
+          result:
+            "API **200ms→80ms**, payload **54% 절감**, 모델 **90% 경량화**로 초기 로딩 병목을 해소하고 무사건 운영을 달성했습니다.",
+        },
         problem: [
           "모바일 3D 서비스 특성상 초기 로딩 지연이 사용자 이탈로 직결되어 성장의 가장 큰 병목이었습니다.",
           "또한 이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
@@ -227,7 +248,14 @@ export const resumeData: MultiLanguageResumeData = {
     keyExperience: [
       {
         name: "Ohouse AI: Launch and Evolution",
-        onlyDetailView: true,
+        summaryView: {
+          problem:
+            "We had to launch a global AI product within 6 weeks under tight staffing and heavy cross-team dependencies, while absorbing external AI instability.",
+          approach:
+            "I combined async processing, failure isolation, no-redeploy experimentation, and provider failover planning to balance speed with operational resilience.",
+          result:
+            "Completed launch to **170 countries in 4 weeks** and established monetization foundations by validating subscriptions within **one week**.",
+        },
         problem: [
           "A global launch was required within **6 weeks**, but instability in external LLM APIs created outage risk.",
           "In addition, image-generation flow required strict per-user ordering, otherwise quality and reliability could degrade quickly.",
@@ -278,7 +306,14 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Image-to-3D Automation",
-        onlyDetailView: true,
+        summaryView: {
+          problem:
+            "Manual 3D production could not scale with growing product coverage and introduced large quality variance.",
+          approach:
+            "I automated generation, review, and deployment, and reduced specialist dependence with operations tooling and quality scoring.",
+          result:
+            "Scaled monthly output from **68 to 800**, cut cost by **88%**, and saved **40+ days annually**, earning the **Eng Award**.",
+        },
         problem: [
           "A manual 3D pipeline was limiting throughput and quality consistency across existing model updates and new model creation.",
         ],
@@ -295,7 +330,14 @@ export const resumeData: MultiLanguageResumeData = {
       },
       {
         name: "Room Planner Performance and Reliability",
-        onlyDetailView: true,
+        summaryView: {
+          problem:
+            "Slow initial loading in mobile 3D was a direct growth bottleneck and traffic spikes also threatened reliability.",
+          approach:
+            "I improved model weight, API structure, and spike handling together so performance and stability improved as one system.",
+          result:
+            "Reduced API latency from **200ms to 80ms**, cut payload by **54%**, lightened models by **90%**, and kept spike periods incident-free.",
+        },
         problem: [
           "Initial loading delay in mobile 3D directly caused user drop-off, making it the biggest bottleneck for growth.",
           "In addition, event/challenge traffic spikes required handling without task loss or incidents.",

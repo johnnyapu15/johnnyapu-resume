@@ -66,6 +66,11 @@ export interface Activity {
 
 export interface KeyExperience {
   name: string
+  summaryView?: {
+    problem: string
+    approach: string
+    result: string
+  }
   problem: string[]
   approach: string[]
   result: string[]
