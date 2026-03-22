@@ -221,6 +221,11 @@
     break-inside: avoid;
   }
 
+  .print-page-break-before {
+    page-break-before: always;
+    break-before: page;
+  }
+
   /* 상세 보기에서 첫 번째 경험 카드를 위한 특별한 처리 */
   .key-experience-first {
     page-break-before: avoid !important;

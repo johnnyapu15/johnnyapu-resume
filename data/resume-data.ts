@@ -42,21 +42,31 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "AI/3D 도메인에서 글로벌 런칭, 수익화, 자동화, 안정화를 맡아온 백엔드 엔지니어입니다. 제한된 리소스에서 **Ohouse AI를 4주 만에 170개국**에 런칭했고, 외부 AI 장애에도 실험과 운영이 가능한 구조를 설계했습니다.",
-      "또한 Room Planner의 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
-      "Image-to-3D 자동화로 월 생산량을 **68개에서 800개**로 늘리고 비용을 **88% 절감**해 **Eng Award**를 받았으며, 운영 자동화와 테스트 체계 개선으로 효율을 **27%** 높이고 **연간 40일 이상**의 시간을 절감했습니다.",
+      "분산 시스템과 장시간 비동기 작업이 많은 AI/3D 도메인에서 런칭, 안정화, 수익화를 맡아온 백엔드 엔지니어입니다.",
+      "제한된 리소스에서도 글로벌 AI 서비스 런칭, 장시간 작업 운영 표준화, 3D 자동화 파이프라인 구축을 통해 서비스 안정성과 비즈니스 확장을 함께 만들었습니다.",
+      "필요할 때는 FE/ML/인프라 협업 병목도 직접 메우되, 중심은 항상 안정적인 백엔드 운영 모델과 도메인 설계에 두고 일해왔습니다.",
     ].join(" "),
+    coreStrengths: [
+      "외부 의존성이 큰 AI/3D 워크로드에서 **비동기 워커, 상태 관리, 재시도/격리 구조**를 설계해 서비스 연속성을 확보했습니다.",
+      "트래픽 급증과 긴 처리 시간 환경에서 **오토스케일링, 관측성, 안정적 배포 흐름**을 통해 운영 리스크를 줄였습니다.",
+      "구독, 추천, 자동화 파이프라인을 안정적인 **백엔드 도메인**으로 정착시키고, 필요한 경우에만 FE/ML/인프라 협업 병목도 직접 해소했습니다.",
+    ],
+    leadershipHighlights: [
+      "신규 입사자와 FE/ML 협업 인원에 대한 **온보딩, 기술 가이드, 코드 리뷰**를 통해 여러 직군이 더 빠르게 독립 기여할 수 있는 개발 기반을 만들었습니다.",
+      "전사 최초 **Spring Boot 3 migration** 이후 트러블슈팅 가이드를 문서화해 다른 팀도 참고할 수 있는 레퍼런스로 남겼습니다.",
+      "릴리즈 노트 자동화, 데이터 분석 자동화, 공통 배포 도구 개선으로 팀 실행 속도를 높였고, 그 결과 **AI Award**, **AI Native MVP**를 받았습니다.",
+    ],
     experience: [
       {
         company: "Bucketplace (오늘의집)",
         position: "Senior Backend Engineer",
         period: "2022년 8월 - 현재",
         description: [
-          "**Ohouse AI**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 외부 AI 장애가 전체 서비스로 번지지 않도록 비동기 처리와 실패 격리 구조를 설계했고, 국가별 실험을 배포 없이 운영할 수 있는 체계를 만들었습니다.",
-          "**Ohouse AI 수익화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합해 결제 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성해 수익화 가능성을 검증했습니다.",
+          "**Ohouse AI 런칭**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 외부 AI 장애가 서비스 전체로 번지지 않도록 비동기 처리와 실패 격리 구조를 설계했고, 다수 팀 의존성 속에서도 런칭 일정을 맞췄습니다.",
+          "**Ohouse AI 수익화/고도화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합해 결제 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성해 수익화 가능성을 검증했습니다.",
+          "**운영 모델 표준화**: AI 인퍼런스, 3D 생성, 렌더링처럼 장시간 작업이 많은 도메인에서 비동기 워커와 상태 관리 패턴을 공통 운영 모델로 정리해 여러 서비스에 재사용 가능한 기반을 만들었습니다.",
           "**Room Planner**: 성능·안정성 개선으로 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
           "**Image-to-3D 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량을 **68개→800개**로 늘리고 **비용 88%**를 절감해 **Eng Award**를 받았습니다.",
-          "**운영/생산성 개선**: 릴리즈 자동화, 테스트 강화, 부하 테스트 정착으로 운영 효율을 **27%** 높이고 **연간 40일 이상**의 시간을 절감해 **AI Native MVP**와 **AI Award**를 받았습니다.",
         ],
       },
       {
@@ -133,6 +143,31 @@ export const resumeData: MultiLanguageResumeData = {
             "정책 준수 제휴 추천 경로를 만들어 실시간 제휴 상품 추천을 구현했습니다.",
           ],
         },
+      },
+      {
+        name: "비동기 장시간 작업 운영 표준화",
+        summaryView: {
+          problem:
+            "AI 인퍼런스, 3D 생성, 고화질 렌더링처럼 수초에서 수분 걸리는 작업은 동기 처리만으로는 가용성과 정합성을 지키기 어려웠습니다.",
+          approach:
+            "빠른 검증은 유지하되, 상태 관리, 재시도, 보상 로직을 공통 구조로 묶어 여러 도메인에 재사용 가능한 운영 모델로 정리했습니다.",
+          result:
+            "DAM, Panorama AR, Room Planner, Ohouse AI까지 이어지는 공통 백엔드 운영 기반을 만들며 장시간 작업의 신뢰성과 개발 속도를 함께 높였습니다.",
+        },
+        problem: [
+          "AI 인퍼런스, 3D 에셋 생성, 고화질 렌더링처럼 오래 걸리는 작업은 API 지연, OOM, 외부 Rate Limit, 정합성 깨짐 위험이 컸습니다.",
+          "도메인마다 같은 문제를 반복 해결하면 운영 비용과 개발 비용이 함께 커지는 구조였습니다.",
+        ],
+        approach: [
+          "초기 검증 단계에서는 단순한 구조로 빠르게 PoC를 진행하되, 운영 단계에서는 비동기 워커와 상태 관리 구조를 표준화했습니다.",
+          "또한 재시도, 보상 로직, 작업 단계 정의를 공통 패턴으로 묶어 장애가 나도 전체 서비스나 사용자 흐름이 무너지지 않도록 설계했습니다.",
+          "필요할 때는 MQ, DB polling, 배치형 처리 중 도메인 상황에 맞는 방식을 선택해 복잡도와 안정성의 균형을 맞췄습니다.",
+        ],
+        result: [
+          "DAM, Panorama AR, Room Planner, Ohouse AI까지 이어지는 공통 운영 모델을 만들었습니다.",
+          "장시간 작업이 많은 서비스에서도 정합성과 복구 가능성을 높이며 운영 난도를 낮췄습니다.",
+          "새 기능을 추가할 때도 기존 패턴을 재사용할 수 있어 개발 속도와 신뢰성을 함께 확보했습니다.",
+        ],
       },
       {
         name: "Image-to-3D 자동화",
@@ -212,21 +247,31 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Backend engineer focused on launching and scaling AI/3D products. Launched **Ohouse AI to 170 countries in 4 weeks** with limited resources, while building an operating model that kept experiments and service continuity intact despite external AI instability.",
-      "Contributed to **704% WAU growth** and **600% annual GMV (KRW 860M)** in Room Planner, while sustaining **99.95% availability** at **10.2x traffic**.",
-      "Automated Image-to-3D production from **68 to 800 items per month** and cut cost by **88%**, earning the **Eng Award**. Also improved operational efficiency by **27%** and saved **40+ days annually** through release and test automation.",
+      "Backend engineer focused on distributed systems and long-running async workloads in AI/3D products.",
+      "Built service stability and business leverage through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines under tight resource constraints.",
+      "When needed, stepped across FE/ML/infrastructure dependencies to unblock delivery, but kept the center of gravity on backend operating models and domain design.",
     ].join(" "),
+    coreStrengths: [
+      "Designed **async workers, state handling, and retry/isolation models** for AI/3D workloads with heavy external dependencies.",
+      "Reduced operational risk under traffic spikes and long-running jobs through **autoscaling, observability, and safer deployment flows**.",
+      "Turned subscriptions, recommendations, and automation pipelines into stable **backend domains**, while helping unblock FE/ML/infrastructure dependencies only when needed.",
+    ],
+    leadershipHighlights: [
+      "Helped FE and ML collaborators ramp up faster through **onboarding guides, technical guidance, and code reviews**, making cross-functional delivery more independent.",
+      "Documented troubleshooting after the company’s first **Spring Boot 3 migration**, leaving a reference other teams could reuse.",
+      "Improved team execution speed through release-note automation, daily analytics automation, and shared deployment tooling, contributing to **AI Award** and **AI Native MVP** recognition.",
+    ],
     experience: [
       {
         company: "Bucketplace",
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "**Ohouse AI**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Designed async processing and failure isolation so external AI issues would not cascade across the service, and built a no-redeploy experimentation model for country-level operations.",
-          "**Ohouse AI Monetization**: Unified iOS/Google subscription flows into one domain model, secured payment consistency, and validated monetization with affiliate **CVR 10.5%**.",
+          "**Ohouse AI Launch**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Designed async processing and failure isolation so external AI issues would not cascade across the service, while coordinating through heavy cross-team dependencies.",
+          "**Ohouse AI Monetization / Evolution**: Unified iOS/Google subscription flows into one domain model, secured payment consistency, and validated monetization with affiliate **CVR 10.5%**.",
+          "**Operating Model Standardization**: Established reusable async worker and state-handling patterns across long-running AI/3D workloads so multiple services could share a more reliable backend operating model.",
           "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
           "**Image-to-3D Automation**: Automated the 3D production pipeline end to end, increasing monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
-          "**Ops/Productivity**: Raised operational efficiency by **27%** and saved **40+ days annually** through release automation, stronger tests, and load-testing practices, earning **AI Native MVP** and **AI Award**.",
         ],
       },
       {
@@ -303,6 +348,31 @@ export const resumeData: MultiLanguageResumeData = {
             "Enabled real-time affiliate product recommendations within policy constraints",
           ]
         },
+      },
+      {
+        name: "Standardizing Long-Running Async Operations",
+        summaryView: {
+          problem:
+            "AI inference, 3D generation, and high-quality rendering jobs were too slow and failure-prone to treat like normal synchronous requests.",
+          approach:
+            "I kept fast validation paths when needed, but standardized state handling, retries, and recovery logic into a reusable operating model across domains.",
+          result:
+            "Built a shared backend foundation used across DAM, Panorama AR, Room Planner, and Ohouse AI, improving both reliability and delivery speed.",
+        },
+        problem: [
+          "Long-running jobs in AI/3D domains carried high risk of latency, OOM, rate limits, and broken state transitions.",
+          "Solving the same reliability problem separately in each service would keep raising both operating cost and development cost.",
+        ],
+        approach: [
+          "Kept early validation simple when speed mattered, but standardized async workers and state handling once services moved into sustained operation.",
+          "Also grouped retries, compensation logic, and stage definitions into reusable patterns so failures would not break end-user flows or service continuity.",
+          "Used MQ, DB polling, or batch-style processing depending on domain constraints to balance complexity against reliability.",
+        ],
+        result: [
+          "Created a reusable operating model spanning DAM, Panorama AR, Room Planner, and Ohouse AI.",
+          "Raised recoverability and consistency for long-running workloads while reducing operational complexity.",
+          "Made it easier to ship new features on top of proven backend patterns instead of rebuilding the same foundation repeatedly.",
+        ],
       },
       {
         name: "Image-to-3D Automation",

@@ -165,6 +165,23 @@ const InterpersonalSkillsSection = ({
   )
 }
 
+const CompactSkillList = ({
+  title,
+  items,
+}: {
+  title: string
+  items: Skill[] | undefined
+}) => {
+  if (!items || items.length === 0) return null
+
+  return (
+    <div className="bg-leather-50 p-4 rounded-lg">
+      <h3 className="font-semibold text-leather-800 mb-2 text-sm">{title}</h3>
+      <p className="text-sm text-gray-700 leading-relaxed">{items.map(item => item.name).join(", ")}</p>
+    </div>
+  )
+}
+
 const KeyExperienceSection = ({
   title,
   icon,
@@ -202,7 +219,7 @@ const KeyExperienceSection = ({
   }
 
   return (
-    <div className={`mb-8 ${!isDetailed ? 'print-avoid-break' : ''}`}>
+    <div className={`mb-8 ${!isDetailed ? 'print-page-break-before print-avoid-break' : ''}`}>
       <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
         {icon}
         {title}
@@ -352,7 +369,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           <div className="flex flex-col md:flex-row md:justify-between md:items-center">
             <div className="mb-4 md:mb-0">
               <h1 className="text-3xl font-bold mb-1">{data.personalInfo.name}</h1>
-              <p className="text-leather-100 text-base print:hidden">{data.personalInfo.position}</p>
+              <p className="text-leather-100 text-base">{data.personalInfo.position}</p>
             </div>
             
             <div className="flex flex-col md:flex-row md:items-center gap-3 text-leather-50 text-sm">
@@ -389,6 +406,22 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
           <div className="mb-8">
             <p className="text-gray-700 leading-relaxed">{renderWithBold(data.summary)}</p>
           </div>
+
+          {data.coreStrengths && data.coreStrengths.length > 0 && (
+            <div className="mb-8 print-avoid-break">
+              <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+                <Server className="h-5 w-5 mr-2 text-leather-700" />
+                {labels[language].coreStrengths}
+              </h2>
+              <ul className="list-disc pl-5 text-gray-700 space-y-1.5">
+                {data.coreStrengths.map((item, index) => (
+                  <li key={index} className="print:text-sm">
+                    {renderWithBold(item)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* 경력 사항 */}
           <div className="mb-8 print-avoid-break">
@@ -433,7 +466,34 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             isDetailed={isDetailed}
           />
 
-          {/* 기술 스택 - removed for 1-page resume */}
+          {data.leadershipHighlights && data.leadershipHighlights.length > 0 && (
+            <div className="mb-8 print-avoid-break">
+              <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+                <Users className="h-5 w-5 mr-2 text-leather-700" />
+                {labels[language].leadershipHighlights}
+              </h2>
+              <ul className="list-disc pl-5 text-gray-700 space-y-1.5">
+                {data.leadershipHighlights.map((item, index) => (
+                  <li key={index} className="print:text-sm">
+                    {renderWithBold(item)}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          <div className="mb-8 print-avoid-break">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+              <Code className="h-5 w-5 mr-2 text-leather-700" />
+              {labels[language].skills}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <CompactSkillList title={labels[language].programmingLanguages} items={data.skills.languages} />
+              <CompactSkillList title={labels[language].frameworksAndLibraries} items={data.skills.frameworks} />
+              <CompactSkillList title={labels[language].backendInfra} items={data.skills.backendInfra} />
+              <CompactSkillList title={labels[language].toolsAndEnvironments} items={data.skills.tools} />
+            </div>
+          </div>
 
           {/* 주요 프로젝트 */}
           {data.projects && data.projects.length > 0 && (

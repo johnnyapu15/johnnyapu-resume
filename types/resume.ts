@@ -86,6 +86,8 @@ export interface KeyExperience {
 export interface ResumeData {
   personalInfo: PersonalInfo
   summary: string
+  coreStrengths?: string[]
+  leadershipHighlights?: string[]
   experience: Experience[]
   keyExperience: KeyExperience[]
   education: Education[]
@@ -104,6 +106,8 @@ export type Language = "ko" | "en"
 
 export interface SectionLabels {
   introduction: string
+  coreStrengths: string
+  leadershipHighlights: string
   experience: string
   keyExperience: string
   education: string
@@ -128,6 +132,8 @@ export interface SectionLabels {
 export const labels: Record<Language, SectionLabels> = {
   ko: {
     introduction: "자기소개",
+    coreStrengths: "핵심 백엔드 강점",
+    leadershipHighlights: "기술 리더십 / 팀 기여",
     experience: "경력 사항",
     keyExperience: "주요 경험",
     education: "학력 사항",
@@ -150,6 +156,8 @@ export const labels: Record<Language, SectionLabels> = {
   },
   en: {
     introduction: "Introduction",
+    coreStrengths: "Core Backend Strengths",
+    leadershipHighlights: "Technical Leadership & Team Impact",
     experience: "Experience",
     keyExperience: "Key Experience",
     education: "Education",
