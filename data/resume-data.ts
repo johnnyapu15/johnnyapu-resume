@@ -44,29 +44,32 @@ export const resumeData: MultiLanguageResumeData = {
     summary: [
       "분산 시스템과 장시간 비동기 작업이 많은 AI/3D 도메인에서 런칭, 안정화, 수익화를 맡아온 백엔드 엔지니어입니다.",
       "제한된 리소스에서도 글로벌 AI 서비스 런칭, 장시간 작업 운영 표준화, 3D 자동화 파이프라인 구축을 통해 서비스 안정성과 비즈니스 확장을 함께 만들었습니다.",
+      "비동기 워커 기반 운영 모델, 오토스케일링, 장애 격리 설계를 여러 서비스에 걸쳐 재사용 가능한 패턴으로 정착시킨 경험이 있습니다.",
       "필요할 때는 FE/ML/인프라 협업 병목도 직접 메우되, 중심은 항상 안정적인 백엔드 운영 모델과 도메인 설계에 두고 일해왔습니다.",
+      "현재는 AI Agent Platform을 설계·구축하며, 고품질 에이전트를 빠르게 만들 수 있는 내부 도구와 프레임워크를 개발하고 있습니다.",
     ].join(" "),
-    coreStrengths: [
-      "외부 의존성이 큰 AI/3D 워크로드에서 **비동기 워커, 상태 관리, 재시도/격리 구조**를 설계해 서비스 연속성을 확보했습니다.",
-      "트래픽 급증과 긴 처리 시간 환경에서 **오토스케일링, 관측성, 안정적 배포 흐름**을 통해 운영 리스크를 줄였습니다.",
-      "구독, 추천, 자동화 파이프라인을 안정적인 **백엔드 도메인**으로 정착시키고, 필요한 경우에만 FE/ML/인프라 협업 병목도 직접 해소했습니다.",
-    ],
-    leadershipHighlights: [
-      "신규 입사자와 FE/ML 협업 인원에 대한 **온보딩, 기술 가이드, 코드 리뷰**를 통해 여러 직군이 더 빠르게 독립 기여할 수 있는 개발 기반을 만들었습니다.",
-      "전사 최초 **Spring Boot 3 migration** 이후 트러블슈팅 가이드를 문서화해 다른 팀도 참고할 수 있는 레퍼런스로 남겼습니다.",
-      "릴리즈 노트 자동화, 데이터 분석 자동화, 공통 배포 도구 개선으로 팀 실행 속도를 높였고, 그 결과 **AI Award**, **AI Native MVP**를 받았습니다.",
-    ],
+    coreStrengths: [],
+    leadershipHighlights: [],
     experience: [
       {
         company: "Bucketplace (오늘의집)",
         position: "Senior Backend Engineer",
         period: "2022년 8월 - 현재",
         description: [
-          "**Ohouse AI 런칭**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 외부 AI 장애가 서비스 전체로 번지지 않도록 비동기 처리와 실패 격리 구조를 설계했고, 다수 팀 의존성 속에서도 런칭 일정을 맞췄습니다.",
+          "**Ohouse AI 런칭**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 비동기 처리와 실패 격리 구조를 설계해 외부 AI 장애 전파를 차단하고, 장시간 작업의 상태 관리·재시도 패턴을 공통 운영 모델로 정리해 여러 서비스에 재사용했습니다.",
+          "  메시지 큐 기반 비동기 워커와 오토스케일링으로 예측 불가 트래픽을 안정 처리하고, 이 패턴을 DAM·Panorama AR·Room Planner까지 확장 적용했습니다.",
           "**Ohouse AI 수익화/고도화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합해 결제 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성해 수익화 가능성을 검증했습니다.",
-          "**운영 모델 표준화**: AI 인퍼런스, 3D 생성, 렌더링처럼 장시간 작업이 많은 도메인에서 비동기 워커와 상태 관리 패턴을 공통 운영 모델로 정리해 여러 서비스에 재사용 가능한 기반을 만들었습니다.",
+          "  Apple/Google **IAP 라이프사이클 상태머신**을 설계하고, **LLM Provider Fallback + Circuit Breaker**로 공급사 장애 시 자동 우회를 구현했습니다.",
+          "  PoC 워커를 **Langgraph 기반 step-based 구조**로 재설계해 AI 워크플로우 확장성을 확보했습니다.",
+          "**Panorama AR**: 사용자의 실제 방을 3D로 재구성해 가구를 배치해볼 수 있는 서비스의 백엔드를 리드했습니다. MLE 연구 결과를 서비스로 연동하는 **6개 마이크로서비스**를 설계·런칭하고, 비동기 상태관리로 장시간 3D Reconstruction 파이프라인을 안정 운영해 일 **~300건** 룸 스캔을 처리했습니다.",
           "**Room Planner**: 성능·안정성 개선으로 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
-          "**Image-to-3D 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량을 **68개→800개**로 늘리고 **비용 88%**를 절감해 **Eng Award**를 받았습니다.",
+          "  API **200ms→80ms**, payload **54%** 절감, **LoD 자동 생성**으로 3D 모델 **90%** 경량화. Draw call **3,000→20(99%)**, 모델 로딩 **10초→2.5초**로 모바일 렌더링 병목을 해소했습니다.",
+          "  부하 테스트로 이벤트/챌린지 스파이크를 사전 검증해 **무사건 운영** 달성. AR Size Box로 AR 지원 상품을 **2,210→231,000개(104배)** 확대해 구매 전환율 **1.7배** 향상에 기여했습니다.",
+          "  연관 상품 추천을 실시간 스코어링에서 **오프라인 스코어링 알고리즘으로 재설계**해 검색 API 레이턴시를 **99.7%** 절감했습니다.",
+          "**3D 에셋 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량 **68개→800개**, **비용 88% 절감**으로 **Eng Award**를 받았습니다.",
+          "  에셋 관리 시스템(DAM) 구축으로 GPU **20%** 감소, 파일 크기 **51%** 축소, **연간 40일+** 운영 시간 절감(**Top Contributor**). GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
+          "**기술 리더십**: 신규 입사자·FE/ML 협업 인원 **온보딩과 코드 리뷰**로 크로스펑셔널 독립 기여 기반을 만들고, 전사 최초 **Spring Boot 3 migration** 트러블슈팅 가이드를 문서화했습니다.",
+          "  릴리즈 노트·데이터 분석 자동화로 팀 실행 속도를 높여 **AI Award**, **AI Native MVP**를 받았습니다.",
         ],
       },
       {
@@ -74,7 +77,8 @@ export const resumeData: MultiLanguageResumeData = {
         position: "System & Solution Programming Consultant",
         period: "2020년 1월 - 2022년 7월",
         description: [
-          "Node.js · Redis 기반 실시간 싱크 서버를 설계·운영했고, GitLab/Jenkins 기반 CI/CD 자동화로 빌드·테스트와 배포 리드타임을 줄였습니다.",
+          "Node.js · Redis 기반 실시간 싱크 서버를 설계·운영하고, WebSocket 기반 다중 사용자 동시 편집 환경을 구축했습니다.",
+          "GitLab/Jenkins 기반 CI/CD 파이프라인을 자동화해 빌드·테스트·배포 리드타임을 단축하고, Unity 클라이언트와 연동되는 백엔드 API를 개발했습니다.",
         ],
       },
       // BlackTangerine (Side-project) - removed for 1-page resume
@@ -90,134 +94,34 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI 런칭 및 고도화",
         summaryView: {
           problem:
-            "제한된 리소스와 다수 팀 의존성 속에서 6주 안에 글로벌 AI 서비스를 런칭해야 했고, 외부 AI 장애까지 감당해야 했습니다.",
+            "실제 인테리어 사진에 가구를 자동 배치하는 AI 서비스를, 제한된 리소스와 다수 팀 의존성 속에서 6주 안에 글로벌 런칭해야 했습니다.\n멀티턴 이미지 생성 특성상 사용자별 요청 순서 보장과 쿼터 제한 대응이 필수였고, 외부 AI 장애 전파도 차단해야 했습니다.",
           approach:
-            "비동기 처리, 실패 격리, 배포 없는 실험 체계, 공급사 우회 경로를 함께 설계해 빠른 런칭과 안정적 운영을 동시에 확보했습니다.",
+            "메시지 큐 기반 비동기 워커로 API와 처리를 분리하고, Kubernetes 오토스케일링과 동시성 제한으로 서버를 분리 운영했습니다.\n재시도/격리 정책과 공급사 우회 경로를 사전에 설계하고, JWT 기반 게스트 인증으로 런칭 병목을 제거했습니다.\n런칭 후에는 Apple/Google IAP 상태머신과 LLM Provider Fallback + Circuit Breaker를 적용하고, PoC 작업 흐름을 단계형 구조로 재설계해 수익화와 확장성을 동시에 확보했습니다.\n이미지 메타데이터 기반 제휴 상품 추천 경로를 구성해 외부 정책을 준수하면서 실시간 추천을 제공했습니다.",
           result:
-            "**4주 만에 170개국 런칭**을 완료했고, 중단 없는 운영과 **1주 내 구독 모델 검증**으로 수익화 기반을 마련했습니다.",
-        },
-        problem: [
-          "6주 안에 글로벌 런칭을 맞춰야 했고, 외부 LLM API 불안정성으로 서비스 중단 위험이 있었습니다.",
-          "또한 이미지 생성 과정에서 사용자별 흐름 순서를 보장하지 않으면 품질과 신뢰성을 동시에 잃을 위험이 컸습니다.",
-        ],
-        approach: [
-          "멀티 모듈 구조로 API와 워커를 분리 배포하고, 사용자별 요청 순서를 보장해 안정적 처리량을 확보했습니다.",
-          "또한 큐 지연 관리와 지표 기반 오토스케일링, 재시도/격리 정책을 결합해 외부 AI API 장애를 빠르게 복구했습니다.",
-          "런칭 전에 공급사 대체 전략을 먼저 마련해 장애·정책 변경 시에도 즉시 우회 가능한 기반을 만들었습니다.",
-          "런칭 후에는 일주일 안에 구독 모델을 적용하고, 작업 흐름을 재설계해 복잡한 AI 서비스도 확장 가능한 형태로 바꿨습니다.",
-        ],
-        result: [
-          "**6주 데드라인을 4주로 단축**해 **170개국 글로벌 런칭**을 완료했습니다.",
-          "또한 예측 불가 트래픽 환경에서도 오토스케일링과 장애 격리 설계로 중단 없는 운영을 유지했습니다.",
-          "그리고 IAP 검증과 워커 재설계로 수익화·확장성을 동시에 확보했습니다.",
-        ],
-        detail: {
-          situation: [
-            "Ohouse AI는 오늘의집 데이터와 AI를 활용해 실제 인테리어 사진에 가구를 자동 배치하는 글로벌 서비스로, **170개국** 대상 **6주 데드라인**이 주어졌습니다.",
-            "글로벌 서비스 특성상 트래픽이 예측 불가능했고, 갑작스러운 스파이크에 대비해야 했습니다.",
-            "멀티턴 이미지 생성에 LLM을 사용하며, 특히 이미지 생성 시 쿼터 제한에 의한 **HTTP 402 에러** 등 장애가 예상되었습니다.",
-          ],
-          task: [
-            "예측 불가능한 트래픽 스파이크 상황에서도 안정적으로 **6주 데드라인** 내 글로벌 런칭을 완료해야 했습니다.",
-            "외부 API 장애가 서비스 전체를 중단시키지 않도록 retry/fallback 아키텍처를 구축해야 했습니다.",
-            "런칭 후 빠르게 확장 가능한 워커 기반 구조를 만들어야 했습니다.",
-            "런칭 이후에는 구독 모델을 신속히 검증하고, 복잡한 AI 워크플로우를 처리할 수 있도록 시스템을 고도화해야 했습니다.",
-          ],
-          action: [
-            "**1. 메시지 큐 기반 비동기 처리**: 요청을 큐에 넣고 워커가 처리 가능한 만큼만 가져가게 하여 과부하를 줄였습니다.",
-            "**2. 오토스케일링 & 성능 튜닝**: Kubernetes 오토스케일링과 동시성 제한으로 API 서버와 워커를 분리 운영했습니다.",
-            "**3. 글로벌 이미지 전송**: CDN 구조를 구축해 전 세계 사용자에게 빠르게 이미지를 전달했습니다.",
-            "**4. 장애 격리**: 재시도와 실패 격리 로직으로 외부 API 장애가 전체 서비스로 전파되지 않도록 차단했습니다.",
-            "**5. 장애 전환 & 게스트 인증**: 공급사 대체 경로를 미리 준비하고 JWT 기반 게스트 인증을 추가해 런칭 병목을 제거했습니다.",
-            "**6. IAP 구독 구현**: Apple/Google 결제를 비동기 웹훅으로 통합해 1주일 만에 양 플랫폼 구독 모델을 검증했습니다.",
-            "**7. 작업 흐름 재설계**: 초기 PoC 작업 흐름을 단계형 구조로 바꿔 복잡한 AI 요구사항에 유연하게 대응하도록 개선했습니다.",
-            "**8. 정책 준수 제휴 추천**: 이미지 자동 분석 결과를 이용해 제휴 상품 추천 경로를 구성해 외부 정책을 지키면서 실시간 추천을 제공했습니다.",
-          ],
-          result: [
-            "**4주 만에 170개국** 런칭을 완료했습니다.",
-            "오토스케일링과 백프레셔로 트래픽 급증을 안정적으로 처리했습니다.",
-            "공급사 전환 가능한 연동 구조로 외부 장애에서 빠르게 복구했습니다.",
-            "게스트 JWT로 인증 병목을 제거해 런칭 일정을 맞출 수 있었습니다.",
-            "1주일 만에 구독 모델을 검증하고 수익화 기반을 확보했습니다.",
-            "작업 흐름 재설계로 기술 부채를 줄이고 AI 기능 확장성을 확보했습니다.",
-            "정책 준수 제휴 추천 경로를 만들어 실시간 제휴 상품 추천을 구현했습니다.",
-          ],
+            "**4주 만에 170개국 런칭**을 완료하고, 오토스케일링과 백프레셔로 예측 불가 트래픽에서도 중단 없는 운영을 유지했습니다.\n공급사 전환 가능한 연동 구조로 외부 장애에서 빠르게 복구했고, 제휴 상품 **CVR 10.5%** 달성으로 수익화 기반을 마련했습니다.",
         },
       },
       {
-        name: "비동기 장시간 작업 운영 표준화",
+        name: "3D 에셋 파이프라인 구축 및 생산 자동화",
         summaryView: {
           problem:
-            "AI 인퍼런스, 3D 생성, 고화질 렌더링처럼 수초에서 수분 걸리는 작업은 동기 처리만으로는 가용성과 정합성을 지키기 어려웠습니다.",
+            "Room Planner와 AR 기능에 필요한 3D 모델을 수작업으로 제작하고 있었습니다.\n기존 에셋은 관리 체계 없이 GPU와 스토리지를 비효율적으로 사용했고, 신규 모델은 처리량과 품질 편차로 상품 확대를 감당하기 어려웠습니다.",
           approach:
-            "빠른 검증은 유지하되, 상태 관리, 재시도, 보상 로직을 공통 구조로 묶어 여러 도메인에 재사용 가능한 운영 모델로 정리했습니다.",
+            "에셋 관리 시스템(DAM)을 구축해 중복 제거·자동 최적화·배포 파이프라인을 체계화하고, 운영 대시보드에서 3D 프리뷰·AR/Room Planner 연동 검수까지 엔지니어 의존 없이 처리할 수 있도록 했습니다.\nImage-to-3D 파이프라인은 상태 흐름 기반으로 자동화하고, 워커별 진행도를 DB로 관리해 장애 복구와 확장성을 확보했습니다.\n반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였으며, GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
           result:
-            "DAM, Panorama AR, Room Planner, Ohouse AI까지 이어지는 공통 백엔드 운영 기반을 만들며 장시간 작업의 신뢰성과 개발 속도를 함께 높였습니다.",
+            "DAM 구축으로 GPU **20%** 감소, 파일 크기 **51%** 축소, **연간 40일+** 운영 시간 절감으로 **Top Contributor**에 선정되었습니다.\nImage-to-3D 자동화로 월 생산량 **68개→800개**, **비용 88% 절감**, **45개 신규 카테고리** 확장을 달성해 **Eng Award**를 받았습니다.",
         },
-        problem: [
-          "AI 인퍼런스, 3D 에셋 생성, 고화질 렌더링처럼 오래 걸리는 작업은 API 지연, OOM, 외부 Rate Limit, 정합성 깨짐 위험이 컸습니다.",
-          "도메인마다 같은 문제를 반복 해결하면 운영 비용과 개발 비용이 함께 커지는 구조였습니다.",
-        ],
-        approach: [
-          "초기 검증 단계에서는 단순한 구조로 빠르게 PoC를 진행하되, 운영 단계에서는 비동기 워커와 상태 관리 구조를 표준화했습니다.",
-          "또한 재시도, 보상 로직, 작업 단계 정의를 공통 패턴으로 묶어 장애가 나도 전체 서비스나 사용자 흐름이 무너지지 않도록 설계했습니다.",
-          "필요할 때는 MQ, DB polling, 배치형 처리 중 도메인 상황에 맞는 방식을 선택해 복잡도와 안정성의 균형을 맞췄습니다.",
-        ],
-        result: [
-          "DAM, Panorama AR, Room Planner, Ohouse AI까지 이어지는 공통 운영 모델을 만들었습니다.",
-          "장시간 작업이 많은 서비스에서도 정합성과 복구 가능성을 높이며 운영 난도를 낮췄습니다.",
-          "새 기능을 추가할 때도 기존 패턴을 재사용할 수 있어 개발 속도와 신뢰성을 함께 확보했습니다.",
-        ],
-      },
-      {
-        name: "Image-to-3D 자동화",
-        summaryView: {
-          problem:
-            "수작업 3D 제작 방식은 처리량과 품질 편차 때문에 상품 확대를 감당하기 어려웠습니다.",
-          approach:
-            "생성, 검수, 배포를 자동화하고 운영 대시보드와 품질 선별 로직을 붙여 엔지니어 의존도를 낮췄습니다.",
-          result:
-            "월 생산량 **68개→800개**, **비용 88% 절감**, **연간 40일 이상 절감**으로 **Eng Award**를 받았습니다.",
-        },
-        problem: [
-          "수작업 중심 3D 파이프라인은 기존 모델 관리와 신규 생성 모두에서 처리량 한계와 품질 편차가 컸습니다.",
-        ],
-        approach: [
-          "저장→최적화→배포를 상태 흐름 기반으로 자동화하고, 워커별 진행도를 DB로 관리해 장애 복구와 확장성을 확보했습니다.",
-          "또한 반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였습니다.",
-          "그리고 3D 프리뷰·AR/Room Planner 연동 운영 대시보드를 만들어 배포 전후 검수 흐름을 엔지니어 의존 없이 운영했습니다.",
-          "또한 12개 이미지 품질 기준에 GPT-4o 점수를 반영해 우수 이미지만 선별하고, 3D 모델 생성까지 E2E 자동화했습니다.",
-        ],
-        result: [
-          "GPU **20%** 감소, 파일 크기 **51%** 축소로 **연간 40일 이상** 운영 시간을 절감했습니다. 해당 성과로 **Top Contributor**에 선정되었습니다.",
-          "또한 생산량을 **약 12배** 늘리고 비용을 **88% 절감**해 **Eng Award**를 받았습니다.",
-        ],
       },
       {
         name: "Room Planner 성능 안정성 강화",
         summaryView: {
           problem:
-            "모바일 3D 서비스의 초기 로딩 지연이 이탈과 성장 정체의 핵심 병목이었습니다.",
+            "모바일 3D 인테리어 배치 서비스에서 초기 로딩 지연이 사용자 이탈과 성장 정체의 핵심 병목이었습니다.\n이벤트/챌린지 트래픽 스파이크에서도 무중단 운영이 필요했고, 렌더링 속도 개선이 체류 시간 확보의 핵심 과제였습니다.",
           approach:
-            "모델 경량화, API 구조 개선, 부하 대응 체계를 함께 손봐 성능과 안정성을 동시에 개선했습니다.",
+            "**성능**: LoD 자동 생성과 Mesh Simplification으로 3D 모델을 **90% 경량화**하고, API 호출 구조 개선으로 지연을 **200ms→80ms**로 단축했습니다. Draw call **3,000→20**과 렌더링 파이프라인 개선으로 정적 렌더링 **60초→20초**, 애니메이션 **20분→3분**을 달성했습니다.\n**안정성**: 큐 기반 지표 모니터링과 안전한 종료 규칙으로 스케일링 안정성을 확보하고, 부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증했습니다.",
           result:
-            "API **200ms→80ms**, payload **54% 절감**, 모델 **90% 경량화**로 초기 로딩 병목을 해소하고 무사건 운영을 달성했습니다.",
+            "성능 개선으로 사용자 세션 시간이 **21분→35분(68%)**으로 증가하며 **WAU 704% 성장**, **연간 GMV 600%(8.6억)**에 기여했습니다.\n이벤트/챌린지 트래픽 급증 구간에서 **무사건 운영**을 달성하며 **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
         },
-        problem: [
-          "모바일 3D 서비스 특성상 초기 로딩 지연이 사용자 이탈로 직결되어 성장의 가장 큰 병목이었습니다.",
-          "또한 이벤트/챌린지 트래픽 스파이크 구간에서도 작업 유실 없는 운영이 필요했습니다.",
-        ],
-        approach: [
-          "자주 쓰는 3D 모델을 재사용하고 오래된 모델을 빠르게 정리하는 캐시 정책으로 모바일 메모리 부담을 조절했습니다.",
-          "또한 **LoD 자동 생성**과 Mesh Simplification을 결합해 품질 저하를 최소화하며 **90% 경량화**, payload **5MB→2.3MB**를 달성했습니다.",
-          "또한 데이터 구조와 호출 로직을 개선해 Room Planner API 지연을 **200ms→80ms(60%)**로 단축했습니다.",
-          "또한 큐 기반 지표 모니터링과 안전한 종료 규칙으로 부하가 급격히 변해도 스케일링이 흔들리지 않도록 안정성을 확보했습니다.",
-          "마지막으로 부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증해 장애를 선제 차단했습니다.",
-        ],
-        result: [
-          "이벤트/챌린지 트래픽 급증 구간에서 **무사건(no incidents)** 운영을 달성했습니다.",
-          "또한 API **200ms→80ms**, payload **54%** 절감, 모델 **90%** 경량화로 초기 로딩 병목을 해소했습니다.",
-        ],
       },
     ],
     education: [
@@ -249,29 +153,32 @@ export const resumeData: MultiLanguageResumeData = {
     summary: [
       "Backend engineer focused on distributed systems and long-running async workloads in AI/3D products.",
       "Built service stability and business leverage through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines under tight resource constraints.",
+      "Established async worker patterns, autoscaling, and failure isolation designs as reusable foundations across multiple services.",
       "When needed, stepped across FE/ML/infrastructure dependencies to unblock delivery, but kept the center of gravity on backend operating models and domain design.",
+      "Currently designing and building an AI Agent Platform — developing internal tools and frameworks to help teams create high-quality agents quickly.",
     ].join(" "),
-    coreStrengths: [
-      "Designed **async workers, state handling, and retry/isolation models** for AI/3D workloads with heavy external dependencies.",
-      "Reduced operational risk under traffic spikes and long-running jobs through **autoscaling, observability, and safer deployment flows**.",
-      "Turned subscriptions, recommendations, and automation pipelines into stable **backend domains**, while helping unblock FE/ML/infrastructure dependencies only when needed.",
-    ],
-    leadershipHighlights: [
-      "Helped FE and ML collaborators ramp up faster through **onboarding guides, technical guidance, and code reviews**, making cross-functional delivery more independent.",
-      "Documented troubleshooting after the company’s first **Spring Boot 3 migration**, leaving a reference other teams could reuse.",
-      "Improved team execution speed through release-note automation, daily analytics automation, and shared deployment tooling, contributing to **AI Award** and **AI Native MVP** recognition.",
-    ],
+    coreStrengths: [],
+    leadershipHighlights: [],
     experience: [
       {
         company: "Bucketplace",
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "**Ohouse AI Launch**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Designed async processing and failure isolation so external AI issues would not cascade across the service, while coordinating through heavy cross-team dependencies.",
+          "**Ohouse AI Launch**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Designed async processing and failure isolation to contain external AI failures, and standardized state management and retry patterns into a reusable operating model across services.",
+          "  Built message-queue-based async workers with autoscaling to handle unpredictable traffic, extending the pattern to DAM, Panorama AR, and Room Planner.",
           "**Ohouse AI Monetization / Evolution**: Unified iOS/Google subscription flows into one domain model, secured payment consistency, and validated monetization with affiliate **CVR 10.5%**.",
-          "**Operating Model Standardization**: Established reusable async worker and state-handling patterns across long-running AI/3D workloads so multiple services could share a more reliable backend operating model.",
+          "  Designed Apple/Google **IAP lifecycle state machine** and implemented **LLM Provider Fallback + Circuit Breaker** for automatic provider failover.",
+          "  Redesigned PoC workers into a **Langgraph-based step architecture** for extensible AI workflows.",
+          "**Panorama AR**: Led the backend for a service that reconstructs users' rooms in 3D for virtual furniture placement. Designed and launched **6 microservices** to productionize ML research results, with async state management for long-running 3D Reconstruction pipelines, handling **~300 daily room scans**.",
           "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
-          "**Image-to-3D Automation**: Automated the 3D production pipeline end to end, increasing monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
+          "  API latency **200ms→80ms**, payload **54%** reduction, **LoD auto-generation** for **90%** model lightweighting. Draw calls **3,000→20 (99%)**, model loading **10s→2.5s**, resolving mobile rendering bottlenecks.",
+          "  Preemptively validated event/challenge spikes via load testing for **zero-incident** operation. Expanded AR-supported products from **2,210 to 231,000 (104x)** via AR Size Box, contributing to **1.7x** purchase conversion uplift.",
+          "  Redesigned associated-item recommendations from real-time to **offline scoring algorithm**, cutting search API latency by **99.7%**.",
+          "**3D Asset Automation**: Automated the manual 3D production pipeline, scaling monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
+          "  Built a Digital Asset Management (DAM) system — GPU **20%** reduction, file size **51%** smaller, **40+ days/year** saved (**Top Contributor**). Completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
+          "**Technical Leadership**: Built cross-functional independence through **onboarding and code reviews** for new hires, FE, and ML collaborators. Documented the company's first **Spring Boot 3 migration** troubleshooting guide.",
+          "  Accelerated team execution with release-note and analytics automation, earning **AI Award** and **AI Native MVP** recognition.",
         ],
       },
       {
@@ -279,7 +186,8 @@ export const resumeData: MultiLanguageResumeData = {
         position: "System & Solution Programming Consultant",
         period: "Jan 2020 – Jul 2022",
         description: [
-          "Designed and operated a Node.js + Redis real-time sync server, and reduced build, test, and release lead time through GitLab/Jenkins CI/CD automation.",
+          "Designed and operated a Node.js + Redis real-time sync server, building a WebSocket-based multi-user concurrent editing environment.",
+          "Automated CI/CD pipelines with GitLab/Jenkins to reduce build, test, and deployment lead time, and developed backend APIs for Unity client integration.",
         ],
       },
       // BlackTangerine (Side-project) - removed for 1-page resume
@@ -295,134 +203,34 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI: Launch and Evolution",
         summaryView: {
           problem:
-            "We had to launch a global AI product within 6 weeks under tight staffing and heavy cross-team dependencies, while absorbing external AI instability.",
+            "An AI service that auto-places furniture in real interior photos needed to launch globally within 6 weeks under tight staffing and heavy cross-team dependencies.\nMulti-turn image generation required strict per-user ordering and quota-limit handling, and external AI failures had to be contained.",
           approach:
-            "I combined async processing, failure isolation, no-redeploy experimentation, and provider failover planning to balance speed with operational resilience.",
+            "Separated API and workers via message queues, then ran Kubernetes autoscaling with concurrency limits for independent scaling.\nDesigned retry/isolation policies and provider failover paths upfront, and removed launch bottlenecks with JWT-based guest auth.\nPost-launch, applied Apple/Google IAP state machine and LLM Provider Fallback + Circuit Breaker, and redesigned the PoC workflow into a step-based architecture for monetization and scalability.\nBuilt a policy-compliant affiliate recommendation path using image metadata for real-time product suggestions.",
           result:
-            "Completed launch to **170 countries in 4 weeks** and established monetization foundations by validating subscriptions within **one week**.",
-        },
-        problem: [
-          "A global launch was required within **6 weeks**, but instability in external LLM APIs created outage risk.",
-          "In addition, image-generation flow required strict per-user ordering, otherwise quality and reliability could degrade quickly.",
-        ],
-        approach: [
-          "Separated API and worker services into modules, then stabilized throughput by preserving per-user request order.",
-          "Combined queue backpressure control, autoscaling signals, and retry/isolation policies to recover quickly from external AI API failures.",
-          "Prepared fallback paths in advance so provider outages or policy changes could be handled without emergency rewrites.",
-          "After launch, added IAP within one week and redesigned workflows to support more complex AI tasks at scale.",
-        ],
-        result: [
-          "Reduced a **6-week deadline to 4 weeks** and completed global launch across **170 countries**.",
-          "In addition, maintained service continuity under uneven traffic with queue control and failure isolation.",
-          "Also built a revenue and scaling path by validating subscription in one week and redesigning workers.",
-        ],
-        detail: {
-          situation: [
-            "Ohouse AI is a global service that automatically places furniture in real interior photos using Ohouse data and AI, targeting **170 countries** with a **6-week deadline**",
-            "As a global service, traffic was unpredictable and we needed to handle sudden spikes",
-            "The service uses LLM for multi-turn image generation and responses, with expected failures like **HTTP 402 errors** from quota limits, especially during image generation"
-          ],
-          task: [
-            "Launch globally within the **6-week deadline** while staying stable under unpredictable traffic spikes",
-            "Prevent external API failures from bringing down the service with retry/fallback architecture",
-            "Build a worker-based structure that can scale quickly after launch",
-            "Post-launch: quickly validate the subscription model and evolve the system to handle complex AI workflows"
-          ],
-          action: [
-            "**1. Queue-based async processing**: Queued requests and let workers pull only what they could handle to prevent overload.",
-            "**2. Auto-scaling & performance tuning**: Separated API servers and workers using Kubernetes autoscaling and concurrency limits.",
-            "**3. Global image delivery**: Built a CDN structure to serve images quickly to users worldwide.",
-            "**4. Failure containment**: Used retry and isolation logic to prevent external API failures from bringing down the whole service.",
-            "**5. Failover prep & guest auth**: Prepared provider failover paths and added JWT-based guest authentication to remove launch bottlenecks.",
-            "**6. IAP subscription implementation**: Unified Apple/Google payments with async webhooks to validate subscription models on both platforms in one week.",
-            "**7. Workflow redesign**: Reworked worker execution flow from a PoC shape into a step-based design to scale complex AI tasks.",
-            "**8. Policy-safe affiliate recommendations**: Applied image metadata signals to deliver real-time affiliate recommendations while meeting external API policy constraints.",
-          ],
-          result: [
-            "Launched to **170 countries in 4 weeks**",
-            "Handled traffic surges stably with autoscaling and backpressure",
-            "Recovered quickly from external failures with provider failover prepared in advance",
-            "Removed authentication bottlenecks with guest JWT to meet the launch timeline",
-            "Validated the subscription model in one week and established monetization foundation",
-            "Resolved technical debt by redesigning worker execution flow and secured AI workflow scalability",
-            "Enabled real-time affiliate product recommendations within policy constraints",
-          ]
+            "Completed launch to **170 countries in 4 weeks** and maintained uninterrupted operation under unpredictable traffic with autoscaling and backpressure.\nRecovered quickly from external failures via provider failover architecture.\nAchieved affiliate **CVR 10.5%**, establishing a monetization foundation.",
         },
       },
       {
-        name: "Standardizing Long-Running Async Operations",
+        name: "3D Asset Pipeline & Production Automation",
         summaryView: {
           problem:
-            "AI inference, 3D generation, and high-quality rendering jobs were too slow and failure-prone to treat like normal synchronous requests.",
+            "3D models for Room Planner and AR features were produced manually.\nExisting assets lacked a management system, wasting GPU and storage, while new model creation couldn't scale due to throughput limits and quality variance.",
           approach:
-            "I kept fast validation paths when needed, but standardized state handling, retries, and recovery logic into a reusable operating model across domains.",
+            "Built a Digital Asset Management (DAM) system for deduplication, auto-optimization, and deployment pipeline, with an ops dashboard integrating 3D preview and AR/Room Planner for engineer-free review.\nAutomated the Image-to-3D pipeline with state-based workflows and DB-tracked worker progress for recovery and scaling.\nLocked in stable quality through parameter tuning and fallback logic, then completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
           result:
-            "Built a shared backend foundation used across DAM, Panorama AR, Room Planner, and Ohouse AI, improving both reliability and delivery speed.",
+            "DAM reduced GPU by **20%**, file size by **51%**, and saved **40+ days/year**, earning **Top Contributor**.\nImage-to-3D automation scaled monthly output from **68 to 800**, cut cost by **88%**, and expanded **45 new categories**, earning the **Eng Award**.",
         },
-        problem: [
-          "Long-running jobs in AI/3D domains carried high risk of latency, OOM, rate limits, and broken state transitions.",
-          "Solving the same reliability problem separately in each service would keep raising both operating cost and development cost.",
-        ],
-        approach: [
-          "Kept early validation simple when speed mattered, but standardized async workers and state handling once services moved into sustained operation.",
-          "Also grouped retries, compensation logic, and stage definitions into reusable patterns so failures would not break end-user flows or service continuity.",
-          "Used MQ, DB polling, or batch-style processing depending on domain constraints to balance complexity against reliability.",
-        ],
-        result: [
-          "Created a reusable operating model spanning DAM, Panorama AR, Room Planner, and Ohouse AI.",
-          "Raised recoverability and consistency for long-running workloads while reducing operational complexity.",
-          "Made it easier to ship new features on top of proven backend patterns instead of rebuilding the same foundation repeatedly.",
-        ],
-      },
-      {
-        name: "Image-to-3D Automation",
-        summaryView: {
-          problem:
-            "Manual 3D production could not scale with growing product coverage and introduced large quality variance.",
-          approach:
-            "I automated generation, review, and deployment, and reduced specialist dependence with operations tooling and quality scoring.",
-          result:
-            "Scaled monthly output from **68 to 800**, cut cost by **88%**, and saved **40+ days annually**, earning the **Eng Award**.",
-        },
-        problem: [
-          "A manual 3D pipeline was limiting throughput and quality consistency across existing model updates and new model creation.",
-        ],
-        approach: [
-          "Automated storage → optimization → deployment with a clear workflow and DB-based progress tracking for recovery and scaling.",
-          "In addition, used repeated experiments and fallback logic to lock in stable quality while reducing edge-case variance.",
-          "Also built an ops dashboard with 3D preview + AR/Room Planner integration to run release and operational checks without specialist dependence.",
-          "Then scored images across **12 criteria** with GPT-4o, automatically selected the best candidates, and generated 3D models end-to-end.",
-        ],
-        result: [
-          "Reduced GPU use by **20%**, file size by **51%**, and saved **40+ person-days annually**, contributing to **Top Contributor** selection.",
-          "Also raised production **~12x** and reduced cost **88%**, winning the **Eng Award**.",
-        ],
       },
       {
         name: "Room Planner Performance and Reliability",
         summaryView: {
           problem:
-            "Slow initial loading in mobile 3D was a direct growth bottleneck and traffic spikes also threatened reliability.",
+            "In a mobile 3D interior layout service, slow initial loading was the key bottleneck driving user drop-off and stalling growth.\nEvent/challenge traffic spikes required zero-downtime operation, and rendering speed was critical for session retention.",
           approach:
-            "I improved model weight, API structure, and spike handling together so performance and stability improved as one system.",
+            "**Performance**: Lightened 3D models by **90%** via LoD auto-generation and mesh simplification, and cut API latency from **200ms to 80ms** by restructuring call logic. Reduced draw calls from **3,000 to 20** and optimized the rendering pipeline, cutting still-image rendering from **60s to 20s** and animation from **20min to 3min**.\n**Reliability**: Linked queue metrics to autoscaling rules with safe shutdown behavior, and validated event/challenge spike scenarios through load testing.",
           result:
-            "Reduced API latency from **200ms to 80ms**, cut payload by **54%**, lightened models by **90%**, and kept spike periods incident-free.",
+            "Performance gains increased average session time from **21min to 35min (68%)**, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)**.\nAchieved **zero incidents** during traffic surges while sustaining **99.95% availability** at **10.2x traffic**.",
         },
-        problem: [
-          "Initial loading delay in mobile 3D directly caused user drop-off, making it the biggest bottleneck for growth.",
-          "In addition, event/challenge traffic spikes required handling without task loss or incidents.",
-        ],
-        approach: [
-          "Used cache policies to control 3D model retention and reuse by balancing memory use and warm assets.",
-          "In addition, combined **LoD auto-generation** with mesh simplification for **90% lightweighting** and payload reduction from **5MB to 2.3MB**, with minimal quality loss.",
-          "Also optimized data structures and call logic to reduce Room Planner API latency from **200ms to 80ms (60%)**.",
-          "In parallel, linked queue metrics to autoscaling rules and safe shutdown behavior for stable scaling.",
-          "Finally, validated event/challenge spike scenarios through load testing to preemptively prevent incidents.",
-        ],
-        result: [
-          "Achieved **no incidents** during event/challenge traffic surges.",
-          "Also resolved the initial loading bottleneck — API latency **200ms→80ms**, payload **54%** smaller, model **90%** lighter.",
-        ],
       },
     ],
     education: [

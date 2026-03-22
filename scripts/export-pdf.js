@@ -31,8 +31,7 @@ async function main() {
 
   try {
     await exportPdf(page, path.join(outputDir, "resume-summary.pdf"), "/")
-    await exportPdf(page, path.join(outputDir, "resume-detail.pdf"), "/?isDetail=true")
-    console.log(`Exported PDFs to ${outputDir}`)
+    console.log(`Exported PDF to ${outputDir}`)
   } finally {
     await browser.close()
   }

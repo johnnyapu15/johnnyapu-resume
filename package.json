@@ -10,7 +10,8 @@
     "pdf:build": "next build",
     "pdf:serve": "next start --port 3001",
     "pdf:export": "node scripts/export-pdf.js",
-    "pdf:check": "sh scripts/check-pdf.sh"
+    "pdf:check": "sh scripts/check-pdf.sh",
+    "pdf:preview": "sh scripts/check-pdf.sh && pdftoppm -png -r ${PDF_DPI:-450} artifacts/print/resume-summary.pdf artifacts/print/resume-summary && echo 'Preview PNGs ready in artifacts/print/'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

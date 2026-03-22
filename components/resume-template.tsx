@@ -36,19 +36,24 @@ interface ResumeTemplateProps {
 const renderWithBold = (text: string) => {
   if (!text) return null
 
-  const parts = text.split(/(\*\*.*?\*\*)/g)
+  const lines = text.split("\n")
 
   return (
     <>
-      {parts.map((part, i) =>
-        part.startsWith("**") && part.endsWith("**") ? (
-          <strong key={i} className="font-semibold text-gray-800">
-            {part.slice(2, -2)}
-          </strong>
-        ) : (
-          part
-        ),
-      )}
+      {lines.map((line, li) => (
+        <span key={li}>
+          {li > 0 && <br />}
+          {line.split(/(\*\*.*?\*\*)/g).map((part, pi) =>
+            part.startsWith("**") && part.endsWith("**") ? (
+              <strong key={pi} className="font-semibold text-gray-800">
+                {part.slice(2, -2)}
+              </strong>
+            ) : (
+              part
+            ),
+          )}
+        </span>
+      ))}
     </>
   )
 }
@@ -219,80 +224,20 @@ const KeyExperienceSection = ({
   }
 
   return (
-    <div className={`mb-8 ${!isDetailed ? 'print-page-break-before print-avoid-break' : ''}`}>
+    <div className={`mb-8 ${!isDetailed ? 'print-avoid-break' : ''}`}>
       <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
         {icon}
         {title}
       </h2>
-      <div className="grid grid-cols-1 gap-4">
+      <div className="grid grid-cols-1 gap-6">
         {experiencesToShow.map((exp, i) => {
           const isFirstCard = false
-          if (isDetailed && exp.detail) {
-            // 상세 보기 (STAR) 뷰
-            return (
-              <div key={i} className={`bg-leather-50 p-6 rounded-lg flex flex-col ${i === 0 ? 'key-experience-first' : ''} print-avoid-break`}>
-                <h3 className="text-xl font-bold text-leather-800 mb-4">{exp.name}</h3>
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <strong className="font-semibold text-gray-800 text-base">{labels[language].situation}</strong>
-                    <div className="mt-1 space-y-1 text-gray-700">
-                      {exp.detail.situation.map((item, j) => (
-                        <p key={j} className="flex items-start">
-                          <span className="mr-2 mt-1">∙</span>
-                          <span>{renderWithBold(item)}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <strong className="font-semibold text-gray-800 text-base">{labels[language].task}</strong>
-                    <div className="mt-1 space-y-1 text-gray-700">
-                      {exp.detail.task.map((item, j) => (
-                        <p key={j} className="flex items-start">
-                          <span className="mr-2 mt-1">∙</span>
-                          <span>{renderWithBold(item)}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <strong className="font-semibold text-gray-800 text-base">{labels[language].action}</strong>
-                    <div className="mt-1 space-y-1 text-gray-700">
-                      {exp.detail.action.map((item, j) => (
-                        <p key={j} className="flex items-start">
-                          <span className="mr-2 mt-1">∙</span>
-                          <span>{renderWithBold(item)}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                  <div>
-                    <strong className="font-semibold text-gray-800 text-base">{labels[language].result}</strong>
-                    <div className="mt-1 space-y-1 text-gray-700">
-                      {(exp.detail.result || exp.result).map((item, j) => (
-                        <p key={j} className="flex items-start">
-                          <span className="mr-2 mt-1">∙</span>
-                          <span>{renderWithBold(item)}</span>
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )
-          }
-
-          // 기본 (요약) 뷰
-          const summaryView = exp.summaryView ?? {
-            problem: exp.problem.join(" "),
-            approach: exp.approach.join(" "),
-            result: exp.result.join(" "),
-          }
+          const summaryView = exp.summaryView
 
           return (
-            <div key={i} className={`bg-leather-50 p-3 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
-              <h3 className="text-base font-semibold text-leather-700 mb-2">{exp.name}</h3>
-              <div className="grid grid-cols-[2.5rem,1fr] gap-x-3 gap-y-1 text-[0.8rem] leading-snug print:text-[0.72rem]">
+            <div key={i} className={`bg-leather-50 p-4 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
+              <h3 className="text-base font-semibold text-leather-700 mb-3">{exp.name}</h3>
+              <div className="grid grid-cols-[2.5rem,1fr] gap-x-3 gap-y-2 text-[0.8rem] leading-snug print:text-[0.85rem]">
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
                 <p className="text-gray-700">{renderWithBold(summaryView.problem)}</p>
 
@@ -363,7 +308,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
         </div>
       )}
 
-      <Card id="resume-content" className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white">
+      <div id="resume-content">
+      <Card className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white">
         {/* 헤더 섹션 */}
         <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-6">
           <div className="flex flex-col md:flex-row md:justify-between md:items-center">
@@ -457,7 +403,39 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             ))}
           </div>
 
-          {/* 주요 경험 */}
+          {/* 학력 사항 */}
+          <div className="mb-8 print-avoid-break">
+            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+              <GraduationCap className="h-5 w-5 mr-2 text-leather-700" />
+              {labels[language].education}
+            </h2>
+            {data.education.map((edu, index) => (
+              <div key={index} className={`flex items-baseline justify-between text-sm ${index !== data.education.length - 1 ? "mb-1" : ""}`}>
+                <div className="flex items-baseline gap-2 flex-wrap">
+                  <h3 className="text-base font-semibold text-leather-700">{edu.school}</h3>
+                  <span className="text-gray-400">|</span>
+                  <span className="text-gray-700">{edu.degree}</span>
+                  {edu.description && (
+                    <>
+                      <span className="text-gray-400">|</span>
+                      <span className="text-gray-600">{edu.description}</span>
+                    </>
+                  )}
+                </div>
+                <div className="flex items-center text-gray-500 flex-shrink-0 ml-4">
+                  <Calendar className="h-3 w-3 mr-1" />
+                  <span>{edu.period}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </Card>
+
+      {/* 2페이지 시작 */}
+      <Card className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white mt-8 print:mt-0 print-page-break-before">
+        <div className="p-8">
           <KeyExperienceSection
             title={labels[language].keyExperience}
             icon={<Star className="h-6 w-6 mr-3 text-leather-600" />}
@@ -466,34 +444,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             isDetailed={isDetailed}
           />
 
-          {data.leadershipHighlights && data.leadershipHighlights.length > 0 && (
-            <div className="mb-8 print-avoid-break">
-              <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
-                <Users className="h-5 w-5 mr-2 text-leather-700" />
-                {labels[language].leadershipHighlights}
-              </h2>
-              <ul className="list-disc pl-5 text-gray-700 space-y-1.5">
-                {data.leadershipHighlights.map((item, index) => (
-                  <li key={index} className="print:text-sm">
-                    {renderWithBold(item)}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div className="mb-8 print-avoid-break">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
-              <Code className="h-5 w-5 mr-2 text-leather-700" />
-              {labels[language].skills}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <CompactSkillList title={labels[language].programmingLanguages} items={data.skills.languages} />
-              <CompactSkillList title={labels[language].frameworksAndLibraries} items={data.skills.frameworks} />
-              <CompactSkillList title={labels[language].backendInfra} items={data.skills.backendInfra} />
-              <CompactSkillList title={labels[language].toolsAndEnvironments} items={data.skills.tools} />
-            </div>
-          </div>
+          {/* Skills section removed — tech stack is covered in experience bullets */}
 
           {/* 주요 프로젝트 */}
           {data.projects && data.projects.length > 0 && (
@@ -531,35 +482,9 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               </div>
             </div>
           )}
-
-          {/* 학력 사항 */}
-          <div className="mb-8 print-avoid-break">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
-              <GraduationCap className="h-5 w-5 mr-2 text-leather-700" />
-              {labels[language].education}
-            </h2>
-            {data.education.map((edu, index) => (
-              <div key={index} className={`flex items-baseline justify-between text-sm ${index !== data.education.length - 1 ? "mb-1" : ""}`}>
-                <div className="flex items-baseline gap-2 flex-wrap">
-                  <h3 className="text-base font-semibold text-leather-700">{edu.school}</h3>
-                  <span className="text-gray-400">|</span>
-                  <span className="text-gray-700">{edu.degree}</span>
-                  {edu.description && (
-                    <>
-                      <span className="text-gray-400">|</span>
-                      <span className="text-gray-600">{edu.description}</span>
-                    </>
-                  )}
-                </div>
-                <div className="flex items-center text-gray-500 flex-shrink-0 ml-4">
-                  <Calendar className="h-3 w-3 mr-1" />
-                  <span>{edu.period}</span>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </Card>
+      </div>
     </div>
   )
 }
