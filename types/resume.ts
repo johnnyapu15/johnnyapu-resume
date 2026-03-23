@@ -121,6 +121,7 @@ export interface SectionLabels {
   aiTools: string
   interpersonal: string
   print: string
+  download: string
   situation: string
   task: string
   action: string
@@ -147,6 +148,7 @@ export const labels: Record<Language, SectionLabels> = {
     aiTools: "AI 도구",
     interpersonal: "Interpersonal Skills",
     print: "인쇄하기",
+    download: "PDF 다운로드",
     situation: "Situation",
     task: "Task",
     action: "Action",
@@ -171,6 +173,7 @@ export const labels: Record<Language, SectionLabels> = {
     aiTools: "AI Tools",
     interpersonal: "Interpersonal Skills",
     print: "Print",
+    download: "Download PDF",
     situation: "Situation",
     task: "Task",
     action: "Action",

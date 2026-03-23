@@ -11,6 +11,7 @@ import {
   Building,
   Calendar,
   Code,
+  Download,
   GraduationCap,
   Linkedin,
   Mail,
@@ -301,10 +302,18 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               {isDetailed ? labels[language].summary : labels[language].details}
             </Button>
           </div>
-          <Button variant="outline" onClick={handlePrint} className="bg-white hover:bg-gray-50">
-            <Printer className="mr-2 h-4 w-4" />
-            {labels[language].print}
-          </Button>
+          <div className="flex gap-2">
+            <a href="/resume.pdf" download className="inline-flex items-center">
+              <Button variant="outline" className="bg-white hover:bg-gray-50">
+                <Download className="mr-2 h-4 w-4" />
+                {labels[language].download}
+              </Button>
+            </a>
+            <Button variant="outline" onClick={handlePrint} className="bg-white hover:bg-gray-50">
+              <Printer className="mr-2 h-4 w-4" />
+              {labels[language].print}
+            </Button>
+          </div>
         </div>
       )}
 
