@@ -237,7 +237,7 @@ const KeyExperienceSection = ({
           return (
             <div key={i} className={`bg-leather-50 p-4 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
               <h3 className="text-base font-semibold text-leather-700 mb-3">{exp.name}</h3>
-              <div className="grid grid-cols-[2.5rem,1fr] gap-x-3 gap-y-2 text-[0.8rem] leading-snug print:text-[0.85rem]">
+              <div className="grid grid-cols-[2.5rem,1fr] gap-x-3 gap-y-2 leading-snug print:text-[0.85rem]">
                 <strong className="font-semibold text-gray-800 pt-0.5">{sectionLabels[language].problem}</strong>
                 <p className="text-gray-700">{renderWithBold(summaryView.problem)}</p>
 
