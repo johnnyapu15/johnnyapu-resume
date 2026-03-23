@@ -74,12 +74,12 @@
   }
 
   html {
-    font-size: 9.5pt; /* Default print font size */
+    font-size: 10.5pt; /* Default print font size */
   }
 
   /* Set a smaller font size only for the English version when printing */
   html[lang="en"] {
-    font-size: 9pt;
+    font-size: 10pt;
   }
 
   body {
@@ -102,16 +102,16 @@
 
   /* 2페이지 레이아웃을 위한 스타일 재정의 */
   .p-8 {
-    padding: 0.8rem 1.4rem !important;
+    padding: 1.2rem 1.6rem !important;
   }
   .mb-8 {
-    margin-bottom: 1.2rem !important;
+    margin-bottom: 1.8rem !important;
   }
   .mb-6 {
-    margin-bottom: 0.8rem !important;
+    margin-bottom: 1rem !important;
   }
   .mb-4 {
-    margin-bottom: 0.4rem !important;
+    margin-bottom: 0.5rem !important;
   }
   h2 {
     font-size: 1.15rem !important;
@@ -121,18 +121,18 @@
     font-size: 1.05rem !important;
   }
   .leading-relaxed {
-    font-size: 0.88rem !important;
-    line-height: 1.5 !important;
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
   }
   .space-y-8 {
     --tw-space-y-reverse: 0;
-    margin-top: calc(0.6rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(0.6rem * var(--tw-space-y-reverse));
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
   }
   .space-y-8 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
-    margin-top: calc(0.6rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(0.6rem * var(--tw-space-y-reverse));
+    margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(1rem * var(--tw-space-y-reverse));
   }
 
   /* General Print Utilities */
@@ -154,7 +154,7 @@
   }
 
   .print-layout-compact .p-8 {
-    padding: 0.8rem 1.4rem !important;
+    padding: 1.2rem 1.4rem !important;
   }
 
   .print-layout-compact .p-4 {
@@ -172,7 +172,7 @@
 
   /* 섹션 간의 하단 마진을 줄입니다. */
   .print-layout-compact .mb-8 {
-    margin-bottom: 1.2rem !important;
+    margin-bottom: 1.8rem !important;
   }
 
   /* 제목 폰트 크기를 약간 줄입니다. */
