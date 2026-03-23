@@ -19,7 +19,7 @@ const config = {
       },
     },
     fontFamily: {
-      sans: ['var(--font-inter)', 'var(--font-noto-sans-kr)', 'system-ui', 'sans-serif'],
+      sans: ['"Pretendard Variable"', 'Pretendard', 'system-ui', '-apple-system', 'sans-serif'],
     },
     extend: {
       colors: {
