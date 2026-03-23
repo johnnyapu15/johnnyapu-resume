@@ -73,6 +73,25 @@
     height: 297mm;
   }
 
+  /* 바깥 여백·장식 제거 */
+  main,
+  main.p-6,
+  main.p-10,
+  main[class*="p-"] {
+    padding: 0 !important;
+    background: white !important;
+  }
+  .container {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  #resume-content > .rounded-lg,
+  #resume-content > div {
+    border-radius: 0 !important;
+    border: none !important;
+  }
+
   html {
     font-size: 10.5pt; /* Default print font size */
   }
