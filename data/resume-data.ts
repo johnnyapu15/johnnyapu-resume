@@ -43,8 +43,8 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "분산 시스템과 장시간 비동기 작업이 많은 AI/3D 도메인에서 런칭, 안정화, 수익화를 맡아온 백엔드 엔지니어입니다.",
-      "제한된 리소스에서도 글로벌 AI 서비스 런칭, 장시간 작업 운영 표준화, 3D 자동화 파이프라인 구축을 통해 서비스 안정성과 비즈니스 확장을 함께 만들었습니다.",
-      "비동기 워커 기반 운영 모델, 오토스케일링, 장애 격리 설계를 여러 서비스에 걸쳐 재사용 가능한 패턴으로 정착시킨 경험이 있습니다.",
+      "제한된 리소스에서도 글로벌 AI 서비스 런칭, 장시간 작업 운영 표준화, 3D 자동화 파이프라인 구축으로 서비스 안정성을 높이고 비즈니스 성장에 기여했습니다.",
+      "비동기 워커 기반 운영 모델, 오토스케일링, 장애 격리 설계를 여러 서비스에 걸쳐 재사용 가능한 패턴으로 정착시켰습니다.",
       "필요할 때는 FE/ML/인프라 협업 병목도 직접 메우되, 중심은 항상 안정적인 백엔드 운영 모델과 도메인 설계에 두고 일해왔습니다.",
       "현재는 AI Agent Platform을 설계·구축하며, 고품질 에이전트를 빠르게 만들 수 있는 내부 도구와 프레임워크를 개발하고 있습니다.",
     ].join(" "),
@@ -58,18 +58,18 @@ export const resumeData: MultiLanguageResumeData = {
         description: [
           "**Ohouse AI 런칭**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 비동기 처리와 실패 격리 구조를 설계해 외부 AI 장애 전파를 차단하고, 장시간 작업의 상태 관리·재시도 패턴을 공통 운영 모델로 정리해 여러 서비스에 재사용했습니다.",
           "  메시지 큐 기반 비동기 워커와 오토스케일링으로 예측 불가 트래픽을 안정 처리하고, 이 패턴을 DAM·Panorama AR·Room Planner까지 확장 적용했습니다.",
-          "**Ohouse AI 수익화/고도화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합해 결제 정합성을 확보했고, 제휴 상품 **CVR 10.5%**를 달성해 수익화 가능성을 검증했습니다.",
+          "**Ohouse AI 수익화/고도화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합해 결제 정합성을 잡았고, 제휴 상품 **CVR 10.5%**로 수익화 가능성을 검증했습니다.",
           "  Apple/Google **IAP 라이프사이클 상태머신**을 설계하고, **LLM Provider Fallback + Circuit Breaker**로 공급사 장애 시 자동 우회를 구현했습니다.",
-          "  PoC 워커를 **Langgraph 기반 step-based 구조**로 재설계해 AI 워크플로우 확장성을 확보했습니다.",
+          "  PoC 워커를 **Langgraph 기반 step-based 구조**로 재설계해 AI 워크플로우를 유연하게 확장할 수 있는 구조를 갖췄습니다.",
           "**Panorama AR**: 사용자의 실제 방을 3D로 재구성해 가구를 배치해볼 수 있는 서비스의 백엔드를 리드했습니다. MLE 연구 결과를 서비스로 연동하는 **6개 마이크로서비스**를 설계·런칭하고, 비동기 상태관리로 장시간 3D Reconstruction 파이프라인을 안정 운영해 일 **~300건** 룸 스캔을 처리했습니다.",
           "**Room Planner**: 성능·안정성 개선으로 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
           "  API **200ms→80ms**, payload **54%** 절감, **LoD 자동 생성**으로 3D 모델 **90%** 경량화. Draw call **3,000→20(99%)**, 모델 로딩 **10초→2.5초**로 모바일 렌더링 병목을 해소했습니다.",
-          "  부하 테스트로 이벤트/챌린지 스파이크를 사전 검증해 **무사건 운영** 달성. AR Size Box로 AR 지원 상품을 **2,210→231,000개(104배)** 확대해 구매 전환율 **1.7배** 향상에 기여했습니다.",
+          "  부하 테스트로 이벤트/챌린지 스파이크를 사전 검증해 **무사건으로 운영**했습니다. AR Size Box로 AR 지원 상품을 **2,210→231,000개(104배)** 확대해 구매 전환율 **1.7배** 향상에 기여했습니다.",
           "  연관 상품 추천을 실시간 스코어링에서 **오프라인 스코어링 알고리즘으로 재설계**해 검색 API 레이턴시를 **99.7%** 절감했습니다.",
           "**3D 에셋 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량 **68개→800개**, **비용 88% 절감**으로 **Eng Award**를 받았습니다.",
           "  에셋 관리 시스템(DAM) 구축으로 GPU **20%** 감소, 파일 크기 **51%** 축소, **연간 40일+** 운영 시간 절감(**Top Contributor**). GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
-          "**기술 리더십**: 신규 입사자·FE/ML 협업 인원 **온보딩과 코드 리뷰**로 크로스펑셔널 독립 기여 기반을 만들고, 전사 최초 **Spring Boot 3 migration** 트러블슈팅 가이드를 문서화했습니다.",
-          "  릴리즈 노트·데이터 분석 자동화로 팀 실행 속도를 높여 **AI Award**, **AI Native MVP**를 받았습니다.",
+          "**기술 리더십**: 신규 입사자·FE/ML 인원을 **온보딩과 코드 리뷰**로 백엔드에 독립 기여할 수 있도록 이끌고, 전사 최초 **Spring Boot 3 migration** 트러블슈팅 가이드를 문서화했습니다.",
+          "  릴리즈 노트·데이터 분석 자동화로 팀 배포 주기를 단축해 **AI Award**, **AI Native MVP**를 받았습니다.",
         ],
       },
       {
@@ -94,11 +94,11 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI 런칭 및 고도화",
         summaryView: {
           problem:
-            "실제 인테리어 사진에 가구를 자동 배치하는 AI 서비스를, 제한된 리소스와 다수 팀 의존성 속에서 6주 안에 글로벌 런칭해야 했습니다.\n멀티턴 이미지 생성 특성상 사용자별 요청 순서 보장과 쿼터 제한 대응이 필수였고, 외부 AI 장애 전파도 차단해야 했습니다.",
+            "실제 인테리어 사진에 가구를 자동 배치하는 AI 서비스를, 제한된 리소스와 여러 팀 의존성이 얽힌 상황에서 6주 안에 글로벌 런칭해야 했습니다.\n멀티턴 이미지 생성 특성상 사용자별 요청 순서 보장과 쿼터 제한 대응이 필수였고, 외부 AI 장애 전파도 차단해야 했습니다.",
           approach:
-            "메시지 큐 기반 비동기 워커로 API와 처리를 분리하고, Kubernetes 오토스케일링과 동시성 제한으로 서버를 분리 운영했습니다.\n재시도/격리 정책과 공급사 우회 경로를 사전에 설계하고, JWT 기반 게스트 인증으로 런칭 병목을 제거했습니다.\n런칭 후에는 Apple/Google IAP 상태머신과 LLM Provider Fallback + Circuit Breaker를 적용하고, PoC 작업 흐름을 단계형 구조로 재설계해 수익화와 확장성을 동시에 확보했습니다.\n이미지 메타데이터 기반 제휴 상품 추천 경로를 구성해 외부 정책을 준수하면서 실시간 추천을 제공했습니다.",
+            "메시지 큐 기반 비동기 워커로 API와 처리를 분리하고, Kubernetes 오토스케일링과 동시성 제한으로 서버를 분리 운영했습니다.\n재시도/격리 정책과 공급사 우회 경로를 사전에 설계하고, JWT 기반 게스트 인증으로 런칭 병목을 제거했습니다.\n런칭 후에는 Apple/Google IAP 상태머신과 LLM Provider Fallback + Circuit Breaker를 적용하고, PoC 작업 흐름을 단계형 구조로 재설계해 수익화와 확장이 가능한 구조를 갖췄습니다.\n이미지 메타데이터 기반 제휴 상품 추천 경로를 구성해 외부 정책을 준수하면서 실시간 추천을 제공했습니다.",
           result:
-            "**4주 만에 170개국 런칭**을 완료하고, 오토스케일링과 백프레셔로 예측 불가 트래픽에서도 중단 없는 운영을 유지했습니다.\n공급사 전환 가능한 연동 구조로 외부 장애에서 빠르게 복구했고, 제휴 상품 **CVR 10.5%** 달성으로 수익화 기반을 마련했습니다.",
+            "**4주 만에 170개국 런칭**을 완료하고, 오토스케일링과 백프레셔로 예측 불가 트래픽에서도 장애 없이 운영했습니다.\n공급사 전환 가능한 연동 구조로 외부 장애에서 빠르게 복구했고, 제휴 상품 **CVR 10.5%**로 수익 모델을 검증했습니다.",
         },
       },
       {
@@ -107,20 +107,20 @@ export const resumeData: MultiLanguageResumeData = {
           problem:
             "Room Planner와 AR 기능에 필요한 3D 모델을 수작업으로 제작하고 있었습니다.\n기존 에셋은 관리 체계 없이 GPU와 스토리지를 비효율적으로 사용했고, 신규 모델은 처리량과 품질 편차로 상품 확대를 감당하기 어려웠습니다.",
           approach:
-            "에셋 관리 시스템(DAM)을 구축해 중복 제거·자동 최적화·배포 파이프라인을 체계화하고, 운영 대시보드에서 3D 프리뷰·AR/Room Planner 연동 검수까지 엔지니어 의존 없이 처리할 수 있도록 했습니다.\nImage-to-3D 파이프라인은 상태 흐름 기반으로 자동화하고, 워커별 진행도를 DB로 관리해 장애 복구와 확장성을 확보했습니다.\n반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였으며, GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
+            "에셋 관리 시스템(DAM)을 구축해 중복 제거·자동 최적화·배포 파이프라인을 체계화하고, 운영 대시보드에서 3D 프리뷰·AR/Room Planner 연동 검수까지 엔지니어 의존 없이 처리할 수 있도록 했습니다.\nImage-to-3D 파이프라인은 상태 흐름 기반으로 자동화하고, 워커별 진행도를 DB로 관리해 장애 복구와 수평 확장이 가능하도록 했습니다.\n반복 실험으로 파라미터를 고정하고 fallback 로직으로 예외 케이스를 처리해 품질 편차를 줄였으며, GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
           result:
-            "DAM 구축으로 GPU **20%** 감소, 파일 크기 **51%** 축소, **연간 40일+** 운영 시간 절감으로 **Top Contributor**에 선정되었습니다.\nImage-to-3D 자동화로 월 생산량 **68개→800개**, **비용 88% 절감**, **45개 신규 카테고리** 확장을 달성해 **Eng Award**를 받았습니다.",
+            "DAM 구축으로 GPU **20%** 감소, 파일 크기 **51%** 축소, **연간 40일+** 운영 시간 절감으로 **Top Contributor**에 선정되었습니다.\nImage-to-3D 자동화로 월 생산량 **68개→800개**, **비용 88% 절감**, **45개 신규 카테고리** 확장을 이뤄 **Eng Award**를 받았습니다.",
         },
       },
       {
         name: "Room Planner 성능 안정성 강화",
         summaryView: {
           problem:
-            "모바일 3D 인테리어 배치 서비스에서 초기 로딩 지연이 사용자 이탈과 성장 정체의 핵심 병목이었습니다.\n이벤트/챌린지 트래픽 스파이크에서도 무중단 운영이 필요했고, 렌더링 속도 개선이 체류 시간 확보의 핵심 과제였습니다.",
+            "모바일 3D 인테리어 배치 서비스에서 초기 로딩 지연이 사용자 이탈과 성장 정체의 핵심 병목이었습니다.\n이벤트/챌린지 트래픽 스파이크에서도 무중단 운영이 필요했고, 렌더링이 느려 사용자 체류 시간이 짧은 것도 문제였습니다.",
           approach:
-            "**성능**: LoD 자동 생성과 Mesh Simplification으로 3D 모델을 **90% 경량화**하고, API 호출 구조 개선으로 지연을 **200ms→80ms**로 단축했습니다. Draw call **3,000→20**과 렌더링 파이프라인 개선으로 정적 렌더링 **60초→20초**, 애니메이션 **20분→3분**을 달성했습니다.\n**안정성**: 큐 기반 지표 모니터링과 안전한 종료 규칙으로 스케일링 안정성을 확보하고, 부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증했습니다.",
+            "**성능**: LoD 자동 생성과 Mesh Simplification으로 3D 모델을 **90% 경량화**하고, API 호출 구조 개선으로 지연을 **200ms→80ms**로 단축했습니다. Draw call **3,000→20**과 렌더링 파이프라인 개선으로 정적 렌더링 **60초→20초**, 애니메이션 **20분→3분**을 달성했습니다.\n**안정성**: 큐 기반 지표 모니터링과 안전한 종료 규칙으로 스케일링을 안정시키고, 부하 테스트로 이벤트/챌린지 스파이크 시나리오를 사전 검증했습니다.",
           result:
-            "성능 개선으로 사용자 세션 시간이 **21분→35분(68%)**으로 증가하며 **WAU 704% 성장**, **연간 GMV 600%(8.6억)**에 기여했습니다.\n이벤트/챌린지 트래픽 급증 구간에서 **무사건 운영**을 달성하며 **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
+            "성능 개선으로 사용자 세션 시간이 **21분→35분(68%)**으로 증가하며 **WAU 704% 성장**, **연간 GMV 600%(8.6억)** 성장에 기여했습니다.\n이벤트/챌린지 트래픽 급증 구간에서 **무사건으로 운영**하며 **10.2배 트래픽**에서 **99.95% 가용성**을 유지했습니다.",
         },
       },
     ],
@@ -152,9 +152,9 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "Backend engineer focused on distributed systems and long-running async workloads in AI/3D products.",
-      "Built service stability and business leverage through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines under tight resource constraints.",
-      "Established async worker patterns, autoscaling, and failure isolation designs as reusable foundations across multiple services.",
-      "When needed, stepped across FE/ML/infrastructure dependencies to unblock delivery, but kept the center of gravity on backend operating models and domain design.",
+      "Improved service stability and contributed to business growth through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines — all under tight resource constraints.",
+      "Turned async worker patterns, autoscaling, and failure isolation into reusable building blocks shared across multiple services.",
+      "When needed, filled FE/ML/infrastructure gaps to keep delivery moving, but always anchored on backend operating models and domain design.",
       "Currently designing and building an AI Agent Platform — developing internal tools and frameworks to help teams create high-quality agents quickly.",
     ].join(" "),
     coreStrengths: [],
@@ -165,20 +165,20 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "**Ohouse AI Launch**: Completed global launch to **170 countries** by reducing a **6-week deadline to 4 weeks**. Designed async processing and failure isolation to contain external AI failures, and standardized state management and retry patterns into a reusable operating model across services.",
+          "**Ohouse AI Launch**: Completed global launch to **170 countries** delivering in **4 weeks against a 6-week deadline**. Designed async processing and failure isolation to contain external AI failures, and standardized state management and retry patterns into a reusable operating model across services.",
           "  Built message-queue-based async workers with autoscaling to handle unpredictable traffic, extending the pattern to DAM, Panorama AR, and Room Planner.",
-          "**Ohouse AI Monetization / Evolution**: Unified iOS/Google subscription flows into one domain model, secured payment consistency, and validated monetization with affiliate **CVR 10.5%**.",
+          "**Ohouse AI Monetization / Evolution**: Unified iOS/Google subscription flows into one domain model, ensured payment correctness, and proved monetization viable with affiliate **CVR 10.5%**.",
           "  Designed Apple/Google **IAP lifecycle state machine** and implemented **LLM Provider Fallback + Circuit Breaker** for automatic provider failover.",
           "  Redesigned PoC workers into a **Langgraph-based step architecture** for extensible AI workflows.",
           "**Panorama AR**: Led the backend for a service that reconstructs users' rooms in 3D for virtual furniture placement. Designed and launched **6 microservices** to productionize ML research results, with async state management for long-running 3D Reconstruction pipelines, handling **~300 daily room scans**.",
           "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
           "  API latency **200ms→80ms**, payload **54%** reduction, **LoD auto-generation** for **90%** model lightweighting. Draw calls **3,000→20 (99%)**, model loading **10s→2.5s**, resolving mobile rendering bottlenecks.",
-          "  Preemptively validated event/challenge spikes via load testing for **zero-incident** operation. Expanded AR-supported products from **2,210 to 231,000 (104x)** via AR Size Box, contributing to **1.7x** purchase conversion uplift.",
+          "  Load-tested event/challenge spike scenarios for **zero-incident** operation. Expanded AR-supported products from **2,210 to 231,000 (104x)** via AR Size Box, lifting purchase conversion by **1.7x**.",
           "  Redesigned associated-item recommendations from real-time to **offline scoring algorithm**, cutting search API latency by **99.7%**.",
           "**3D Asset Automation**: Automated the manual 3D production pipeline, scaling monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
           "  Built a Digital Asset Management (DAM) system — GPU **20%** reduction, file size **51%** smaller, **40+ days/year** saved (**Top Contributor**). Completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
-          "**Technical Leadership**: Built cross-functional independence through **onboarding and code reviews** for new hires, FE, and ML collaborators. Documented the company's first **Spring Boot 3 migration** troubleshooting guide.",
-          "  Accelerated team execution with release-note and analytics automation, earning **AI Award** and **AI Native MVP** recognition.",
+          "**Technical Leadership**: Onboarded new hires, FE, and ML collaborators via **code reviews** so they could contribute to backend independently. Documented the company's first **Spring Boot 3 migration** troubleshooting guide.",
+          "  Shortened release cycles with release-note and analytics automation, earning **AI Award** and **AI Native MVP** recognition.",
         ],
       },
       {
@@ -203,11 +203,11 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI: Launch and Evolution",
         summaryView: {
           problem:
-            "An AI service that auto-places furniture in real interior photos needed to launch globally within 6 weeks under tight staffing and heavy cross-team dependencies.\nMulti-turn image generation required strict per-user ordering and quota-limit handling, and external AI failures had to be contained.",
+            "An AI service that auto-places furniture in real interior photos needed to launch globally within 6 weeks under tight staffing with many cross-team dependencies.\nMulti-turn image generation required strict per-user ordering and quota-limit handling, and external AI failures had to be contained.",
           approach:
             "Separated API and workers via message queues, then ran Kubernetes autoscaling with concurrency limits for independent scaling.\nDesigned retry/isolation policies and provider failover paths upfront, and removed launch bottlenecks with JWT-based guest auth.\nPost-launch, applied Apple/Google IAP state machine and LLM Provider Fallback + Circuit Breaker, and redesigned the PoC workflow into a step-based architecture for monetization and scalability.\nBuilt a policy-compliant affiliate recommendation path using image metadata for real-time product suggestions.",
           result:
-            "Completed launch to **170 countries in 4 weeks** and maintained uninterrupted operation under unpredictable traffic with autoscaling and backpressure.\nRecovered quickly from external failures via provider failover architecture.\nAchieved affiliate **CVR 10.5%**, establishing a monetization foundation.",
+            "Completed launch to **170 countries in 4 weeks** and maintained uninterrupted operation under unpredictable traffic with autoscaling and backpressure.\nRecovered quickly from external failures via provider failover architecture.\nAchieved affiliate **CVR 10.5%**, proving the monetization model.",
         },
       },
       {
@@ -229,7 +229,7 @@ export const resumeData: MultiLanguageResumeData = {
           approach:
             "**Performance**: Lightened 3D models by **90%** via LoD auto-generation and mesh simplification, and cut API latency from **200ms to 80ms** by restructuring call logic. Reduced draw calls from **3,000 to 20** and optimized the rendering pipeline, cutting still-image rendering from **60s to 20s** and animation from **20min to 3min**.\n**Reliability**: Linked queue metrics to autoscaling rules with safe shutdown behavior, and validated event/challenge spike scenarios through load testing.",
           result:
-            "Performance gains increased average session time from **21min to 35min (68%)**, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)**.\nAchieved **zero incidents** during traffic surges while sustaining **99.95% availability** at **10.2x traffic**.",
+            "Performance gains increased average session time from **21min to 35min (68%)**, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)**.\nMaintained **zero incidents** during traffic surges while sustaining **99.95% availability** at **10.2x traffic**.",
         },
       },
     ],
