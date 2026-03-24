@@ -4,13 +4,13 @@ set -eu
 PORT="${RESUME_PORT:-}"
 
 if [ -z "${PORT}" ]; then
-  PORT=$(node -e 'const net = require("net"); const server = net.createServer(); server.listen(0, () => { console.log(server.address().port); server.close(); });')
+  PORT=$(node -e 'const net = require("net"); const server = net.createServer(); server.listen(0, "127.0.0.1", () => { console.log(server.address().port); server.close(); });')
 fi
 
 BASE_URL="http://127.0.0.1:${PORT}"
 
 npm run build
-npm run start -- --port "${PORT}" > /tmp/johnnyapu-resume-pdf.log 2>&1 &
+npm run start -- --hostname 127.0.0.1 --port "${PORT}" > /tmp/johnnyapu-resume-pdf.log 2>&1 &
 SERVER_PID=$!
 
 cleanup() {

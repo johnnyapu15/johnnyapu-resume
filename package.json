@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "hooks:install": "git config core.hooksPath .githooks",
     "pdf:build": "next build",
     "pdf:serve": "next start --port 3001",
     "pdf:export": "node scripts/export-pdf.js",
