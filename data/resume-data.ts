@@ -43,7 +43,7 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "분산 시스템과 장시간 비동기 작업이 많은 AI/3D 도메인에서 런칭, 안정화, 수익화를 맡아온 백엔드 엔지니어입니다.",
-      "제한된 리소스에서도 글로벌 AI 서비스 런칭, 장시간 작업 운영 표준화, 3D 자동화 파이프라인 구축으로 서비스 안정성을 높이고 비즈니스 성장에 기여했습니다.",
+      "제한된 리소스에서도 글로벌 AI 서비스 런칭, 장시간 작업 운영 표준화, 3D 자동화 파이프라인 구축으로 서비스 안정성을 높이고 비즈니스 성장에 기여했으며, 3D 자동화·AI 고도화 등의 성과로 사내 엔지니어링·AI 부문에서 여러 차례 수상했습니다.",
       "비동기 워커 기반 운영 모델, 오토스케일링, 장애 격리 설계를 여러 서비스에 걸쳐 재사용 가능한 패턴으로 정착시켰습니다.",
       "필요할 때는 FE/ML/인프라 협업 병목도 직접 메우되, 중심은 항상 안정적인 백엔드 운영 모델과 도메인 설계에 두고 일해왔습니다.",
       "현재는 AI Agent Platform을 설계·구축하며, 고품질 에이전트를 빠르게 만들 수 있는 내부 도구와 프레임워크를 개발하고 있습니다.",
@@ -152,7 +152,7 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "Backend engineer focused on distributed systems and long-running async workloads in AI/3D products.",
-      "Improved service stability and contributed to business growth through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines — all under tight resource constraints.",
+      "Improved service stability and contributed to business growth through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines — all under tight resource constraints, with multiple internal engineering and AI awards for 3D automation and AI service evolution.",
       "Turned async worker patterns, autoscaling, and failure isolation into reusable building blocks shared across multiple services.",
       "When needed, filled FE/ML/infrastructure gaps to keep delivery moving, but always anchored on backend operating models and domain design.",
       "Currently designing and building an AI Agent Platform — developing internal tools and frameworks to help teams create high-quality agents quickly.",
