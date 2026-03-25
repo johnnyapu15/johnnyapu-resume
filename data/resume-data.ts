@@ -58,17 +58,17 @@ export const resumeData: MultiLanguageResumeData = {
         description: [
           "**Ohouse AI 런칭**: **6주 데드라인을 4주로 단축**해 **170개국** 글로벌 런칭을 완료했습니다. 비동기 처리와 실패 격리 구조를 설계해 외부 AI 장애 전파를 차단하고, 장시간 작업의 상태 관리·재시도 패턴을 적용했습니다.",
           "  이전 서비스에서 다져온 비동기 처리 패턴을 바탕으로, 메시지 큐 기반 워커와 오토스케일링 구조를 설계해 예측 불가 트래픽을 안정적으로 처리했습니다.",
-          "**Ohouse AI 수익화/고도화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합하기 위해 Apple/Google IAP 라이프사이클 상태머신을 설계하고, 구독 상품의 운영 복잡도를 낮추며 실제 매출 발생 기반을 마련했습니다.",
+          "**Ohouse AI 수익화/고도화**: iOS/Google 구독 흐름을 하나의 도메인으로 통합하기 위해 Apple/Google IAP 라이프사이클 상태머신을 설계하고, 구독 상품의 운영 복잡도를 낮추고 실제 매출로 이어지는 기반을 마련했습니다.",
           "  RAG를 이용한 제휴 상품 추천을 런칭하고 **10.5%**의 높은 CVR로 수익화 가능성을 검증했고, **LLM Provider Fallback + Circuit Breaker**를 적용해 특정 LLM provider 장애 시에도 서비스가 지속되도록 구성했습니다.",
-          "  PoC 워커를 **Langgraph 기반 step-based 구조**로 재설계해 AI 워크플로우를 유연하게 확장할 수 있는 구조를 갖췄습니다.",
-          "**Panorama AR**: 사용자의 실제 방을 3D로 재구성해 가구를 배치해볼 수 있는 서비스의 백엔드를 리드했습니다. MLE 연구 결과를 서비스로 연동하는 **6개 마이크로서비스**를 설계·런칭하고, 비동기 상태관리로 장시간 3D Reconstruction 파이프라인을 안정 운영해 일 **~300건** 룸 스캔을 처리했습니다.",
+          "  PoC 워커를 **Langgraph 기반 graph-based 구조**로 재설계해 AI 워크플로우를 유연하게 확장할 수 있게 했습니다.",
+          "**Panorama AR**: 사용자의 실제 방을 3D로 재구성해 가구를 배치해볼 수 있는 서비스의 백엔드를 리드했습니다. MLE 연구 결과를 서비스로 연동하는 마이크로서비스를 설계·런칭하고, 비동기 상태관리로 장시간 3D Reconstruction 파이프라인을 안정적으로 운영하며 일 **~300건** 룸 스캔을 처리했습니다.",
           "**Room Planner**: 성능·안정성 개선으로 **WAU 704% 성장**과 **연간 GMV 600%(8.6억)**에 기여했고, **10.2배 트래픽**에서도 **99.95% 가용성**을 유지했습니다.",
           "  API **200ms→80ms**, payload **54%** 절감, **LoD 자동 생성**으로 3D 모델 **90%** 경량화. Draw call **3,000→20(99%)**, 모델 로딩 **10초→2.5초**로 모바일 렌더링 병목을 해소했습니다.",
           "  부하 테스트로 이벤트/챌린지 스파이크를 사전 검증해 **무사건으로 운영**했습니다. AR Size Box로 AR 지원 상품을 **2,210→231,000개(104배)** 확대해 구매 전환율 **1.7배** 향상에 기여했습니다.",
           "  연관 상품 추천을 실시간 스코어링에서 **오프라인 스코어링 알고리즘으로 재설계**해 검색 API 레이턴시를 **99.7%** 절감했습니다.",
           "**3D 에셋 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량 **68개→800개**, **비용 88% 절감**으로 **Eng Award**를 받았습니다.",
           "  에셋 관리 시스템(DAM) 구축으로 GPU **20%** 감소, 파일 크기 **51%** 축소, **연간 40일+** 운영 시간 절감(**Top Contributor**). GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
-          "**기술 리더십**: 신규 입사자·FE/ML 인원을 **온보딩과 코드 리뷰**로 백엔드에 독립 기여할 수 있도록 이끌고, 전사 최초 **Spring Boot 3 migration** 트러블슈팅 가이드를 문서화했습니다.",
+          "**기술 리더십**: 신규 입사자·FE/ML 인원을 **온보딩과 코드 리뷰**로 백엔드에 독립 기여할 수 있도록 이끌었습니다.",
           "  릴리즈 노트·데이터 분석 자동화로 팀 배포 주기를 단축해 **AI Award**, **AI Native MVP**를 받았습니다.",
         ],
       },
@@ -96,7 +96,7 @@ export const resumeData: MultiLanguageResumeData = {
           problem:
             "실제 인테리어 사진에 가구를 자동 배치하는 AI 서비스를, 제한된 리소스와 여러 팀 의존성이 얽힌 상황에서 6주 안에 글로벌 런칭해야 했습니다.\n멀티턴 이미지 생성 특성상 사용자별 요청 순서 보장과 쿼터 제한 대응이 필수였고, 외부 AI 장애 전파도 차단해야 했습니다.",
           approach:
-            "메시지 큐 기반 비동기 워커로 API와 처리를 분리하고, Kubernetes 오토스케일링과 동시성 제한으로 서버를 분리 운영했습니다.\n재시도/격리 정책과 공급사 우회 경로를 사전에 설계하고, JWT 기반 게스트 인증으로 런칭 병목을 제거했습니다.\n런칭 후에는 Apple/Google IAP 상태머신과 LLM Provider Fallback + Circuit Breaker를 적용하고, PoC 작업 흐름을 단계형 구조로 재설계해 수익화와 확장이 가능한 구조를 갖췄습니다.\n이미지 메타데이터 기반 제휴 상품 추천 경로를 구성해 외부 정책을 준수하면서 실시간 추천을 제공했습니다.",
+            "메시지 큐 기반 비동기 워커로 API와 처리를 분리하고, Kubernetes 오토스케일링과 동시성 제한으로 독립 운영했습니다.\n재시도/격리 정책과 공급사 우회 경로를 사전에 설계하고, JWT 기반 게스트 인증으로 런칭 병목을 제거했습니다.\n런칭 후에는 Apple/Google IAP 상태머신과 LLM Provider Fallback + Circuit Breaker를 적용하고, PoC 작업 흐름을 graph-based 구조로 재설계해 수익화와 확장이 가능하게 했습니다.\n이미지 메타데이터 기반 제휴 상품 추천 경로를 구성해 외부 정책을 준수하면서 실시간 추천을 제공했습니다.",
           result:
             "**4주 만에 170개국 런칭**을 완료하고, 오토스케일링과 백프레셔로 예측 불가 트래픽에서도 장애 없이 운영했습니다.\n공급사 전환 가능한 연동 구조로 외부 장애에서 빠르게 복구했고, 제휴 상품 **CVR 10.5%**로 수익 모델을 검증했습니다.",
         },
@@ -169,15 +169,15 @@ export const resumeData: MultiLanguageResumeData = {
           "  Built message-queue-based async workers with autoscaling to handle unpredictable traffic, extending the pattern to DAM, Panorama AR, and Room Planner.",
           "**Ohouse AI Monetization / Evolution**: Unified iOS/Google subscription flows into one domain model, ensured payment correctness, and proved monetization viable with affiliate **CVR 10.5%**.",
           "  Designed Apple/Google **IAP lifecycle state machine** and implemented **LLM Provider Fallback + Circuit Breaker** for automatic provider failover.",
-          "  Redesigned PoC workers into a **Langgraph-based step architecture** for extensible AI workflows.",
-          "**Panorama AR**: Led the backend for a service that reconstructs users' rooms in 3D for virtual furniture placement. Designed and launched **6 microservices** to productionize ML research results, with async state management for long-running 3D Reconstruction pipelines, handling **~300 daily room scans**.",
+          "  Redesigned PoC workers into a **Langgraph-based graph architecture** for extensible AI workflows.",
+          "**Panorama AR**: Led the backend for a service that reconstructs users' rooms in 3D for virtual furniture placement. Designed and launched microservices to productionize ML research results, with async state management for long-running 3D Reconstruction pipelines, handling **~300 daily room scans**.",
           "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
           "  API latency **200ms→80ms**, payload **54%** reduction, **LoD auto-generation** for **90%** model lightweighting. Draw calls **3,000→20 (99%)**, model loading **10s→2.5s**, resolving mobile rendering bottlenecks.",
           "  Load-tested event/challenge spike scenarios for **zero-incident** operation. Expanded AR-supported products from **2,210 to 231,000 (104x)** via AR Size Box, lifting purchase conversion by **1.7x**.",
           "  Redesigned associated-item recommendations from real-time to **offline scoring algorithm**, cutting search API latency by **99.7%**.",
           "**3D Asset Automation**: Automated the manual 3D production pipeline, scaling monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
           "  Built a Digital Asset Management (DAM) system — GPU **20%** reduction, file size **51%** smaller, **40+ days/year** saved (**Top Contributor**). Completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
-          "**Technical Leadership**: Onboarded new hires, FE, and ML collaborators via **code reviews** so they could contribute to backend independently. Documented the company's first **Spring Boot 3 migration** troubleshooting guide.",
+          "**Technical Leadership**: Onboarded new hires, FE, and ML collaborators via **code reviews** so they could contribute to backend independently.",
           "  Shortened release cycles with release-note and analytics automation, earning **AI Award** and **AI Native MVP** recognition.",
         ],
       },
@@ -205,7 +205,7 @@ export const resumeData: MultiLanguageResumeData = {
           problem:
             "An AI service that auto-places furniture in real interior photos needed to launch globally within 6 weeks under tight staffing with many cross-team dependencies.\nMulti-turn image generation required strict per-user ordering and quota-limit handling, and external AI failures had to be contained.",
           approach:
-            "Separated API and workers via message queues, then ran Kubernetes autoscaling with concurrency limits for independent scaling.\nDesigned retry/isolation policies and provider failover paths upfront, and removed launch bottlenecks with JWT-based guest auth.\nPost-launch, applied Apple/Google IAP state machine and LLM Provider Fallback + Circuit Breaker, and redesigned the PoC workflow into a step-based architecture for monetization and scalability.\nBuilt a policy-compliant affiliate recommendation path using image metadata for real-time product suggestions.",
+            "Separated API and workers via message queues, then ran Kubernetes autoscaling with concurrency limits for independent scaling.\nDesigned retry/isolation policies and provider failover paths upfront, and removed launch bottlenecks with JWT-based guest auth.\nPost-launch, applied Apple/Google IAP state machine and LLM Provider Fallback + Circuit Breaker, and redesigned the PoC workflow into a graph-based architecture for monetization and scalability.\nBuilt a policy-compliant affiliate recommendation path using image metadata for real-time product suggestions.",
           result:
             "Completed launch to **170 countries in 4 weeks** and maintained uninterrupted operation under unpredictable traffic with autoscaling and backpressure.\nRecovered quickly from external failures via provider failover architecture.\nAchieved affiliate **CVR 10.5%**, proving the monetization model.",
         },
