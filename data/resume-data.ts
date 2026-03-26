@@ -152,9 +152,9 @@ export const resumeData: MultiLanguageResumeData = {
     },
     summary: [
       "Backend engineer focused on distributed systems and long-running async workloads in AI/3D products.",
-      "Improved service stability and contributed to business growth through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines — all under tight resource constraints, with multiple internal engineering and AI awards for 3D automation and AI service evolution.",
+      "Improved service stability and contributed to business growth through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines — all under tight resource constraints, with multiple internal engineering and AI awards for 3D automation and AI advancement.",
       "Turned async worker patterns, autoscaling, and failure isolation into reusable building blocks shared across multiple services.",
-      "When needed, filled FE/ML/infrastructure gaps to keep delivery moving, but always anchored on backend operating models and domain design.",
+      "When needed, filled FE/ML/infrastructure gaps to keep delivery moving, but always anchored in backend operating models and domain design.",
       "Currently designing and building an AI Agent Platform — developing internal tools and frameworks to help teams create high-quality agents quickly.",
     ].join(" "),
     coreStrengths: [],
@@ -165,19 +165,19 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "**Ohouse AI Launch**: Completed global launch to **170 countries** delivering in **4 weeks against a 6-week deadline**. Designed async processing and failure isolation to contain external AI failures, and standardized state management and retry patterns into a reusable operating model across services.",
+          "**Ohouse AI Launch**: Completed global launch to **170 countries** delivered in **4 weeks against a 6-week deadline**. Designed async processing and failure isolation to contain external AI failures, and standardized state management and retry patterns into a reusable operating model across services.",
           "  Built message-queue-based async workers with autoscaling to handle unpredictable traffic, extending the pattern to DAM, Panorama AR, and Room Planner.",
           "**Ohouse AI Monetization / Evolution**: Unified iOS/Google subscription flows into one domain model, ensured payment correctness, and proved monetization viable with affiliate **CVR 10.5%**.",
           "  Designed Apple/Google **IAP lifecycle state machine** and implemented **LLM Provider Fallback + Circuit Breaker** for automatic provider failover.",
           "  Redesigned PoC workers into a **Langgraph-based graph architecture** for extensible AI workflows.",
           "**Panorama AR**: Led the backend for a service that reconstructs users' rooms in 3D for virtual furniture placement. Designed and launched microservices to productionize ML research results, with async state management for long-running 3D Reconstruction pipelines, handling **~300 daily room scans**.",
           "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
-          "  API latency **200ms→80ms**, payload **54%** reduction, **LoD auto-generation** for **90%** model lightweighting. Draw calls **3,000→20 (99%)**, model loading **10s→2.5s**, resolving mobile rendering bottlenecks.",
+          "  API latency **200ms→80ms**, payload **54%** reduction, **LoD auto-generation** for **90%** model size reduction. Draw calls **3,000→20 (99%)**, model loading **10s→2.5s**, resolving mobile rendering bottlenecks.",
           "  Load-tested event/challenge spike scenarios for **zero-incident** operation. Expanded AR-supported products from **2,210 to 231,000 (104x)** via AR Size Box, lifting purchase conversion by **1.7x**.",
-          "  Redesigned associated-item recommendations from real-time to **offline scoring algorithm**, cutting search API latency by **99.7%**.",
+          "  Redesigned associated-item recommendations from real-time to an **offline scoring algorithm**, cutting search API latency by **99.7%**.",
           "**3D Asset Automation**: Automated the manual 3D production pipeline, scaling monthly output from **68 to 800 items** and reducing cost by **88%**, earning the **Eng Award**.",
           "  Built a Digital Asset Management (DAM) system — GPU **20%** reduction, file size **51%** smaller, **40+ days/year** saved (**Top Contributor**). Completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
-          "**Technical Leadership**: Onboarded new hires, FE, and ML collaborators via **code reviews** so they could contribute to backend independently.",
+          "**Technical Leadership**: Onboarded new hires, FE, and ML collaborators via **code reviews** so they could contribute to the backend independently.",
           "  Shortened release cycles with release-note and analytics automation, earning **AI Award** and **AI Native MVP** recognition.",
         ],
       },
@@ -203,7 +203,7 @@ export const resumeData: MultiLanguageResumeData = {
         name: "Ohouse AI: Launch and Evolution",
         summaryView: {
           problem:
-            "An AI service that auto-places furniture in real interior photos needed to launch globally within 6 weeks under tight staffing with many cross-team dependencies.\nMulti-turn image generation required strict per-user ordering and quota-limit handling, and external AI failures had to be contained.",
+            "An AI service that auto-places furniture in real interior photos needed to launch globally within 6 weeks with limited staffing and many cross-team dependencies.\nMulti-turn image generation required strict per-user ordering and quota-limit handling, and external AI failures had to be contained.",
           approach:
             "Separated API and workers via message queues, then ran Kubernetes autoscaling with concurrency limits for independent scaling.\nDesigned retry/isolation policies and provider failover paths upfront, and removed launch bottlenecks with JWT-based guest auth.\nPost-launch, applied Apple/Google IAP state machine and LLM Provider Fallback + Circuit Breaker, and redesigned the PoC workflow into a graph-based architecture for monetization and scalability.\nBuilt a policy-compliant affiliate recommendation path using image metadata for real-time product suggestions.",
           result:
@@ -216,7 +216,7 @@ export const resumeData: MultiLanguageResumeData = {
           problem:
             "3D models for Room Planner and AR features were produced manually.\nExisting assets lacked a management system, wasting GPU and storage, while new model creation couldn't scale due to throughput limits and quality variance.",
           approach:
-            "Built a Digital Asset Management (DAM) system for deduplication, auto-optimization, and deployment pipeline, with an ops dashboard integrating 3D preview and AR/Room Planner for engineer-free review.\nAutomated the Image-to-3D pipeline with state-based workflows and DB-tracked worker progress for recovery and scaling.\nLocked in stable quality through parameter tuning and fallback logic, then completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
+            "Built a Digital Asset Management (DAM) system for deduplication, auto-optimization, and deployment pipeline, with an ops dashboard integrating 3D preview and AR/Room Planner enabling non-engineer review.\nAutomated the Image-to-3D pipeline with state-based workflows and DB-tracked worker progress for recovery and scaling.\nStabilized quality through parameter tuning and fallback logic, then completed E2E automation with GPT-4o-based quality scoring across 12 criteria.",
           result:
             "DAM reduced GPU by **20%**, file size by **51%**, and saved **40+ days/year**, earning **Top Contributor**.\nImage-to-3D automation scaled monthly output from **68 to 800**, cut cost by **88%**, and expanded **45 new categories**, earning the **Eng Award**.",
         },
@@ -227,7 +227,7 @@ export const resumeData: MultiLanguageResumeData = {
           problem:
             "In a mobile 3D interior layout service, slow initial loading was the key bottleneck driving user drop-off and stalling growth.\nEvent/challenge traffic spikes required zero-downtime operation, and rendering speed was critical for session retention.",
           approach:
-            "**Performance**: Lightened 3D models by **90%** via LoD auto-generation and mesh simplification, and cut API latency from **200ms to 80ms** by restructuring call logic. Reduced draw calls from **3,000 to 20** and optimized the rendering pipeline, cutting still-image rendering from **60s to 20s** and animation from **20min to 3min**.\n**Reliability**: Linked queue metrics to autoscaling rules with safe shutdown behavior, and validated event/challenge spike scenarios through load testing.",
+            "**Performance**: Lightened 3D models by **90%** via LoD auto-generation and mesh simplification, and cut API latency from **200ms to 80ms** by restructuring API call patterns. Reduced draw calls from **3,000 to 20** and optimized the rendering pipeline, cutting still-image rendering from **60s to 20s** and animation from **20min to 3min**.\n**Reliability**: Linked queue metrics to autoscaling rules with safe shutdown behavior, and validated event/challenge spike scenarios through load testing.",
           result:
             "Performance gains increased average session time from **21min to 35min (68%)**, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)**.\nMaintained **zero incidents** during traffic surges while sustaining **99.95% availability** at **10.2x traffic**.",
         },
@@ -239,7 +239,7 @@ export const resumeData: MultiLanguageResumeData = {
         degree: "Master's in Computer Science",
         period: "2018 – 2019",
         description:
-          "Research on performance improvement of AI systems / Early completion of Master's degree through a combined Bachelor's-Master's program.",
+          "Research on improving AI system performance / Early completion of Master's degree through a combined Bachelor's-Master's program.",
       },
       {
         school: "University of Seoul",
