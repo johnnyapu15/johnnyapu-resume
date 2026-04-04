@@ -494,6 +494,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
         </div>
       </Card>
       </div>
+
+      <p className="text-center text-xs text-gray-400 mt-4 print:hidden">
+        Built {process.env.BUILD_TIME}
+      </p>
     </div>
   )
 }
