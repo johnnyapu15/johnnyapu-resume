@@ -165,11 +165,8 @@ export const resumeData: MultiLanguageResumeData = {
         position: "Senior Backend Engineer",
         period: "Aug 2022 – Present",
         description: [
-          "**Ohouse AI Launch**: Completed global launch to **170 countries in 4 weeks**, accelerating a 6-week target. Designed async processing and failure isolation to contain external AI failures, and standardized state management and retry patterns into a reusable operating model across services.",
-          "  Built message-queue-based async workers with autoscaling to handle unpredictable traffic, extending the pattern to DAM, Panorama AR, and Room Planner.",
-          "**Ohouse AI Monetization / Evolution**: Built the iOS/Google subscription system from scratch, abstracting both platforms' IAP lifecycles into a single state machine to ensure payment correctness.",
-          "  Designed RAG-based affiliate recommendations under Amazon Affiliate policy constraints, achieving **CVR 10.5%**. Implemented **LLM Provider Fallback + Circuit Breaker** for automatic provider failover.",
-          "  Migrated from Spring to Python due to LLM framework immaturity, and redesigned into a **Langgraph-based graph architecture** for extensible AI workflows.",
+          "**Ohouse AI Launch**: Completed global launch to **170 countries in 4 weeks**, accelerating a 6-week target. Built queue-based async workers with autoscaling, failure isolation, and reusable retry/state patterns to handle unpredictable traffic safely.",
+          "**Ohouse AI Monetization / Evolution**: Built the iOS/Google subscription system from scratch with a unified IAP state machine, designed RAG-based affiliate recommendations achieving **CVR 10.5%**, implemented provider failover, and migrated to **Python/Langgraph** for extensible AI workflows.",
           "**Panorama AR**: Led the backend for a service that reconstructs users' rooms in 3D for virtual furniture placement. Designed and launched microservices to productionize ML research results, with async state management for long-running 3D Reconstruction pipelines, handling **~300 daily room scans**.",
           "**Room Planner**: Improved performance and reliability, contributing to **704% WAU growth** and **600% annual GMV (KRW 860M)** while sustaining **99.95% availability** at **10.2x traffic**.",
           "  API latency **200ms→80ms**, payload **54%** reduction, **LoD auto-generation** for **90%** model size reduction. Draw calls **3,000→20 (99%)**, model loading **10s→2.5s**, resolving mobile rendering bottlenecks.",
