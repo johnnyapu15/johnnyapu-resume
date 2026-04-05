@@ -269,6 +269,28 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const [showPasswordDialog, setShowPasswordDialog] = useState(false)
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordError, setPasswordError] = useState(false)
+  const [verifying, setVerifying] = useState(false)
+
+  const verifyPassword = async () => {
+    setVerifying(true)
+    try {
+      const res = await fetch("/api/admin/verify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: passwordInput }),
+      })
+      if (res.ok) {
+        setIsAdminMode(true)
+        setShowPasswordDialog(false)
+      } else {
+        setPasswordError(true)
+      }
+    } catch {
+      setPasswordError(true)
+    } finally {
+      setVerifying(false)
+    }
+  }
   
   // useEffect를 사용해서 클라이언트에서만 searchParams를 읽도록 처리
   React.useEffect(() => {
@@ -351,15 +373,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 setPasswordError(false)
               }}
               onKeyDown={e => {
-                if (e.key === "Enter") {
-                  const adminPw = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "1234"
-                  if (passwordInput === adminPw) {
-                    setIsAdminMode(true)
-                    setShowPasswordDialog(false)
-                  } else {
-                    setPasswordError(true)
-                  }
-                }
+                if (e.key === "Enter" && !verifying) verifyPassword()
                 if (e.key === "Escape") setShowPasswordDialog(false)
               }}
               placeholder="비밀번호를 입력하세요"
@@ -382,17 +396,10 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               <Button
                 size="sm"
                 className="bg-amber-500 hover:bg-amber-600 text-white"
-                onClick={() => {
-                  const adminPw = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "1234"
-                  if (passwordInput === adminPw) {
-                    setIsAdminMode(true)
-                    setShowPasswordDialog(false)
-                  } else {
-                    setPasswordError(true)
-                  }
-                }}
+                disabled={verifying}
+                onClick={verifyPassword}
               >
-                확인
+                {verifying ? "확인 중..." : "확인"}
               </Button>
             </div>
           </div>

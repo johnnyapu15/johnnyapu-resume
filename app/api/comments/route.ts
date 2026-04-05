@@ -13,7 +13,7 @@ function lockKey(lang: string) {
 }
 
 function checkAuth(request: NextRequest): boolean {
-  const adminPw = process.env.ADMIN_PASSWORD || process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "1234"
+  const adminPw = process.env.ADMIN_PASSWORD || "1234"
   const auth = request.headers.get("x-admin-password")
   return auth === adminPw
 }
