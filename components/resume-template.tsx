@@ -268,6 +268,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const buildTimeUtc = process.env.BUILD_TIME ?? ""
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
   const [isDetailed, setIsDetailed] = useState(false)
@@ -276,6 +277,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordError, setPasswordError] = useState(false)
   const [verifying, setVerifying] = useState(false)
+  const [buildTimeLocal, setBuildTimeLocal] = useState("")
 
   const verifyPassword = async () => {
     setVerifying(true)
@@ -308,6 +310,25 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
       }
     }
   }, [searchParams])
+
+  React.useEffect(() => {
+    if (!buildTimeUtc) return
+    const parsed = new Date(buildTimeUtc)
+    if (Number.isNaN(parsed.getTime())) return
+
+    setBuildTimeLocal(
+      parsed.toLocaleString(undefined, {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+        timeZoneName: "short",
+      }),
+    )
+  }, [buildTimeUtc])
   
   const data = resumeData[language]
 
@@ -609,7 +630,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
       </div>
 
       <p className="text-center text-xs text-gray-400 mt-4 print:hidden">
-        Built {process.env.BUILD_TIME}
+        Built {buildTimeUtc}
+        {buildTimeLocal ? ` | Local ${buildTimeLocal}` : ""}
       </p>
 
       {isAdminMode && (
