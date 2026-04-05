@@ -363,17 +363,34 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
       {/* Password dialog */}
       {showPasswordDialog && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[70] print:hidden">
-          <div className="bg-white rounded-lg shadow-xl p-6 w-80">
+          <form
+            className="bg-white rounded-lg shadow-xl p-6 w-80"
+            onSubmit={e => {
+              e.preventDefault()
+              if (!verifying) verifyPassword()
+            }}
+            autoComplete="on"
+          >
             <h3 className="font-semibold text-gray-800 mb-3">리뷰 모드</h3>
             <input
+              type="text"
+              name="username"
+              autoComplete="username"
+              defaultValue="admin"
+              className="sr-only"
+              tabIndex={-1}
+              aria-hidden="true"
+            />
+            <input
               type="password"
+              name="password"
+              autoComplete="current-password"
               value={passwordInput}
               onChange={e => {
                 setPasswordInput(e.target.value)
                 setPasswordError(false)
               }}
               onKeyDown={e => {
-                if (e.key === "Enter" && !verifying) verifyPassword()
                 if (e.key === "Escape") setShowPasswordDialog(false)
               }}
               placeholder="비밀번호를 입력하세요"
@@ -387,6 +404,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             )}
             <div className="flex justify-end gap-2 mt-4">
               <Button
+                type="button"
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowPasswordDialog(false)}
@@ -394,15 +412,15 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 취소
               </Button>
               <Button
+                type="submit"
                 size="sm"
                 className="bg-amber-500 hover:bg-amber-600 text-white"
                 disabled={verifying}
-                onClick={verifyPassword}
               >
                 {verifying ? "확인 중..." : "확인"}
               </Button>
             </div>
-          </div>
+          </form>
         </div>
       )}
 
