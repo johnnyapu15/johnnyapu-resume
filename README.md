@@ -34,6 +34,16 @@ The project is live at:
 
 To view the resume, simply visit the deployment link above. You can switch languages and print the resume directly from the page.
 
+## AI-readable Endpoints
+
+Machine-readable resume endpoints are generated directly from `data/resume-data.ts`:
+
+- `/llms.txt`
+- `/resume-en.txt`
+- `/resume-ko.txt`
+
+These routes are source-driven, so resume data updates are reflected automatically without manual text file edits.
+
 ## PDF Check
 
 This project is optimized for PDF submission, so browser layout alone is not enough to validate print results.
