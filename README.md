@@ -36,13 +36,11 @@ To view the resume, simply visit the deployment link above. You can switch langu
 
 ## AI-readable Endpoints
 
-Machine-readable resume endpoints are generated directly from `data/resume-data.ts`:
+Machine-readable resume endpoint is generated directly from `data/resume-data.ts`:
 
 - `/llms.txt`
-- `/resume-en.txt`
-- `/resume-ko.txt`
 
-These routes are source-driven, so resume data updates are reflected automatically without manual text file edits.
+This route is source-driven, so resume data updates are reflected automatically without manual text file edits.
 
 ## PDF Check
 

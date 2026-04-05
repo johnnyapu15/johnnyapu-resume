@@ -21,8 +21,9 @@ describe("resume text generation", () => {
   it("lists machine-readable sources first in llms.txt", () => {
     const llms = generateLlmsTxt()
 
-    expect(llms).toContain("1. /resume-en.txt")
-    expect(llms).toContain("2. /resume-ko.txt")
-    expect(llms).toContain("3. /resume-en.pdf")
+    expect(llms).toContain("- https://resume-juahn.vercel.app/resume-en.pdf (English)")
+    expect(llms).toContain("- https://resume-juahn.vercel.app/resume.pdf (Korean)")
+    expect(llms).toContain("English Resume Text (Dynamic):")
+    expect(llms).toContain("Korean Resume Text (Dynamic):")
   })
 })

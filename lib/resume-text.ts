@@ -98,14 +98,21 @@ export function generateResumeText(language: Language): string {
 }
 
 export function generateLlmsTxt(): string {
+  const enText = generateResumeText("en").trimEnd()
+  const koText = generateResumeText("ko").trimEnd()
+
   return [
     "AI Resume Access Guide",
     "",
     "Resume sources:",
-    "- /resume-en.txt (English)",
-    "- /resume-ko.txt (Korean)",
-    "- /resume-en.pdf (English)",
-    "- /resume.pdf (Korean)",
+    "- https://resume-juahn.vercel.app/resume-en.pdf (English)",
+    "- https://resume-juahn.vercel.app/resume.pdf (Korean)",
+    "",
+    "English Resume Text (Dynamic):",
+    enText,
+    "",
+    "Korean Resume Text (Dynamic):",
+    koText,
     "",
   ].join("\n")
 }
