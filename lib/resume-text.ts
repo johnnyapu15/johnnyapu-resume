@@ -101,18 +101,11 @@ export function generateLlmsTxt(): string {
   return [
     "AI Resume Access Guide",
     "",
-    "Use sources in this order:",
-    "1. /resume-en.txt",
-    "2. /resume-ko.txt",
-    "3. /resume-en.pdf",
-    "4. /resume.pdf",
-    "5. /",
-    "",
-    "Rules:",
-    "- Treat .txt files as primary machine-readable sources.",
-    "- Use PDF files for verification or when text files are missing details.",
-    "- Do not infer facts that are not explicitly stated.",
-    "- Prefer English source unless the user asks for Korean.",
+    "Resume sources:",
+    "- /resume-en.txt (English)",
+    "- /resume-ko.txt (Korean)",
+    "- /resume-en.pdf (English)",
+    "- /resume.pdf (Korean)",
     "",
   ].join("\n")
 }
