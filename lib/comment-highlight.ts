@@ -85,6 +85,49 @@ export function getPositionAtOffset(root: Element, targetOffset: number): { node
   return null
 }
 
+/**
+ * Get the textOffset range of an element's text content within the root.
+ * Used for mobile tap-to-comment (select entire paragraph/bullet).
+ */
+export function getElementTextRange(root: Element, target: Element): { offset: number; length: number } | null {
+  let total = 0
+  let startOffset = -1
+  let endOffset = -1
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
+  let current = walker.nextNode()
+  while (current) {
+    const len = current.textContent?.length || 0
+    if (target.contains(current)) {
+      if (startOffset === -1) startOffset = total
+      endOffset = total + len
+    } else if (startOffset !== -1) {
+      break
+    }
+    total += len
+    current = walker.nextNode()
+  }
+  if (startOffset === -1) return null
+  return { offset: startOffset, length: endOffset - startOffset }
+}
+
+/**
+ * Find the closest commentable block element (p, li, h3, etc.) from a target node.
+ */
+export function findCommentableElement(node: Node, root: Element): Element | null {
+  const commentableTags = new Set(["P", "LI", "H3", "SPAN"])
+  let current: Node | null = node
+  while (current && current !== root) {
+    if (current.nodeType === Node.ELEMENT_NODE) {
+      const el = current as Element
+      if (commentableTags.has(el.tagName) && el.textContent?.trim()) {
+        return el
+      }
+    }
+    current = current.parentNode
+  }
+  return null
+}
+
 export function clearHighlights(root: Element) {
   const marks = root.querySelectorAll("mark.admin-highlight")
   marks.forEach(mark => {

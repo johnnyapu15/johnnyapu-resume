@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import {
   type AdminComment,
   getTextOffset,
+  getElementTextRange,
+  findCommentableElement,
   getSelectionContext,
   clearHighlights,
   applyHighlights,
@@ -103,6 +105,51 @@ export default function AdminCommentSystem({ language, adminPassword, onExit }: 
     return () => document.removeEventListener("mouseup", handleMouseUp)
   }, [])
 
+  // Handle mobile tap-to-comment
+  useEffect(() => {
+    const isTouchDevice = "ontouchstart" in window
+
+    if (!isTouchDevice) return
+
+    const handleTap = (e: TouchEvent) => {
+      if (panelRef.current?.contains(e.target as Node)) return
+      if (popoverRef.current?.contains(e.target as Node)) return
+
+      // Skip if user made a text selection
+      const sel = window.getSelection()
+      if (sel && !sel.isCollapsed && sel.toString().trim()) return
+
+      const root = document.getElementById("resume-content")
+      if (!root) return
+
+      const target = e.target as Node
+      if (!root.contains(target)) return
+
+      // Skip if tapping on an existing highlight
+      if ((target as HTMLElement).classList?.contains("admin-highlight")) return
+
+      const commentable = findCommentableElement(target, root)
+      if (!commentable) return
+
+      const range = getElementTextRange(root, commentable)
+      if (!range) return
+
+      const text = commentable.textContent?.trim() || ""
+      if (!text) return
+
+      const rect = commentable.getBoundingClientRect()
+      const context = getSelectionContext(commentable, root)
+
+      e.preventDefault()
+      setSelection({ text, context, textOffset: range.offset, length: range.length, rect })
+      setCommentInput("")
+      setTimeout(() => inputRef.current?.focus(), 100)
+    }
+
+    document.addEventListener("touchend", handleTap, { passive: false })
+    return () => document.removeEventListener("touchend", handleTap)
+  }, [])
+
   // Cleanup on unmount
   useEffect(() => {
     return () => {
@@ -189,7 +236,8 @@ export default function AdminCommentSystem({ language, adminPassword, onExit }: 
     <>
       {/* Review mode banner */}
       <div className="fixed top-0 left-0 right-0 bg-amber-500 text-white text-center py-1.5 text-sm font-medium z-50 print:hidden">
-        리뷰 모드 — 텍스트를 드래그하여 댓글을 추가하세요
+        <span className="hidden md:inline">리뷰 모드 — 텍스트를 드래그하여 댓글을 추가하세요</span>
+        <span className="md:hidden">리뷰 모드 — 문단을 탭하여 댓글을 추가하세요</span>
         <button
           onClick={onExit}
           className="ml-4 px-3 py-0.5 bg-amber-700 rounded text-xs hover:bg-amber-800 transition-colors"

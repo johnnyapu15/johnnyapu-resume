@@ -44,7 +44,7 @@ describe("AdminCommentSystem", () => {
     setupResumeContent()
     mockFetchWith([])
     render(<AdminCommentSystem language="ko" adminPassword="1234" onExit={vi.fn()} />)
-    expect(screen.getByText(/리뷰 모드/)).toBeInTheDocument()
+    expect(screen.getAllByText(/리뷰 모드/).length).toBeGreaterThan(0)
   })
 
   it("renders empty state message when no comments", () => {

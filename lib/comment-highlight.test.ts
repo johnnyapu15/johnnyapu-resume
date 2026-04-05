@@ -2,6 +2,8 @@ import { describe, it, expect, beforeEach } from "vitest"
 import {
   getTextOffset,
   getPositionAtOffset,
+  getElementTextRange,
+  findCommentableElement,
   getSelectionContext,
   getSurroundingContext,
   clearHighlights,
@@ -310,6 +312,83 @@ describe("applyHighlights", () => {
     applyHighlights(root, comments, "c1")
     expect(root.textContent).toBe("Hello World Foo Bar")
     expect(root.querySelectorAll("mark").length).toBe(2)
+  })
+})
+
+// ──────────────────────────────────────────────
+// getElementTextRange
+// ──────────────────────────────────────────────
+describe("getElementTextRange", () => {
+  it("returns offset and length for a simple paragraph", () => {
+    const root = makeRoot("<p>Hello</p><p>World</p>")
+    const secondP = root.querySelectorAll("p")[1]
+    const range = getElementTextRange(root, secondP)!
+    expect(range).not.toBeNull()
+    expect(range.offset).toBe(5) // "Hello" = 5 chars
+    expect(range.length).toBe(5) // "World" = 5 chars
+  })
+
+  it("returns offset for nested text content", () => {
+    const root = makeRoot("<p>AB</p><p><strong>CD</strong>EF</p>")
+    const secondP = root.querySelectorAll("p")[1]
+    const range = getElementTextRange(root, secondP)!
+    expect(range.offset).toBe(2) // "AB" = 2 chars
+    expect(range.length).toBe(4) // "CDEF" = 4 chars
+  })
+
+  it("returns null for element not in root", () => {
+    const root = makeRoot("<p>Hello</p>")
+    const outside = document.createElement("p")
+    outside.textContent = "Outside"
+    expect(getElementTextRange(root, outside)).toBeNull()
+  })
+
+  it("handles first element correctly", () => {
+    const root = makeRoot("<p>Hello</p><p>World</p>")
+    const firstP = root.querySelectorAll("p")[0]
+    const range = getElementTextRange(root, firstP)!
+    expect(range.offset).toBe(0)
+    expect(range.length).toBe(5)
+  })
+})
+
+// ──────────────────────────────────────────────
+// findCommentableElement
+// ──────────────────────────────────────────────
+describe("findCommentableElement", () => {
+  it("finds closest <p> from a text node", () => {
+    const root = makeRoot("<p>Hello World</p>")
+    const textNode = root.querySelector("p")!.firstChild!
+    const result = findCommentableElement(textNode, root)
+    expect(result).toBe(root.querySelector("p"))
+  })
+
+  it("finds closest <li> from nested content", () => {
+    const root = makeRoot("<ul><li><strong>Bold</strong> text</li></ul>")
+    const strongText = root.querySelector("strong")!.firstChild!
+    const result = findCommentableElement(strongText, root)
+    expect(result).toBe(root.querySelector("li"))
+  })
+
+  it("finds <h3> when tapping a heading", () => {
+    const root = makeRoot("<h3>Section Title</h3><p>Content</p>")
+    const headingText = root.querySelector("h3")!.firstChild!
+    const result = findCommentableElement(headingText, root)
+    expect(result).toBe(root.querySelector("h3"))
+  })
+
+  it("returns null when no commentable parent exists", () => {
+    const root = makeRoot("<div><div>Nested div</div></div>")
+    const textNode = root.querySelector("div div")!.firstChild!
+    const result = findCommentableElement(textNode, root)
+    expect(result).toBeNull()
+  })
+
+  it("returns null for empty elements", () => {
+    const root = makeRoot("<p></p>")
+    const p = root.querySelector("p")!
+    const result = findCommentableElement(p, root)
+    expect(result).toBeNull()
   })
 })
 
