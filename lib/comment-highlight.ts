@@ -52,26 +52,8 @@ function findHeading(el: Element): Element | null {
  */
 export function getSurroundingContext(root: Element, textOffset: number, length: number, maxContext: number = 30): string {
   const fullText = root.textContent || ""
-  let start = Math.max(0, textOffset - maxContext)
-  let end = Math.min(fullText.length, textOffset + length + maxContext)
-
-  // Snap start forward to a word boundary (position after whitespace)
-  if (start > 0) {
-    const slice = fullText.slice(start, textOffset)
-    const match = slice.match(/^\S*\s/)
-    if (match && match[0].length < maxContext / 2) {
-      start += match[0].length
-    }
-  }
-
-  // Snap end backward to a word boundary (before whitespace/punctuation)
-  if (end < fullText.length) {
-    const slice = fullText.slice(textOffset + length, end)
-    const lastSpace = slice.search(/\s[^\s]*$/)
-    if (lastSpace > 0) {
-      end = textOffset + length + lastSpace
-    }
-  }
+  const start = Math.max(0, textOffset - maxContext)
+  const end = Math.min(fullText.length, textOffset + length + maxContext)
 
   const before = fullText.slice(start, textOffset)
   const selected = fullText.slice(textOffset, textOffset + length)
@@ -80,7 +62,7 @@ export function getSurroundingContext(root: Element, textOffset: number, length:
   const prefix = start > 0 ? "..." : ""
   const suffix = end < fullText.length ? "..." : ""
 
-  return `${prefix}${before}**${selected}**${after}${suffix}`
+  return `${prefix}${before}[[${selected}]]${after}${suffix}`
 }
 
 export function getTextOffset(root: Element, node: Node, offset: number): number {

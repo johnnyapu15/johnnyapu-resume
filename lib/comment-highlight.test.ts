@@ -468,40 +468,28 @@ describe("getSelectionContext", () => {
 // getSurroundingContext
 // ──────────────────────────────────────────────
 describe("getSurroundingContext", () => {
-  it("shows surrounding text with bold selection, snapped to word boundaries", () => {
+  it("shows surrounding text with bold selection", () => {
     const root = makeRoot("Hello World Foo Bar")
     const result = getSurroundingContext(root, 6, 5, 5)
-    expect(result).toContain("**World**")
+    expect(result).toBe("...ello [[World]] Foo ...")
   })
 
   it("omits leading ellipsis when at start", () => {
     const root = makeRoot("Hello World")
     const result = getSurroundingContext(root, 0, 5, 10)
-    expect(result).toBe("**Hello** World")
+    expect(result).toBe("[[Hello]] World")
   })
 
   it("omits trailing ellipsis when at end", () => {
     const root = makeRoot("Hello World")
     const result = getSurroundingContext(root, 6, 5, 10)
-    expect(result).toBe("Hello **World**")
+    expect(result).toBe("Hello [[World]]")
   })
 
   it("handles full text shorter than context window", () => {
     const root = makeRoot("Hi")
     const result = getSurroundingContext(root, 0, 2, 50)
-    expect(result).toBe("**Hi**")
-  })
-
-  it("does not break ** markers mid-word for numeric context", () => {
-    // Simulates the real bug: "51% 축소" selected at offset that would break as "51**%"
-    const root = makeRoot("DAM 구축으로 GPU 20% 감소, 파일 크기 51% 축소, 연간 40일+")
-    // Select "51% 축소" (offset 27, length 6 approx)
-    const fullText = root.textContent!
-    const idx = fullText.indexOf("51% 축소")
-    const result = getSurroundingContext(root, idx, 6, 15)
-    expect(result).toContain("**51% 축소**")
-    // Should not produce broken markers like "51**%"
-    expect(result).not.toMatch(/\d\*\*[%]/)
+    expect(result).toBe("[[Hi]]")
   })
 })
 
@@ -523,7 +511,7 @@ describe("formatCommentsForCopy", () => {
     const root = makeRoot("Hello World Foo Bar")
     const comments = [makeComment({ textOffset: 6, length: 5, selectedText: "World", comment: "Fix this" })]
     const result = formatCommentsForCopy(comments, root)
-    expect(result).toContain("**World**")
+    expect(result).toContain("[[World]]")
     expect(result).toContain("→ Fix this")
   })
 
