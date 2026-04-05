@@ -151,7 +151,7 @@ export const resumeData: MultiLanguageResumeData = {
       position: "Senior Backend Engineer",
     },
     summary: [
-      "Backend engineer focused on distributed systems and long-running async workloads in AI/3D products.",
+      "Backend engineer building production AI systems for AI/3D products, specializing in distributed workers, async pipelines, and agent orchestration.",
       "Improved service stability and contributed to business growth through global AI launch, reusable operating models for long-running jobs, and 3D automation pipelines — all under tight resource constraints, with multiple internal engineering and AI awards for 3D automation and AI advancement.",
       "Turned async worker patterns, autoscaling, and failure isolation into reusable building blocks shared across multiple services.",
       "When needed, filled FE/ML/infrastructure gaps to keep delivery moving, but always anchored in backend operating models and domain design.",
