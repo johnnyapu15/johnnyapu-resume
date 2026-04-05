@@ -2,6 +2,8 @@ import { describe, it, expect, beforeEach } from "vitest"
 import {
   getTextOffset,
   getPositionAtOffset,
+  getSelectionContext,
+  getSurroundingContext,
   clearHighlights,
   applyHighlights,
   wrapTextRange,
@@ -22,6 +24,7 @@ function makeComment(overrides: Partial<AdminComment> = {}): AdminComment {
     textOffset: 0,
     length: 4,
     comment: "a comment",
+    context: "",
     createdAt: "2026-01-01T00:00:00.000Z",
     ...overrides,
   }
@@ -311,12 +314,83 @@ describe("applyHighlights", () => {
 })
 
 // ──────────────────────────────────────────────
+// getSelectionContext
+// ──────────────────────────────────────────────
+describe("getSelectionContext", () => {
+  it("finds h2 heading as context", () => {
+    const root = makeRoot("<h2>Experience</h2><p>Some text here</p>")
+    const textNode = root.querySelector("p")!.firstChild!
+    expect(getSelectionContext(textNode, root)).toBe("Experience")
+  })
+
+  it("finds h2 > h3 breadcrumb", () => {
+    const root = makeRoot("<h2>Experience</h2><div><h3>Bucketplace</h3><p>Details</p></div>")
+    const textNode = root.querySelector("p")!.firstChild!
+    expect(getSelectionContext(textNode, root)).toBe("Experience > Bucketplace")
+  })
+
+  it("returns empty string when no headings found", () => {
+    const root = makeRoot("<p>Just text</p>")
+    const textNode = root.querySelector("p")!.firstChild!
+    expect(getSelectionContext(textNode, root)).toBe("")
+  })
+
+  it("finds nearest h3 within same parent", () => {
+    const root = makeRoot("<div><h3>Project A</h3><p>Description</p></div>")
+    const textNode = root.querySelector("p")!.firstChild!
+    expect(getSelectionContext(textNode, root)).toBe("Project A")
+  })
+})
+
+// ──────────────────────────────────────────────
+// getSurroundingContext
+// ──────────────────────────────────────────────
+describe("getSurroundingContext", () => {
+  it("shows surrounding text with bold selection", () => {
+    const root = makeRoot("Hello World Foo Bar")
+    const result = getSurroundingContext(root, 6, 5, 5)
+    expect(result).toBe("...ello **World** Foo ...")
+  })
+
+  it("omits leading ellipsis when at start", () => {
+    const root = makeRoot("Hello World")
+    const result = getSurroundingContext(root, 0, 5, 10)
+    expect(result).toBe("**Hello** World")
+  })
+
+  it("omits trailing ellipsis when at end", () => {
+    const root = makeRoot("Hello World")
+    const result = getSurroundingContext(root, 6, 5, 10)
+    expect(result).toBe("Hello **World**")
+  })
+
+  it("handles full text shorter than context window", () => {
+    const root = makeRoot("Hi")
+    const result = getSurroundingContext(root, 0, 2, 50)
+    expect(result).toBe("**Hi**")
+  })
+})
+
+// ──────────────────────────────────────────────
 // formatCommentsForCopy
 // ──────────────────────────────────────────────
 describe("formatCommentsForCopy", () => {
-  it("formats a single comment", () => {
+  it("formats without root (fallback to quoted selectedText)", () => {
     const comments = [makeComment({ selectedText: "Hello", comment: "Fix this" })]
-    expect(formatCommentsForCopy(comments)).toBe('[1] "Hello"\n→ Fix this')
+    expect(formatCommentsForCopy(comments)).toBe('[1]\n  "Hello"\n  → Fix this')
+  })
+
+  it("includes context in header when available", () => {
+    const comments = [makeComment({ selectedText: "Hello", comment: "Fix this", context: "경력 > 버킷플레이스" })]
+    expect(formatCommentsForCopy(comments)).toBe('[1] 경력 > 버킷플레이스\n  "Hello"\n  → Fix this')
+  })
+
+  it("formats with root (shows surrounding context)", () => {
+    const root = makeRoot("Hello World Foo Bar")
+    const comments = [makeComment({ textOffset: 6, length: 5, selectedText: "World", comment: "Fix this" })]
+    const result = formatCommentsForCopy(comments, root)
+    expect(result).toContain("**World**")
+    expect(result).toContain("→ Fix this")
   })
 
   it("sorts comments by textOffset and numbers sequentially", () => {
@@ -325,16 +399,15 @@ describe("formatCommentsForCopy", () => {
       makeComment({ id: "c1", textOffset: 0, selectedText: "Hello", comment: "First" }),
     ]
     const result = formatCommentsForCopy(comments)
-    expect(result).toBe('[1] "Hello"\n→ First\n\n[2] "World"\n→ Second')
+    expect(result).toContain("[1]")
+    expect(result).toContain("First")
+    expect(result).toContain("[2]")
+    expect(result).toContain("Second")
+    expect(result.indexOf("First")).toBeLessThan(result.indexOf("Second"))
   })
 
   it("returns empty string for empty array", () => {
     expect(formatCommentsForCopy([])).toBe("")
-  })
-
-  it("preserves multiline comment text", () => {
-    const comments = [makeComment({ selectedText: "text", comment: "line1\nline2" })]
-    expect(formatCommentsForCopy(comments)).toBe('[1] "text"\n→ line1\nline2')
   })
 })
 

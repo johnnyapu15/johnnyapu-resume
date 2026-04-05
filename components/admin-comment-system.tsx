@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import {
   type AdminComment,
   getTextOffset,
+  getSelectionContext,
   clearHighlights,
   applyHighlights,
   formatCommentsForCopy,
@@ -13,6 +14,7 @@ import {
 
 interface SelectionInfo {
   text: string
+  context: string
   textOffset: number
   length: number
   rect: DOMRect
@@ -89,7 +91,8 @@ export default function AdminCommentSystem({ language, adminPassword, onExit }: 
         if (selectedText) {
           const range = sel.getRangeAt(0)
           const rect = range.getBoundingClientRect()
-          setSelection({ text: selectedText, textOffset: start, length: end - start, rect })
+          const context = getSelectionContext(sel.anchorNode!, root)
+          setSelection({ text: selectedText, context, textOffset: start, length: end - start, rect })
           setCommentInput("")
           setTimeout(() => inputRef.current?.focus(), 50)
         }
@@ -134,6 +137,7 @@ export default function AdminCommentSystem({ language, adminPassword, onExit }: 
       textOffset: selection.textOffset,
       length: selection.length,
       comment: commentInput.trim(),
+      context: selection.context,
       createdAt: new Date().toISOString(),
     }
 
@@ -164,7 +168,8 @@ export default function AdminCommentSystem({ language, adminPassword, onExit }: 
   const handleCopyAll = useCallback(() => {
     if (comments.length === 0) return
 
-    const text = formatCommentsForCopy(comments)
+    const root = document.getElementById("resume-content")
+    const text = formatCommentsForCopy(comments, root)
     navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)

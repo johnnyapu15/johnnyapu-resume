@@ -79,6 +79,7 @@ describe("AdminCommentSystem", () => {
         textOffset: 0,
         length: 5,
         comment: "Test comment",
+        context: "",
         createdAt: "2026-01-01T00:00:00.000Z",
       },
     ]
@@ -110,6 +111,7 @@ describe("AdminCommentSystem", () => {
         textOffset: 0,
         length: 5,
         comment: "Delete me",
+        context: "",
         createdAt: "2026-01-01T00:00:00.000Z",
       },
     ]
@@ -147,6 +149,7 @@ describe("AdminCommentSystem", () => {
         textOffset: 4,
         length: 2,
         comment: "Second in position",
+        context: "",
         createdAt: "2026-01-01T00:00:00.000Z",
       },
       {
@@ -155,6 +158,7 @@ describe("AdminCommentSystem", () => {
         textOffset: 0,
         length: 2,
         comment: "First in position",
+        context: "",
         createdAt: "2026-01-01T00:00:00.000Z",
       },
     ]
@@ -180,6 +184,7 @@ describe("AdminCommentSystem", () => {
         textOffset: 0,
         length: 5,
         comment: "Will be cleaned",
+        context: "",
         createdAt: "2026-01-01T00:00:00.000Z",
       },
     ]

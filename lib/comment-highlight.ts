@@ -4,7 +4,58 @@ export interface AdminComment {
   textOffset: number
   length: number
   comment: string
+  context: string // e.g. "경력 > 버킷플레이스 > Ohouse AI Launch"
   createdAt: string
+}
+
+/**
+ * Walk up from a DOM node to find section context (h2, h3 headings).
+ * Returns a breadcrumb like "경력 > 버킷플레이스 > Ohouse AI Launch"
+ */
+export function getSelectionContext(node: Node, root: Element): string {
+  const headings: string[] = []
+  let current: Node | null = node
+
+  while (current && current !== root) {
+    if (current.nodeType === Node.ELEMENT_NODE) {
+      const el = current as Element
+      // Check previous siblings for headings
+      let sibling = el.previousElementSibling
+      while (sibling) {
+        const tag = sibling.tagName
+        if (tag === "H2" || tag === "H3") {
+          const text = sibling.textContent?.trim()
+          if (text && !headings.includes(text)) {
+            headings.unshift(text)
+          }
+          if (tag === "H2") break // H2 is top-level section, stop looking further
+        }
+        sibling = sibling.previousElementSibling
+      }
+    }
+    current = current.parentNode
+  }
+
+  return headings.join(" > ")
+}
+
+/**
+ * Get surrounding text context around the selected text.
+ * Returns "...before **selected** after..."
+ */
+export function getSurroundingContext(root: Element, textOffset: number, length: number, maxContext: number = 30): string {
+  const fullText = root.textContent || ""
+  const start = Math.max(0, textOffset - maxContext)
+  const end = Math.min(fullText.length, textOffset + length + maxContext)
+
+  const before = fullText.slice(start, textOffset)
+  const selected = fullText.slice(textOffset, textOffset + length)
+  const after = fullText.slice(textOffset + length, end)
+
+  const prefix = start > 0 ? "..." : ""
+  const suffix = end < fullText.length ? "..." : ""
+
+  return `${prefix}${before}**${selected}**${after}${suffix}`
 }
 
 export function getTextOffset(root: Element, node: Node, offset: number): number {
@@ -105,9 +156,15 @@ export function applyHighlights(root: Element, comments: AdminComment[], activeI
   }
 }
 
-export function formatCommentsForCopy(comments: AdminComment[]): string {
+export function formatCommentsForCopy(comments: AdminComment[], root?: Element | null): string {
   const sorted = [...comments].sort((a, b) => a.textOffset - b.textOffset)
   return sorted
-    .map((c, i) => `[${i + 1}] "${c.selectedText}"\n→ ${c.comment}`)
+    .map((c, i) => {
+      const location = c.context ? `[${i + 1}] ${c.context}` : `[${i + 1}]`
+      const context = root
+        ? getSurroundingContext(root, c.textOffset, c.length)
+        : `"${c.selectedText}"`
+      return `${location}\n  ${context}\n  → ${c.comment}`
+    })
     .join("\n\n")
 }
