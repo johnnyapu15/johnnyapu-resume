@@ -16,6 +16,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Pencil,
   Phone,
   Printer,
   Server,
@@ -26,6 +27,7 @@ import {
 } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import React, { useState } from "react"
+import AdminCommentSystem from "./admin-comment-system"
 import { LanguageToggle } from "./language-toggle"
 
 interface ResumeTemplateProps {
@@ -263,11 +265,19 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
   const [isDetailed, setIsDetailed] = useState(false)
+  const [isAdminMode, setIsAdminMode] = useState(false)
+  const [showPasswordDialog, setShowPasswordDialog] = useState(false)
+  const [passwordInput, setPasswordInput] = useState("")
+  const [passwordError, setPasswordError] = useState(false)
   
   // useEffect를 사용해서 클라이언트에서만 searchParams를 읽도록 처리
   React.useEffect(() => {
     if (searchParams) {
       setIsDetailed(searchParams.get("isDetail") === "true")
+      const lang = searchParams.get("lang")
+      if (lang === "en" || lang === "ko") {
+        setLanguage(lang)
+      }
     }
   }, [searchParams])
   
@@ -292,7 +302,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   }
 
   return (
-    <div className="max-w-4xl mx-auto print-layout-compact">
+    <div className={`max-w-4xl mx-auto print-layout-compact ${isAdminMode ? "mr-[336px] mt-10" : ""}`}>
       {!isPrintPreview && (
         <div className="flex justify-between items-center mb-4 print:hidden">
           <div className="flex gap-2">
@@ -303,7 +313,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             </Button>
           </div>
           <div className="flex gap-2">
-            <a href="/resume.pdf" download className="inline-flex items-center">
+            <a href={language === "en" ? "/resume-en.pdf" : "/resume.pdf"} download className="inline-flex items-center">
               <Button variant="outline" className="bg-white hover:bg-gray-50">
                 <Download className="mr-2 h-4 w-4" />
                 {labels[language].download}
@@ -313,6 +323,78 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               <Printer className="mr-2 h-4 w-4" />
               {labels[language].print}
             </Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setShowPasswordDialog(true)
+                setPasswordInput("")
+                setPasswordError(false)
+              }}
+              className="bg-white hover:bg-gray-50"
+            >
+              <Pencil className="h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      )}
+
+      {/* Password dialog */}
+      {showPasswordDialog && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[70] print:hidden">
+          <div className="bg-white rounded-lg shadow-xl p-6 w-80">
+            <h3 className="font-semibold text-gray-800 mb-3">리뷰 모드</h3>
+            <input
+              type="password"
+              value={passwordInput}
+              onChange={e => {
+                setPasswordInput(e.target.value)
+                setPasswordError(false)
+              }}
+              onKeyDown={e => {
+                if (e.key === "Enter") {
+                  const adminPw = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "1234"
+                  if (passwordInput === adminPw) {
+                    setIsAdminMode(true)
+                    setShowPasswordDialog(false)
+                  } else {
+                    setPasswordError(true)
+                  }
+                }
+                if (e.key === "Escape") setShowPasswordDialog(false)
+              }}
+              placeholder="비밀번호를 입력하세요"
+              className={`w-full border rounded px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 ${
+                passwordError ? "border-red-400" : "border-gray-300"
+              }`}
+              autoFocus
+            />
+            {passwordError && (
+              <p className="text-red-500 text-xs mt-1">비밀번호가 틀립니다</p>
+            )}
+            <div className="flex justify-end gap-2 mt-4">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setShowPasswordDialog(false)}
+              >
+                취소
+              </Button>
+              <Button
+                size="sm"
+                className="bg-amber-500 hover:bg-amber-600 text-white"
+                onClick={() => {
+                  const adminPw = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || "1234"
+                  if (passwordInput === adminPw) {
+                    setIsAdminMode(true)
+                    setShowPasswordDialog(false)
+                  } else {
+                    setPasswordError(true)
+                  }
+                }}
+              >
+                확인
+              </Button>
+            </div>
           </div>
         </div>
       )}
@@ -498,6 +580,14 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
       <p className="text-center text-xs text-gray-400 mt-4 print:hidden">
         Built {process.env.BUILD_TIME}
       </p>
+
+      {isAdminMode && (
+        <AdminCommentSystem
+          language={language}
+          adminPassword={passwordInput}
+          onExit={() => setIsAdminMode(false)}
+        />
+      )}
     </div>
   )
 }

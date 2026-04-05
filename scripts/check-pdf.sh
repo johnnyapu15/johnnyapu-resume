@@ -48,7 +48,8 @@ probe()
 
 RESUME_BASE_URL="${BASE_URL}" npm run pdf:export
 
-# Copy PDF to public/ for download button
+# Copy PDFs to public/ for download button
 cp artifacts/print/resume-summary.pdf public/resume.pdf 2>/dev/null || true
+cp artifacts/print/resume-summary-en.pdf public/resume-en.pdf 2>/dev/null || true
 
 echo "PDF check complete. See artifacts/print/"
