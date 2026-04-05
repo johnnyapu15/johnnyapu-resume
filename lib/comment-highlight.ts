@@ -15,20 +15,21 @@ export interface AdminComment {
 export function getSelectionContext(node: Node, root: Element): string {
   const headings: string[] = []
   let current: Node | null = node
+  let foundH2 = false
 
   while (current && current !== root) {
     if (current.nodeType === Node.ELEMENT_NODE) {
       const el = current as Element
-      // Check previous siblings for headings
+      // Check previous siblings for headings (direct or nested inside)
       let sibling = el.previousElementSibling
-      while (sibling) {
-        const tag = sibling.tagName
-        if (tag === "H2" || tag === "H3") {
-          const text = sibling.textContent?.trim()
+      while (sibling && !foundH2) {
+        const heading = findHeading(sibling)
+        if (heading) {
+          const text = heading.textContent?.trim()
           if (text && !headings.includes(text)) {
             headings.unshift(text)
           }
-          if (tag === "H2") break // H2 is top-level section, stop looking further
+          if (heading.tagName === "H2") { foundH2 = true; break }
         }
         sibling = sibling.previousElementSibling
       }
@@ -39,14 +40,38 @@ export function getSelectionContext(node: Node, root: Element): string {
   return headings.join(" > ")
 }
 
+/** Find an h2 or h3 heading — either the element itself or the first one inside it. */
+function findHeading(el: Element): Element | null {
+  if (el.tagName === "H2" || el.tagName === "H3") return el
+  return el.querySelector("h2, h3")
+}
+
 /**
  * Get surrounding text context around the selected text.
  * Returns "...before **selected** after..."
  */
 export function getSurroundingContext(root: Element, textOffset: number, length: number, maxContext: number = 30): string {
   const fullText = root.textContent || ""
-  const start = Math.max(0, textOffset - maxContext)
-  const end = Math.min(fullText.length, textOffset + length + maxContext)
+  let start = Math.max(0, textOffset - maxContext)
+  let end = Math.min(fullText.length, textOffset + length + maxContext)
+
+  // Snap start forward to a word boundary (position after whitespace)
+  if (start > 0) {
+    const slice = fullText.slice(start, textOffset)
+    const match = slice.match(/^\S*\s/)
+    if (match && match[0].length < maxContext / 2) {
+      start += match[0].length
+    }
+  }
+
+  // Snap end backward to a word boundary (before whitespace/punctuation)
+  if (end < fullText.length) {
+    const slice = fullText.slice(textOffset + length, end)
+    const lastSpace = slice.search(/\s[^\s]*$/)
+    if (lastSpace > 0) {
+      end = textOffset + length + lastSpace
+    }
+  }
 
   const before = fullText.slice(start, textOffset)
   const selected = fullText.slice(textOffset, textOffset + length)

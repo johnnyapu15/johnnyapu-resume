@@ -419,16 +419,59 @@ describe("getSelectionContext", () => {
     const textNode = root.querySelector("p")!.firstChild!
     expect(getSelectionContext(textNode, root)).toBe("Project A")
   })
+
+  it("finds h2 inside a sibling wrapper div (resume DOM structure)", () => {
+    // Actual resume structure: <div class="mb-8"><h2>경력</h2>...</div>
+    const root = makeRoot(`
+      <div class="mb-8">
+        <h2>경력</h2>
+        <div>
+          <div><h3>Bucketplace</h3></div>
+          <ul><li>Some bullet text</li></ul>
+        </div>
+      </div>
+    `)
+    const textNode = root.querySelector("li")!.firstChild!
+    expect(getSelectionContext(textNode, root)).toBe("경력 > Bucketplace")
+  })
+
+  it("finds h3 nested inside a sibling div", () => {
+    const root = makeRoot(`
+      <div>
+        <div><div><h3>Company</h3><p>Position</p></div></div>
+        <ul><li>Description</li></ul>
+      </div>
+    `)
+    const textNode = root.querySelector("li")!.firstChild!
+    expect(getSelectionContext(textNode, root)).toBe("Company")
+  })
+
+  it("stops collecting after finding h2", () => {
+    const root = makeRoot(`
+      <div class="section">
+        <h2>Section A</h2>
+        <div><h3>Sub A</h3><p>Text A</p></div>
+      </div>
+      <div class="section">
+        <h2>Section B</h2>
+        <p>Text B</p>
+      </div>
+    `)
+    const textNode = root.querySelector("div.section:nth-child(2) p")!.firstChild!
+    const context = getSelectionContext(textNode, root)
+    // Should find Section B but not Section A
+    expect(context).toBe("Section B")
+  })
 })
 
 // ──────────────────────────────────────────────
 // getSurroundingContext
 // ──────────────────────────────────────────────
 describe("getSurroundingContext", () => {
-  it("shows surrounding text with bold selection", () => {
+  it("shows surrounding text with bold selection, snapped to word boundaries", () => {
     const root = makeRoot("Hello World Foo Bar")
     const result = getSurroundingContext(root, 6, 5, 5)
-    expect(result).toBe("...ello **World** Foo ...")
+    expect(result).toContain("**World**")
   })
 
   it("omits leading ellipsis when at start", () => {
@@ -447,6 +490,18 @@ describe("getSurroundingContext", () => {
     const root = makeRoot("Hi")
     const result = getSurroundingContext(root, 0, 2, 50)
     expect(result).toBe("**Hi**")
+  })
+
+  it("does not break ** markers mid-word for numeric context", () => {
+    // Simulates the real bug: "51% 축소" selected at offset that would break as "51**%"
+    const root = makeRoot("DAM 구축으로 GPU 20% 감소, 파일 크기 51% 축소, 연간 40일+")
+    // Select "51% 축소" (offset 27, length 6 approx)
+    const fullText = root.textContent!
+    const idx = fullText.indexOf("51% 축소")
+    const result = getSurroundingContext(root, idx, 6, 15)
+    expect(result).toContain("**51% 축소**")
+    // Should not produce broken markers like "51**%"
+    expect(result).not.toMatch(/\d\*\*[%]/)
   })
 })
 
