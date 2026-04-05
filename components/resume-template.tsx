@@ -67,6 +67,23 @@ const getIndentedBulletClass = (desc: string) => {
   return ""
 }
 
+const formatDateTime = (date: Date, timeZone: string) => {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(date)
+
+  const get = (type: string) => parts.find((part) => part.type === type)?.value ?? ""
+
+  return `${get("year")}-${get("month")}-${get("day")} ${get("hour")}:${get("minute")}:${get("second")}`
+}
+
 const renderSectionParagraphs = (items: string[]) => {
   const paragraphs: string[] = []
   let current = ""
@@ -268,7 +285,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const buildTimeUtc = process.env.BUILD_TIME ?? ""
+  const buildTimeRaw = process.env.BUILD_TIME ?? ""
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
   const [isDetailed, setIsDetailed] = useState(false)
@@ -277,7 +294,9 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const [passwordInput, setPasswordInput] = useState("")
   const [passwordError, setPasswordError] = useState(false)
   const [verifying, setVerifying] = useState(false)
+  const [buildTimeUtc, setBuildTimeUtc] = useState("")
   const [buildTimeLocal, setBuildTimeLocal] = useState("")
+  const [buildTimeZone, setBuildTimeZone] = useState("")
 
   const verifyPassword = async () => {
     setVerifying(true)
@@ -312,23 +331,17 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   }, [searchParams])
 
   React.useEffect(() => {
-    if (!buildTimeUtc) return
-    const parsed = new Date(buildTimeUtc)
+    if (!buildTimeRaw) return
+    const parsed = new Date(buildTimeRaw)
     if (Number.isNaN(parsed.getTime())) return
 
-    setBuildTimeLocal(
-      parsed.toLocaleString(undefined, {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-        hour12: false,
-        timeZoneName: "short",
-      }),
-    )
-  }, [buildTimeUtc])
+    const detectedTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+    setBuildTimeUtc(formatDateTime(parsed, "UTC"))
+    setBuildTimeZone(detectedTimeZone || "")
+    if (detectedTimeZone) {
+      setBuildTimeLocal(formatDateTime(parsed, detectedTimeZone))
+    }
+  }, [buildTimeRaw])
   
   const data = resumeData[language]
 
@@ -630,8 +643,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
       </div>
 
       <p className="text-center text-xs text-gray-400 mt-4 print:hidden">
-        Built {buildTimeUtc}
-        {buildTimeLocal ? ` | Local ${buildTimeLocal}` : ""}
+        Built UTC {buildTimeUtc}
+        {buildTimeLocal ? ` | ${buildTimeZone} ${buildTimeLocal}` : ""}
       </p>
 
       {isAdminMode && (
