@@ -9,7 +9,8 @@ describe("resume text generation", () => {
     expect(text).toContain("Name: Juahn Jeong")
     expect(text).toContain("Experience")
     expect(text).toContain("Bucketplace | Senior Backend Engineer")
-    expect(text).toContain("Skills")
+    expect(text).toContain("Key Experience")
+    expect(text).toContain("Education")
   })
 
   it("strips markdown markers from output", () => {

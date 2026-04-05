@@ -1,5 +1,5 @@
 import { resumeData } from "@/data/resume-data"
-import type { Language, ResumeData, Skill } from "@/types/resume"
+import type { Language, ResumeData } from "@/types/resume"
 
 function cleanInlineMarkdown(text: string): string {
   return text
@@ -13,28 +13,25 @@ function pushSection(lines: string[], title: string) {
   lines.push(title)
 }
 
-function formatSkills(items: Skill[] | undefined): string {
-  if (!items || items.length === 0) return ""
-  return items.map((item) => item.name).join(", ")
-}
-
 function buildResumeText(data: ResumeData, language: Language): string {
   const lines: string[] = []
   const sectionTitles =
     language === "ko"
       ? {
           summary: "요약",
+          coreStrengths: "핵심 백엔드 강점",
           experience: "경력",
           keyExperience: "주요 경험",
           education: "학력",
-          skills: "기술",
+          projects: "주요 프로젝트",
         }
       : {
           summary: "Summary",
+          coreStrengths: "Core Backend Strengths",
           experience: "Experience",
           keyExperience: "Key Experience",
           education: "Education",
-          skills: "Skills",
+          projects: "Projects",
         }
 
   lines.push("Name: " + data.personalInfo.name)
@@ -46,8 +43,16 @@ function buildResumeText(data: ResumeData, language: Language): string {
   pushSection(lines, sectionTitles.summary)
   lines.push(cleanInlineMarkdown(data.summary))
 
+  if (data.coreStrengths && data.coreStrengths.length > 0) {
+    pushSection(lines, sectionTitles.coreStrengths)
+    for (const item of data.coreStrengths) {
+      lines.push(`- ${cleanInlineMarkdown(item)}`)
+    }
+  }
+
   pushSection(lines, sectionTitles.experience)
   for (const exp of data.experience) {
+    if (exp.hiddenInDetailView) continue
     const heading = exp.position ? `${exp.company} | ${exp.position}` : exp.company
     lines.push(`- ${heading}`)
     lines.push(`  Period: ${exp.period}`)
@@ -58,6 +63,7 @@ function buildResumeText(data: ResumeData, language: Language): string {
 
   pushSection(lines, sectionTitles.keyExperience)
   for (const key of data.keyExperience) {
+    if (key.onlyDetailView) continue
     lines.push(`- ${cleanInlineMarkdown(key.name)}`)
     if (key.summaryView) {
       lines.push(`  Problem: ${cleanInlineMarkdown(key.summaryView.problem)}`)
@@ -75,18 +81,18 @@ function buildResumeText(data: ResumeData, language: Language): string {
     }
   }
 
-  pushSection(lines, sectionTitles.skills)
-  const skills = data.skills
-  const skillLines = [
-    ["Languages", formatSkills(skills.languages)],
-    ["Frameworks", formatSkills(skills.frameworks)],
-    ["Backend Infra", formatSkills(skills.backendInfra)],
-    ["Tools", formatSkills(skills.tools)],
-    ["AI Tools", formatSkills(skills["ai-tools"])],
-  ] as const
-  for (const [label, value] of skillLines) {
-    if (value) {
-      lines.push(`- ${label}: ${value}`)
+  if (data.projects && data.projects.length > 0) {
+    pushSection(lines, sectionTitles.projects)
+    for (const project of data.projects) {
+      lines.push(`- ${cleanInlineMarkdown(project.name)}`)
+      lines.push(`  Period: ${cleanInlineMarkdown(project.period)}`)
+      if (Array.isArray(project.description)) {
+        for (const desc of project.description) {
+          lines.push(`  - ${cleanInlineMarkdown(desc)}`)
+        }
+      } else if (project.description) {
+        lines.push(`  - ${cleanInlineMarkdown(project.description)}`)
+      }
     }
   }
 
@@ -107,8 +113,8 @@ export function generateLlmsTxt(): string {
     "Quick index for partial readers:",
     "- English full text block: [EN_RESUME_START] ... [EN_RESUME_END]",
     "- Korean full text block: [KO_RESUME_START] ... [KO_RESUME_END]",
-    "- English sections (inside EN block): Summary / Experience / Key Experience / Education / Skills",
-    "- Korean sections (inside KO block): 요약 / 경력 / 주요 경험 / 학력 / 기술",
+    "- English sections (inside EN block): Summary / Experience / Key Experience / Education (+ conditional Core Backend Strengths / Projects)",
+    "- Korean sections (inside KO block): 요약 / 경력 / 주요 경험 / 학력 (+ 조건부 핵심 백엔드 강점 / 주요 프로젝트)",
     "- Contact lines are at the top of each block (Name, Position, Email).",
     "",
     "Resume sources:",
