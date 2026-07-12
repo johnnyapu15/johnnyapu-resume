@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { getResumeData, parseResumeTrack, type ResumeTrack } from "@/data/resume-variants"
+import { getResumeData } from "@/data/resume-variants"
 import type { InterpersonalSkill, KeyExperience, Language, Skill } from "@/types/resume"
 import { labels } from "@/types/resume"
 import {
@@ -282,7 +282,6 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const buildTimeRaw = process.env.BUILD_TIME ?? ""
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
-  const [track, setTrack] = useState<ResumeTrack>("platform")
   const [isAdminMode, setIsAdminMode] = useState(false)
   const [showPasswordDialog, setShowPasswordDialog] = useState(false)
   const [passwordInput, setPasswordInput] = useState("")
@@ -316,7 +315,6 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   // useEffect를 사용해서 클라이언트에서만 searchParams를 읽도록 처리
   React.useEffect(() => {
     if (searchParams) {
-      setTrack(parseResumeTrack(searchParams.get("track")))
       const lang = searchParams.get("lang")
       if (lang === "en" || lang === "ko") {
         setLanguage(lang)
@@ -337,13 +335,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
     }
   }, [buildTimeRaw])
   
-  const data = getResumeData(language, track)
-  const downloadHref =
-    language === "en"
-      ? "/resume-en.pdf"
-      : track === "ai-backend"
-        ? "/resume-ai-backend.pdf"
-        : "/resume.pdf"
+  const data = getResumeData(language)
+  const downloadHref = language === "en" ? "/resume-en.pdf" : "/resume.pdf"
 
   const handlePrint = () => {
     window.print()
@@ -450,7 +443,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
         </div>
       )}
 
-      <div id="resume-content" data-resume-track={track} data-resume-language={language}>
+      <div id="resume-content" data-resume-language={language}>
       <Card className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white">
         {/* 헤더 섹션 */}
         <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-6">

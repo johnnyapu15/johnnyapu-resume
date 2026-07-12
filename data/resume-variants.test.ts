@@ -1,45 +1,28 @@
 import { describe, expect, it } from "vitest"
 
-import {
-  defaultResumeTrack,
-  getResumeData,
-  parseResumeTrack,
-  resumeTracks,
-} from "@/data/resume-variants"
+import { getResumeData } from "@/data/resume-variants"
 
-describe("resume track resolver", () => {
-  it("uses Platform as the default and fallback track", () => {
-    expect(defaultResumeTrack).toBe("platform")
-    expect(parseResumeTrack(null)).toBe("platform")
-    expect(parseResumeTrack("unknown")).toBe("platform")
-    expect(parseResumeTrack("ai-backend")).toBe("ai-backend")
-  })
-
-  it("keeps Platform-specific experience and ordering", () => {
-    const data = getResumeData("ko", "platform")
+describe("resume data", () => {
+  it("keeps the unified experience ordering", () => {
+    const data = getResumeData("ko")
 
     expect(data.keyExperience.map(item => item.name)).toEqual([
       "AI Agent Orchestration과 Platform 확장",
       "Ohouse AI 런칭 및 고도화",
-      "3D 에셋 파이프라인 구축 및 생산 자동화",
+      "3D 서비스 성능 개선 및 에셋 파이프라인 자동화",
     ])
   })
 
-  it("keeps AI/Backend-specific experience and ordering", () => {
-    const data = getResumeData("ko", "ai-backend")
+  it("includes backend results and the platform expansion", () => {
+    const serialized = JSON.stringify(getResumeData("ko"))
 
-    expect(data.keyExperience.map(item => item.name)).toEqual([
-      "AI Agent Orchestration과 Platform 확장",
-      "Ohouse AI 런칭 및 고도화",
-      "3D방꾸미기 성능·안정성 강화",
-    ])
+    expect(serialized).toContain("CVR 10.5%")
+    expect(serialized).toContain("framework-agnostic execution runtime")
+    expect(serialized).toContain("SDK-agnostic canonical Engine Event")
+    expect(serialized).not.toMatch(/\b(?:TODO|TBD|FIXME)\b/i)
   })
 
-  it.each(resumeTracks)("does not expose draft markers in %s", track => {
-    expect(JSON.stringify(getResumeData("ko", track))).not.toMatch(/\b(?:TODO|TBD|FIXME)\b/i)
-  })
-
-  it("keeps the English resume stable across Korean tracks", () => {
-    expect(getResumeData("en", "platform")).toEqual(getResumeData("en", "ai-backend"))
+  it("keeps the English resume available", () => {
+    expect(getResumeData("en").personalInfo.name).toBe("Juahn Jeong")
   })
 })

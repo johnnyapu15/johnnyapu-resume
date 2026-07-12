@@ -62,7 +62,6 @@ It will:
 Generated files:
 
 - `artifacts/print/resume-summary.pdf`
-- `artifacts/print/resume-ai-backend.pdf`
 - `artifacts/print/resume-summary-en.pdf`
 
 ## Full Verification

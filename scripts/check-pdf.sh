@@ -51,7 +51,6 @@ RESUME_PDF_DIR="artifacts/print" npm run pdf:validate
 
 # Copy PDFs to public/ for download button
 cp artifacts/print/resume-summary.pdf public/resume.pdf 2>/dev/null || true
-cp artifacts/print/resume-ai-backend.pdf public/resume-ai-backend.pdf 2>/dev/null || true
 cp artifacts/print/resume-summary-en.pdf public/resume-en.pdf 2>/dev/null || true
 
 echo "PDF check complete. See artifacts/print/"

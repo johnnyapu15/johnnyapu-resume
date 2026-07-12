@@ -19,15 +19,13 @@ describe("resume text generation", () => {
     expect(text).not.toContain("**")
   })
 
-  it("generates complete Korean text for each track", () => {
-    const platform = generateResumeText("ko", "platform")
-    const aiBackend = generateResumeText("ko", "ai-backend")
+  it("generates complete Korean text", () => {
+    const text = generateResumeText("ko")
 
-    for (const text of [platform, aiBackend]) {
-      expect(text).toContain("경력")
-      expect(text).toContain("주요 경험")
-      expect(text).toContain("학력")
-    }
+    expect(text).toContain("경력")
+    expect(text).toContain("주요 경험")
+    expect(text).toContain("학력")
+    expect(text).toContain("AI Agent Platform")
   })
 
   it("lists machine-readable sources first in llms.txt", () => {

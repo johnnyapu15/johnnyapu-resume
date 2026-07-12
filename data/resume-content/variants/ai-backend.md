@@ -1,4 +1,4 @@
-# AI/Backend Engineer Variant
+# Backend Engineer — AI Systems & Platform
 
 ## Summary
 
@@ -20,6 +20,7 @@ AI·3D 서비스를 런칭하고, 분산 시스템과 장시간 비동기 작업
 - **AI Agent Orchestration**: 3D방꾸미기의 상품 검색·이미지 합성·스타일 추천 등 다양한 AI 기능을 하나의 흐름으로 통합하는 오케스트레이터를 설계·구축하고 운영했습니다. LLM에는 사용자 의도 해석과 도구 파라미터 생성을 맡기되, 순서 의존성이 있는 tool chain과 필수 도구 호출은 코드로 강제하는 constrained orchestration을 설계했습니다.
 - 이미지 합성 등 장시간 AI 작업에서 클라이언트 연결 단절에 대응하기 위해서 요청을 비동기로 처리하고, 상태와 중간 결과를 저장했으며, SSE 재연결 시 Redis Stream 이벤트를 replay해 결과를 이어받을 수 있도록 했습니다.
 - 특정 LLM provider의 장애가 서비스 장애로 이어지지 않도록 retry, circuit breaker, provider fallback을 적용했습니다. Circuit breaker 상태를 service·model·API key 단위로 관리해서 문제가 발생한 대상만 차단하고, 개별 key의 quota 초과에도 대응했습니다.
+- RP에서 검증한 agent 실행 기능을 framework-agnostic execution runtime과 session service, SSE endpoint 등으로 모듈화해서 AI Agent Platform으로 확장하고 있습니다.
 - Production trace sample과 기능 요구사항을 바탕으로 기능과 사용자 의도별 coverage matrix를 설계하고, 도구 호출과 파라미터·응답·멀티턴 흐름을 검증하는 85개 시나리오의 trajectory regression suite를 구축했습니다. 운영 응답의 **94%**가 품질 기준을 충족함을 확인했습니다.
 
 ## Ohouse AI
@@ -51,7 +52,7 @@ AI·3D 서비스를 런칭하고, 분산 시스템과 장시간 비동기 작업
 
 1. AI Agent Orchestration과 Platform 확장
 2. Ohouse AI 런칭 및 고도화
-3. 3D방꾸미기 성능·안정성 강화
+3. 3D 서비스 성능 개선 및 에셋 파이프라인 자동화
 
 ## Pending
 

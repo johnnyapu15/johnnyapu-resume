@@ -1,4 +1,4 @@
-import { getResumeData, type ResumeTrack } from "@/data/resume-variants"
+import { getResumeData } from "@/data/resume-variants"
 import type { Language, ResumeData } from "@/types/resume"
 
 function cleanInlineMarkdown(text: string): string {
@@ -99,8 +99,8 @@ function buildResumeText(data: ResumeData, language: Language): string {
   return lines.join("\n") + "\n"
 }
 
-export function generateResumeText(language: Language, track: ResumeTrack = "platform"): string {
-  return buildResumeText(getResumeData(language, track), language)
+export function generateResumeText(language: Language): string {
+  return buildResumeText(getResumeData(language), language)
 }
 
 export function generateLlmsTxt(): string {

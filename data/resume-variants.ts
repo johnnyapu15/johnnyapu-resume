@@ -1,15 +1,6 @@
 import { resumeData } from "@/data/resume-data"
 import type { KeyExperience, Language, ResumeData } from "@/types/resume"
 
-export const resumeTracks = ["platform", "ai-backend"] as const
-export type ResumeTrack = (typeof resumeTracks)[number]
-
-export const defaultResumeTrack: ResumeTrack = "platform"
-
-export function parseResumeTrack(value: string | null | undefined): ResumeTrack {
-  return value === "ai-backend" ? "ai-backend" : defaultResumeTrack
-}
-
 const agentOwnership =
   "**AI Agent Orchestration**: 3D방꾸미기의 상품 검색·이미지 합성·스타일 추천 등 다양한 AI 기능을 하나의 흐름으로 통합하는 오케스트레이터를 설계·구축하고 운영했습니다. LLM에는 사용자 의도 해석과 도구 파라미터 생성을 맡기되, 순서 의존성이 있는 tool chain과 필수 도구 호출은 코드로 강제하는 constrained orchestration을 설계했습니다."
 
@@ -42,9 +33,6 @@ const roomPlannerPerformance = [
 const assetAutomation =
   "**3D 에셋 자동화**: 수작업 3D 제작 파이프라인을 자동화해 월 생산량 **68개→800개**, 비용 **88% 절감**을 달성해 **Eng Award**를 받았습니다. 3D 에셋 최적화 기법을 개선해 GPU 사용량을 **20% 감소**시키고 파일 크기를 **51% 축소**했으며, draw call을 **3,000→20**으로 줄였습니다. 에셋 관리 시스템을 구축해 연간 **40일 이상**의 운영 시간을 절감했습니다."
 
-const panoramaAr =
-  "**Panorama AR**: 사용자의 실제 방을 3D로 복원해 가구를 배치할 수 있는 서비스의 백엔드를 리드했습니다. MLE 연구 결과를 마이크로서비스로 연동하고, 비동기 상태 관리로 장시간 3D 공간 복원 파이프라인을 운영하며 일 **약 300건**의 룸 스캔을 처리했습니다."
-
 const arExperience =
   "**AR 경험 개선**: AR 환경에 LoD 자동 생성을 적용해 3D 모델을 **90% 경량화**했습니다. AR Size Box를 구축해 AR 지원 상품을 **2,210개→231,000개(104배)**로 확대하고 구매 전환율 **1.7배** 향상에 기여했습니다."
 
@@ -63,97 +51,58 @@ const agentKeyExperience: KeyExperience = {
   },
 }
 
-const correctedAssetKeyExperience: KeyExperience = {
-  name: "3D 에셋 파이프라인 구축 및 생산 자동화",
+const threeDServiceKeyExperience: KeyExperience = {
+  name: "3D 서비스 성능 개선 및 에셋 파이프라인 자동화",
   summaryView: {
     problem:
-      "3D방꾸미기와 AR 기능에 필요한 3D 모델을 수작업으로 제작하고 있었습니다. 기존 에셋은 관리 체계가 없었고, 신규 모델은 처리량과 품질 편차로 상품 확대를 감당하기 어려웠습니다.",
+      "모바일 3D 인테리어 배치 서비스의 초기 로딩 지연이 사용자 이탈과 성장의 병목이었고, 이벤트·챌린지의 트래픽 증가에도 안정적으로 운영해야 했습니다. 동시에 서비스 확장에 필요한 3D 모델은 수작업으로 제작·관리되어 생산량과 비용, 품질 편차에 한계가 있었습니다.",
     approach:
-      "에셋 관리 시스템을 구축해 제작·검수·배포 과정을 체계화하고, 운영 대시보드에서 3D 프리뷰와 서비스 연동 검수까지 처리할 수 있도록 했습니다.\n3D 에셋 최적화 기법을 개선해 GPU 사용량과 파일 크기, draw call을 줄였습니다. Image-to-3D 파이프라인은 상태 흐름 기반으로 자동화하고, GPT-4o 기반 12개 기준 품질 선별로 E2E 자동화를 완성했습니다.",
+      "API 호출 구조와 모델 로딩 병목을 개선하고, 큐 기반 지표 모니터링과 안전한 종료 규칙으로 스케일링을 안정화했습니다. 부하 테스트로 이벤트·챌린지 시나리오를 사전 검증했습니다. 에셋 제작·검수·배포를 상태 흐름 기반 파이프라인으로 자동화하고, 관리 시스템과 3D 프리뷰를 구축했으며 GPT-4o 기반 12개 기준으로 생성 에셋의 품질 선별까지 자동화했습니다.",
     result:
-      "Image-to-3D 자동화로 월 생산량 **68개→800개**, 비용 **88% 절감**, **45개 신규 카테고리** 확장을 달성해 **Eng Award**를 받았습니다.\n에셋 최적화로 GPU 사용량 **20% 감소**, 파일 크기 **51% 축소**, draw call **3,000→20**을 달성하고, 에셋 관리 시스템으로 연간 **40일 이상**의 운영 시간을 절감했습니다.",
+      "API 응답 시간 **200ms→80ms**, payload **54% 절감**, 모델 로딩 **10초→2.5초**를 달성하고 **10.2배 트래픽에서 99.95% 가용성**을 유지했습니다. 3D 에셋 월 생산량을 **68개→800개**로 늘리고 비용을 **88% 절감**했으며, 관리 시스템으로 연간 **40일 이상**의 운영 시간을 절감했습니다. 이를 바탕으로 **WAU 704%**, **연간 GMV 600%(8.6억)** 성장에 기여하고 **Eng Award**를 받았습니다.",
   },
 }
 
-const correctedRoomPlannerKeyExperience: KeyExperience = {
-  name: "3D방꾸미기 성능·안정성 강화",
-  summaryView: {
-    problem:
-      "모바일 3D 인테리어 배치 서비스에서 초기 로딩 지연이 사용자 이탈과 성장 정체의 주요 병목이었습니다. 이벤트·챌린지의 트래픽 증가에도 안정적으로 운영해야 했습니다.",
-    approach:
-      "API 호출 구조를 개선해 응답 시간과 payload를 줄이고, 모델 로딩 병목을 개선했습니다. 큐 기반 지표 모니터링과 안전한 종료 규칙으로 스케일링을 안정시키고, 부하 테스트로 이벤트·챌린지 시나리오를 사전 검증했습니다.",
-    result:
-      "API 응답 시간 **200ms→80ms**, payload **54% 절감**, 모델 로딩 **10초→2.5초**를 달성했습니다. **10.2배 트래픽에서 99.95% 가용성**을 유지했으며, 성능·안정성 개선을 바탕으로 **WAU 704%**, **연간 GMV 600%(8.6억)** 성장에 기여했습니다.",
-  },
+const summary =
+  "AI·3D 서비스를 런칭하고, 분산 시스템과 장시간 비동기 작업을 설계·운영해온 백엔드 엔지니어입니다. 3D방꾸미기에서 상품 검색·이미지 합성·스타일 추천을 제공하는 멀티에이전트 기반 AI 인테리어 비서를 설계·구축하고 운영했습니다. LLM의 비결정성을 통제하기 위한 constrained orchestration과 runtime guardrails를 설계하고, 비동기 처리·SSE streaming·provider 장애 격리를 적용했습니다. 검증한 에이전트 실행 기능을 framework-agnostic runtime과 session service로 모듈화해 공통 AI Agent Platform으로 확장하고 있습니다. 글로벌 AI 서비스 런칭과 수익화, 3D 자동화 파이프라인 구축을 통해 서비스 안정성과 비즈니스 성과를 함께 만들어왔으며, 사내 Eng Award와 AI Award를 수상했습니다."
+
+function bucketplaceDescriptions(): string[] {
+  return [
+    agentOwnership,
+    asynchronousTurnDelivery,
+    providerResilience,
+    platformExpansion,
+    agentEvaluation,
+    ohouseAiLaunch,
+    ohouseAiMonetization,
+    ohouseAiRuntime,
+    ...roomPlannerPerformance,
+    assetAutomation,
+    arExperience,
+    technicalLeadership,
+  ]
 }
 
-const summaries: Record<ResumeTrack, string> = {
-  platform:
-    "AI·3D 서비스를 런칭하고, 분산 시스템과 장시간 비동기 작업을 설계·운영해온 백엔드 엔지니어입니다. 3D방꾸미기에서 상품 검색·이미지 합성·스타일 추천 에이전트를 조율하는 오케스트레이터를 설계·구축하고 운영했습니다. 이 과정에서 execution runtime과 session service, SSE endpoint 등을 모듈화해서 AI Agent Platform으로 확장하고 있습니다. 장시간 작업을 위한 비동기 워커와 오토스케일링, 장애 격리 설계를 Ohouse AI와 Panorama AR, 3D 자동화 파이프라인에 적용했습니다. 3D 에셋 생성 자동화와 AI 활용을 통한 기여를 인정받아 사내 Eng Award와 AI Award를 수상했습니다.",
-  "ai-backend":
-    "AI·3D 서비스를 런칭하고, 분산 시스템과 장시간 비동기 작업을 설계·운영해온 백엔드 엔지니어입니다. 3D방꾸미기에서 상품 검색·이미지 합성·스타일 추천을 제공하는 멀티에이전트 기반 AI 인테리어 비서를 설계·구축하고 운영했습니다. LLM의 비결정성을 통제하기 위한 constrained orchestration과 runtime guardrails를 설계하고, 비동기 처리·SSE streaming·provider 장애 격리를 적용했습니다. 글로벌 AI 서비스 런칭과 수익화, 3D 자동화 파이프라인 구축을 통해 서비스 안정성과 비즈니스 성과를 함께 만들어왔습니다. 3D 에셋 생성 자동화와 AI 활용을 통한 기여를 인정받아 사내 Eng Award와 AI Award를 수상했습니다.",
-}
-
-function bucketplaceDescriptions(track: ResumeTrack): string[] {
-  const agent =
-    track === "platform"
-      ? [agentOwnership, asynchronousTurnDelivery, platformExpansion, agentEvaluation]
-      : [agentOwnership, asynchronousTurnDelivery, providerResilience, agentEvaluation]
-
-  const ohouse =
-    track === "platform"
-      ? [ohouseAiLaunch, ohouseAiRuntime]
-      : [ohouseAiLaunch, ohouseAiMonetization, ohouseAiRuntime]
-
-  const common = {
-    roomPlanner: roomPlannerPerformance,
-    assetAutomation: [assetAutomation],
-    panoramaAr: [panoramaAr],
-    arExperience: [arExperience],
-    leadership: [technicalLeadership],
-  }
-
-  return track === "platform"
-    ? [
-        ...agent,
-        ...ohouse,
-        ...common.assetAutomation,
-        ...common.roomPlanner,
-        ...common.panoramaAr,
-        ...common.leadership,
-      ]
-    : [
-        ...agent,
-        ...ohouse,
-        ...common.roomPlanner,
-        ...common.assetAutomation,
-        ...common.arExperience,
-        ...common.leadership,
-      ]
-}
-
-function koreanKeyExperiences(track: ResumeTrack): KeyExperience[] {
+function koreanKeyExperiences(): KeyExperience[] {
   const ohouseAi = resumeData.ko.keyExperience.find(item => item.name === "Ohouse AI 런칭 및 고도화")
   if (!ohouseAi) throw new Error("Missing Ohouse AI key experience")
 
-  return track === "platform"
-    ? [agentKeyExperience, ohouseAi, correctedAssetKeyExperience]
-    : [agentKeyExperience, ohouseAi, correctedRoomPlannerKeyExperience]
+  return [agentKeyExperience, ohouseAi, threeDServiceKeyExperience]
 }
 
-function buildKoreanResume(track: ResumeTrack): ResumeData {
+function buildKoreanResume(): ResumeData {
   return {
     ...resumeData.ko,
-    summary: summaries[track],
+    summary,
     experience: resumeData.ko.experience.map(experience =>
       experience.company.startsWith("Bucketplace")
-        ? { ...experience, description: bucketplaceDescriptions(track) }
+        ? { ...experience, description: bucketplaceDescriptions() }
         : experience,
     ),
-    keyExperience: koreanKeyExperiences(track),
+    keyExperience: koreanKeyExperiences(),
   }
 }
 
-export function getResumeData(language: Language, track: ResumeTrack = defaultResumeTrack): ResumeData {
-  return language === "ko" ? buildKoreanResume(track) : resumeData.en
+export function getResumeData(language: Language): ResumeData {
+  return language === "ko" ? buildKoreanResume() : resumeData.en
 }
