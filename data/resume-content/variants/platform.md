@@ -2,7 +2,7 @@
 
 ## Summary
 
-분산 시스템과 장시간 비동기 작업이 많은 AI/3D 도메인에서 서비스를 런칭하고 안정화해온 백엔드 엔지니어입니다. 3D방꾸미기에서 상품 검색·이미지 합성·스타일 추천 에이전트를 조율하는 오케스트레이터를 설계·구축하고 운영했습니다. 이 과정에서 execution runtime과 session service, SSE endpoint 등을 모듈화해서 AI Agent Platform으로 확장하고 있습니다. 장시간 작업을 위한 비동기 워커와 오토스케일링, 장애 격리 설계를 Ohouse AI와 Panorama AR, 3D 자동화 파이프라인에 적용했습니다.
+AI·3D 서비스를 런칭하고, 분산 시스템과 장시간 비동기 작업을 설계·운영해온 백엔드 엔지니어입니다. 3D방꾸미기에서 상품 검색·이미지 합성·스타일 추천 에이전트를 조율하는 오케스트레이터를 설계·구축하고 운영했습니다. 이 과정에서 execution runtime과 session service, SSE endpoint 등을 모듈화해서 AI Agent Platform으로 확장하고 있습니다. 장시간 작업을 위한 비동기 워커와 오토스케일링, 장애 격리 설계를 Ohouse AI와 Panorama AR, 3D 자동화 파이프라인에 적용했습니다. 3D 에셋 생성 자동화와 AI 활용을 통한 기여를 인정받아 사내 Eng Award와 AI Award를 수상했습니다.
 
 ## 1페이지 경력 순서
 
