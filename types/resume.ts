@@ -71,9 +71,9 @@ export interface KeyExperience {
     approach: string
     result: string
   }
-  problem: string[]
-  approach: string[]
-  result: string[]
+  problem?: string[]
+  approach?: string[]
+  result?: string[]
   detail?: {
     situation: string[]
     task: string[]

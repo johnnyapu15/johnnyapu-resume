@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { resumeData } from "@/data/resume-data"
+import { getResumeData, parseResumeTrack, type ResumeTrack } from "@/data/resume-variants"
 import type { InterpersonalSkill, KeyExperience, Language, Skill } from "@/types/resume"
 import { labels } from "@/types/resume"
 import {
@@ -253,6 +253,7 @@ const KeyExperienceSection = ({
         {experiencesToShow.map((exp, i) => {
           const isFirstCard = false
           const summaryView = exp.summaryView
+          if (!summaryView) return null
 
           return (
             <div key={i} className={`bg-leather-50 p-4 rounded-lg flex flex-col ${isFirstCard ? "md:col-span-2" : ""}`}>
@@ -288,6 +289,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   const buildTimeRaw = process.env.BUILD_TIME ?? ""
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
+  const [track, setTrack] = useState<ResumeTrack>("platform")
   const [isDetailed, setIsDetailed] = useState(false)
   const [isAdminMode, setIsAdminMode] = useState(false)
   const [showPasswordDialog, setShowPasswordDialog] = useState(false)
@@ -323,6 +325,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   React.useEffect(() => {
     if (searchParams) {
       setIsDetailed(searchParams.get("isDetail") === "true")
+      setTrack(parseResumeTrack(searchParams.get("track")))
       const lang = searchParams.get("lang")
       if (lang === "en" || lang === "ko") {
         setLanguage(lang)
@@ -343,7 +346,13 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
     }
   }, [buildTimeRaw])
   
-  const data = resumeData[language]
+  const data = getResumeData(language, track)
+  const downloadHref =
+    language === "en"
+      ? "/resume-en.pdf"
+      : track === "ai-backend"
+        ? "/resume-ai-backend.pdf"
+        : "/resume.pdf"
 
   const handlePrint = () => {
     window.print()
@@ -375,7 +384,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             </Button>
           </div>
           <div className="flex gap-2">
-            <a href={language === "en" ? "/resume-en.pdf" : "/resume.pdf"} download className="inline-flex items-center">
+            <a href={downloadHref} download className="inline-flex items-center">
               <Button variant="outline" className="bg-white hover:bg-gray-50">
                 <Download className="mr-2 h-4 w-4" />
                 {labels[language].download}
@@ -464,7 +473,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
         </div>
       )}
 
-      <div id="resume-content">
+      <div id="resume-content" data-resume-track={track} data-resume-language={language}>
       <Card className="overflow-hidden bg-white shadow-md print:shadow-none print:bg-white">
         {/* 헤더 섹션 */}
         <div className="bg-gradient-to-r from-leather-800 to-leather-600 text-white p-6">

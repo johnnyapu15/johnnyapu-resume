@@ -57,8 +57,18 @@ It will:
 - build the app
 - start a local production server
 - export print PDFs to `artifacts/print/`
+- verify that each PDF has two non-empty pages and contains the expected sections
 
 Generated files:
 
 - `artifacts/print/resume-summary.pdf`
-- `artifacts/print/resume-detail.pdf`
+- `artifacts/print/resume-ai-backend.pdf`
+- `artifacts/print/resume-summary-en.pdf`
+
+## Full Verification
+
+Run unit tests, TypeScript checks, and PDF validation together:
+
+```bash
+pnpm verify
+```
