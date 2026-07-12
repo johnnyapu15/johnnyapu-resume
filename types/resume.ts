@@ -126,8 +126,6 @@ export interface SectionLabels {
   task: string
   action: string
   result: string
-  summary: string
-  details: string
 }
 
 export const labels: Record<Language, SectionLabels> = {
@@ -153,8 +151,6 @@ export const labels: Record<Language, SectionLabels> = {
     task: "Task",
     action: "Action",
     result: "Result",
-    summary: "요약 보기",
-    details: "상세 보기",
   },
   en: {
     introduction: "Introduction",
@@ -178,7 +174,5 @@ export const labels: Record<Language, SectionLabels> = {
     task: "Task",
     action: "Action",
     result: "Result",
-    summary: "Summary",
-    details: "Details",
   },
 }

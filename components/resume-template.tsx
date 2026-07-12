@@ -7,7 +7,6 @@ import type { InterpersonalSkill, KeyExperience, Language, Skill } from "@/types
 import { labels } from "@/types/resume"
 import {
   Award,
-  BookOpen,
   Building,
   Calendar,
   Code,
@@ -25,7 +24,7 @@ import {
   PenToolIcon as Tool,
   Users
 } from "lucide-react"
-import { usePathname, useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import React, { useState } from "react"
 import AdminCommentSystem from "./admin-comment-system"
 import { LanguageToggle } from "./language-toggle"
@@ -212,19 +211,15 @@ const KeyExperienceSection = ({
   icon,
   experiences,
   language,
-  isDetailed,
 }: {
   title: string
   icon: React.ReactNode
   experiences: KeyExperience[] | undefined
   language: Language
-  isDetailed: boolean
 }) => {
   if (!experiences || experiences.length === 0) return null
 
-  const experiencesToShow = isDetailed
-    ? experiences
-    : experiences.filter(exp => !exp.onlyDetailView)
+  const experiencesToShow = experiences.filter(exp => !exp.onlyDetailView)
 
   if (experiencesToShow.length === 0) return null
 
@@ -244,7 +239,7 @@ const KeyExperienceSection = ({
   }
 
   return (
-    <div className={`mb-8 ${!isDetailed ? 'print-avoid-break' : ''}`}>
+    <div className="mb-8 print-avoid-break">
       <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
         {icon}
         {title}
@@ -283,14 +278,11 @@ const KeyExperienceSection = ({
 }
 
 export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview = false }: ResumeTemplateProps) {
-  const router = useRouter()
-  const pathname = usePathname()
   const searchParams = useSearchParams()
   const buildTimeRaw = process.env.BUILD_TIME ?? ""
 
   const [language, setLanguage] = useState<Language>(defaultLanguage)
   const [track, setTrack] = useState<ResumeTrack>("platform")
-  const [isDetailed, setIsDetailed] = useState(false)
   const [isAdminMode, setIsAdminMode] = useState(false)
   const [showPasswordDialog, setShowPasswordDialog] = useState(false)
   const [passwordInput, setPasswordInput] = useState("")
@@ -324,7 +316,6 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
   // useEffect를 사용해서 클라이언트에서만 searchParams를 읽도록 처리
   React.useEffect(() => {
     if (searchParams) {
-      setIsDetailed(searchParams.get("isDetail") === "true")
       setTrack(parseResumeTrack(searchParams.get("track")))
       const lang = searchParams.get("lang")
       if (lang === "en" || lang === "ko") {
@@ -362,26 +353,12 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
     setLanguage(newLanguage)
   }
 
-  const handleToggleDetail = () => {
-    const newSearchParams = new URLSearchParams(searchParams.toString())
-    if (isDetailed) {
-      newSearchParams.delete("isDetail")
-    } else {
-      newSearchParams.set("isDetail", "true")
-    }
-    router.push(`${pathname}?${newSearchParams.toString()}`, { scroll: false })
-  }
-
   return (
     <div className={`max-w-4xl mx-auto print-layout-compact ${isAdminMode ? "mr-[336px] mt-10" : ""}`}>
       {!isPrintPreview && (
         <div className="flex justify-between items-center mb-4 print:hidden">
           <div className="flex gap-2">
             <LanguageToggle language={language} onLanguageChange={handleLanguageChange} />
-            <Button variant="outline" onClick={handleToggleDetail} className="bg-white hover:bg-gray-50">
-              <BookOpen className="mr-2 h-4 w-4" />
-              {isDetailed ? labels[language].summary : labels[language].details}
-            </Button>
           </div>
           <div className="flex gap-2">
             <a href={downloadHref} download className="inline-flex items-center">
@@ -540,10 +517,8 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               <Building className="h-5 w-5 mr-2 text-leather-700" />
               {labels[language].experience}
             </h2>
-            {data.experience
-              .filter(exp => !isDetailed || !exp.hiddenInDetailView)
-              .map((exp, index) => (
-              <div key={index} className={`${index !== data.experience.filter(e => !isDetailed || !e.hiddenInDetailView).length - 1 ? "mb-8" : ""}`}>
+            {data.experience.map((exp, index) => (
+              <div key={index} className={`${index !== data.experience.length - 1 ? "mb-8" : ""}`}>
                 <div className="flex flex-col md:flex-row md:justify-between mb-2">
                   <div>
                     <h3 className="text-xl font-semibold text-leather-700">{exp.company}</h3>
@@ -606,7 +581,6 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
             icon={<Star className="h-6 w-6 mr-3 text-leather-600" />}
             experiences={data.keyExperience}
             language={language}
-            isDetailed={isDetailed}
           />
 
           {/* Skills section removed — tech stack is covered in experience bullets */}
