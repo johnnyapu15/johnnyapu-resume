@@ -522,6 +522,9 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                     <span>{exp.period}</span>
                   </div>
                 </div>
+                {exp.roleSummary && (
+                  <p className="text-sm text-gray-700 mb-2">{renderWithBold(exp.roleSummary)}</p>
+                )}
                 <ul className="list-disc pl-5 text-gray-700 space-y-1.5">
                   {exp.description.map((desc, i) => (
                     <li
@@ -535,6 +538,18 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
               </div>
             ))}
           </div>
+
+          {data.technicalSummary && data.technicalSummary.length > 0 && (
+            <div className="mb-8 print-avoid-break">
+              <h2 className="text-2xl font-bold mb-6 text-gray-800 border-b border-leather-200 pb-2 flex items-center">
+                <Code className="h-5 w-5 mr-2 text-leather-700" />
+                {language === "ko" ? "주요 기술" : "Technical Skills"}
+              </h2>
+              {data.technicalSummary.map((line, index) => (
+                <p key={index} className="text-sm text-gray-700">{line}</p>
+              ))}
+            </div>
+          )}
 
           {/* 학력 사항 */}
           <div className="mb-8 print-avoid-break">

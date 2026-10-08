@@ -7,8 +7,8 @@ describe("resume data", () => {
     const data = getResumeData("ko")
 
     expect(data.keyExperience.map(item => item.name)).toEqual([
-      "AI Agent Orchestration과 Platform 확장",
-      "Ohouse AI 런칭 및 고도화",
+      "AI Agent Platform 설계와 서비스 적용",
+      "Ohouse AI 글로벌 출시와 수익화",
       "3D 서비스 성능 개선 및 에셋 파이프라인 자동화",
     ])
   })
@@ -16,9 +16,9 @@ describe("resume data", () => {
   it("includes backend results and the platform expansion", () => {
     const serialized = JSON.stringify(getResumeData("ko"))
 
-    expect(serialized).toContain("CVR 10.5%")
-    expect(serialized).toContain("framework-agnostic execution runtime")
-    expect(serialized).toContain("SDK-agnostic canonical Engine Event")
+    expect(serialized).toContain("구매 전환율 10.5%")
+    expect(serialized).toContain("공통 실행 구조")
+    expect(serialized).toContain("오늘의집 자연어 검색 서비스")
     expect(serialized).not.toMatch(/\b(?:TODO|TBD|FIXME)\b/i)
   })
 

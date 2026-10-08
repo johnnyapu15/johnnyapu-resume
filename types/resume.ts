@@ -13,6 +13,7 @@ export interface Experience {
   position?: string
   period: string
   location?: string
+  roleSummary?: string
   description: string[]
   hiddenInDetailView?: boolean
 }
@@ -92,6 +93,7 @@ export interface ResumeData {
   keyExperience: KeyExperience[]
   education: Education[]
   skills: Skills
+  technicalSummary?: string[]
   projects: Project[]
   certifications: Certification[]
   activities: Activity[]

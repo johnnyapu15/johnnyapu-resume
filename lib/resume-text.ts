@@ -56,6 +56,7 @@ function buildResumeText(data: ResumeData, language: Language): string {
     const heading = exp.position ? `${exp.company} | ${exp.position}` : exp.company
     lines.push(`- ${heading}`)
     lines.push(`  Period: ${exp.period}`)
+    if (exp.roleSummary) lines.push(`  ${cleanInlineMarkdown(exp.roleSummary)}`)
     for (const desc of exp.description) {
       lines.push(`  - ${cleanInlineMarkdown(desc)}`)
     }
@@ -70,6 +71,11 @@ function buildResumeText(data: ResumeData, language: Language): string {
       lines.push(`  Approach: ${cleanInlineMarkdown(key.summaryView.approach)}`)
       lines.push(`  Result: ${cleanInlineMarkdown(key.summaryView.result)}`)
     }
+  }
+
+  if (data.technicalSummary && data.technicalSummary.length > 0) {
+    pushSection(lines, language === "ko" ? "주요 기술" : "Technical Skills")
+    lines.push(...data.technicalSummary.map(cleanInlineMarkdown))
   }
 
   pushSection(lines, sectionTitles.education)
