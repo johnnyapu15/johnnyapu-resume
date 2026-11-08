@@ -23,7 +23,7 @@ describe("resume text generation", () => {
     const text = generateResumeText("ko")
 
     expect(text).toContain("경력")
-    expect(text).toContain("주요 경험")
+    expect(text).toContain("주요 프로젝트 경험")
     expect(text).toContain("학력")
     expect(text).toContain("AI Agent Platform")
   })

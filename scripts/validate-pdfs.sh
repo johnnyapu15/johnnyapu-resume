@@ -57,7 +57,7 @@ require_command pdftotext
 
 validate_pdf \
   "${PDF_DIR}/resume-summary.pdf" \
-  "경력 사항" "주요 경험"
+  "경력 사항" "주요 프로젝트 경험"
 validate_pdf \
   "${PDF_DIR}/resume-summary-en.pdf" \
   "Experience" "Key Experience"

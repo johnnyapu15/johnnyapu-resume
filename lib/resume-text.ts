@@ -21,7 +21,7 @@ function buildResumeText(data: ResumeData, language: Language): string {
           summary: "요약",
           coreStrengths: "핵심 백엔드 강점",
           experience: "경력",
-          keyExperience: "주요 경험",
+          keyExperience: "주요 프로젝트 경험",
           education: "학력",
           projects: "주요 프로젝트",
         }
@@ -67,8 +67,8 @@ function buildResumeText(data: ResumeData, language: Language): string {
     if (key.onlyDetailView) continue
     lines.push(`- ${cleanInlineMarkdown(key.name)}`)
     if (key.summaryView) {
-      lines.push(`  Problem: ${cleanInlineMarkdown(key.summaryView.problem)}`)
-      lines.push(`  Approach: ${cleanInlineMarkdown(key.summaryView.approach)}`)
+      lines.push(`  Background: ${cleanInlineMarkdown(key.summaryView.problem)}`)
+      lines.push(`  Role: ${cleanInlineMarkdown(key.summaryView.approach)}`)
       lines.push(`  Result: ${cleanInlineMarkdown(key.summaryView.result)}`)
     }
   }
@@ -120,7 +120,7 @@ export function generateLlmsTxt(): string {
     "- English full text block: [EN_RESUME_START] ... [EN_RESUME_END]",
     "- Korean full text block: [KO_RESUME_START] ... [KO_RESUME_END]",
     "- English sections (inside EN block): Summary / Experience / Key Experience / Education (+ conditional Core Backend Strengths / Projects)",
-    "- Korean sections (inside KO block): 요약 / 경력 / 주요 경험 / 학력 (+ 조건부 핵심 백엔드 강점 / 주요 프로젝트)",
+    "- Korean sections (inside KO block): 요약 / 경력 / 주요 프로젝트 경험 / 학력 (+ 조건부 핵심 백엔드 강점 / 주요 프로젝트)",
     "- Contact lines are at the top of each block (Name, Position, Email).",
     "",
     "Resume sources:",

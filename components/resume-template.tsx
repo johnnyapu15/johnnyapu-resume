@@ -225,14 +225,14 @@ const KeyExperienceSection = ({
 
   const sectionLabels = {
     ko: {
-      problem: "문제",
-      approach: "접근",
+      problem: "배경",
+      approach: "역할",
       result: "결과",
       action: "Action",
     },
     en: {
-      problem: "Problem",
-      approach: "Approach",
+      problem: "Background",
+      approach: "Role",
       result: "Result",
       action: "Action",
     },
@@ -546,7 +546,7 @@ export default function ResumeTemplate({ defaultLanguage = "ko", isPrintPreview 
                 {language === "ko" ? "주요 기술" : "Technical Skills"}
               </h2>
               {data.technicalSummary.map((line, index) => (
-                <p key={index} className="text-sm text-gray-700">{line}</p>
+                <p key={index} className="text-sm text-gray-700">{renderWithBold(line)}</p>
               ))}
             </div>
           )}

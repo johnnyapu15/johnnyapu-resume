@@ -251,4 +251,13 @@
     break-before: page;
   }
 
+  /* Keep the longer English translation and education on the first page. */
+  #resume-content[data-resume-language="en"] > :first-child .mb-8 {
+    margin-bottom: 0.85rem !important;
+  }
+
+  #resume-content[data-resume-language="en"] > :first-child .leading-relaxed {
+    line-height: 1.5 !important;
+  }
+
 }
